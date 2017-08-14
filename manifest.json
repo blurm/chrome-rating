@@ -1,0 +1,62 @@
+{
+    "manifest_version": 2,
+
+    "name": "Movies and Books Rating",
+    "description": "This extension shows IMDb and douban rating infos",
+    "version": "1.0",
+
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html",
+        "default_title": "Rating info for Books & Movies"
+    },
+    "permissions": [
+        "activeTab",
+        "*://*/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "http://item.jd.com/*",
+                "http://re.jd.com/cps/item/*",
+                "http://e.jd.com/*",
+                "http://book.jd.com/*",
+                "http://list.jd.com/*",
+                "http://search.e.jd.com/*",
+                "http://search.jd.com/*",
+                "http://sale.jd.com/*",
+                "https://item.jd.com/*",
+                "https://re.jd.com/cps/item/*",
+                "https://e.jd.com/*",
+                "https://book.jd.com/*",
+                "https://list.jd.com/*",
+                "https://search.e.jd.com/*",
+                "https://search.jd.com/*",
+                "https://sale.jd.com/*"
+            ],
+            "css": [
+                "css/doubanx.css"
+            ],
+            "js": [
+                "jquery-3.2.1.min.js",
+                "js/model/base_info.js",
+                "js/model/douban_info.js",
+                "js/model/imdb_info.js",
+                "js/view/template.js",
+                "js/base/common.js",
+                "js/controller/jd.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://movie.douban.com/*",
+                "https://book.douban.com/*"
+            ],
+            "js": [
+                "js/base/common.js",
+                "js/view/template.js",
+                "js/model/base_info.js"
+            ]
+        }
+    ]
+}
