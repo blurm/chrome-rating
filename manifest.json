@@ -5,8 +5,14 @@
     "description": "This extension shows IMDb and douban rating infos",
     "version": "1.0",
 
+    "icons": {
+        "16": "icon3.png",
+        "48": "icon3.png",
+        "128": "icon3.png"
+    },
+
     "browser_action": {
-        "default_icon": "icon.png",
+        "default_icon": "icon3.png",
         "default_popup": "popup.html",
         "default_title": "Rating info for Books & Movies"
     },
@@ -17,6 +23,11 @@
     "content_scripts": [
         {
             "matches": [
+                "http://film.qq.com/*",
+                "http://v.qq.com/*",
+                "https://film.qq.com/*",
+                "https://v.qq.com/*",
+
                 "http://item.jd.com/*",
                 "http://re.jd.com/cps/item/*",
                 "http://e.jd.com/*",
@@ -44,7 +55,41 @@
                 "js/model/imdb_info.js",
                 "js/view/template.js",
                 "js/base/common.js",
+                "js/controller/util.js"
+            ]
+        },
+        {
+            "matches": [
+                "http://item.jd.com/*",
+                "http://re.jd.com/cps/item/*",
+                "http://e.jd.com/*",
+                "http://book.jd.com/*",
+                "http://list.jd.com/*",
+                "http://search.e.jd.com/*",
+                "http://search.jd.com/*",
+                "http://sale.jd.com/*",
+                "https://item.jd.com/*",
+                "https://re.jd.com/cps/item/*",
+                "https://e.jd.com/*",
+                "https://book.jd.com/*",
+                "https://list.jd.com/*",
+                "https://search.e.jd.com/*",
+                "https://search.jd.com/*",
+                "https://sale.jd.com/*"
+            ],
+            "js": [
                 "js/controller/jd.js"
+            ]
+        },
+        {
+            "matches": [
+                "http://film.qq.com/*",
+                "http://v.qq.com/*",
+                "https://film.qq.com/*",
+                "https://v.qq.com/*"
+            ],
+            "js": [
+                "js/controller/qq.js"
             ]
         },
         {

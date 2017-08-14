@@ -41,7 +41,7 @@ class Common {
                                     new Template(data)
                                         .showTips($target, 'error');
                                 } else {
-                                    new Template(data)
+                                    new Template(data, options.type)
                                         .showTips($target, options.type);
                                 }
                             }

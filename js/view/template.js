@@ -1,6 +1,7 @@
 class Template {
-    constructor(data) {
+    constructor(data, type) {
         this.data = data || {};
+        this.type = type;
     }
 
     /**
@@ -20,7 +21,7 @@ class Template {
                 break;
 
             case 'movie':
-                //renderOutput = this.renderMovieIntro();
+                renderOutput = this.renderMovieIntro();
                 break;
 
             case 'book':
@@ -110,9 +111,51 @@ class Template {
                 </div>`;
     }
 
+    renderMovieIntro() {
+        const data = this.data;
+
+        const title = data.title || '';
+        const originTitle = data.originTitle || '';
+
+        const director = data.director !== '' ? `<li>
+                                     <span class="douban-label">导演：</span>
+                                     <span>${data.director}</span>
+                                 </li>` : '';
+
+        const stars = data.stars !== '' ? `<li>
+                                     <span class="douban-label">主演：</span>
+                                     <span>${data.stars}</span>
+                                 </li>` : '';
+        const genre = data.genre !== '' ? `<li>
+                                     <span class="douban-label">类型：</span>
+                                     <span>${data.genre}</span>
+                                 </li>` : '';
+        const summary = data.summary !== '' ? `<p>${data.summary}</p>` : '';
+
+        const rate = this.renderRate();
+
+        return `<div id="doubanx-subject-tip" class="doubanx-subject-tip-book">
+                    <div class="doubanx-rating-logo">豆瓣简介</div>
+                    <div class="doubanx-subject-tip-hd">
+                        <h3>
+                            <a href="https://${data.type}.douban.com/subject/${data.id}" target="_blank"><span>${title}</span></a>
+                        </h3>
+                        ${originTitle}
+                    </div>
+                    ${rate}
+                    <div class="doubanx-subject-tip-bd">
+                        <ul>
+                            ${director}
+                            ${stars}
+                            ${genre}
+                        </ul>
+                        ${summary}
+                    </div>
+                </div>`;
+    }
     renderRate() {
         const data = this.data;
-        if (data.ratingNum > 10) {
+        if (data.ratingNum > 10 || this.type === 'movie') {
             return `<div id="doubanx_rating">
                         <a href="javascript:;" class="doubanx_close"></a>
                         <div class="rating_wrap clearbox">

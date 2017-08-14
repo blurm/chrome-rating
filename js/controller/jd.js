@@ -18,8 +18,12 @@ class JD {
      *
      */
     static matchEN(str) {
-        const regexCN = /[^\u4e00-\u9fa5]+/;
-        return str.match(regexCN) !== null ? str.match(regexCN)[0] : '';
+        const regexEN = /[^\u4e00-\u9fa5]+/g;
+        let result = '';
+        if (str.match(regexEN)) {
+            result = str.match(regexEN).join(' ').trim();
+        }
+        return result;
     }
 
     /**
@@ -27,7 +31,7 @@ class JD {
      *
      */
     static matchCN(str) {
-        const regexCN = /[\u4e00-\u9fa5]+/;
+        const regexCN = /[\u4e00-\u9fa5]+/g;
 
         let result = '';
         if (str.match(regexCN)) {
@@ -37,11 +41,16 @@ class JD {
     }
 
     static getBookShortName(bookName) {
-        if (bookName.match(/:|：/)) {
-            const arr = bookName.split(/:|：/);
-            return arr[1].match(/\S*/)[0];
+        // Remove 第二|2版
+        //const arr = name.match(/第(?:\d|[\u4e00-\u9fa5])版/);
+        const tmpBookName = bookName.replace(
+                                /\s*第(?:\d|[\u4e00-\u9fa5])版\s*/, '');
+        let shortName = [tmpBookName];
+        if (tmpBookName.match(/:|：|\s/)) {
+            const arr = tmpBookName.split(/:|：|\s/);
+            shortName = arr;
         }
-        return bookName.match(/\S*/)[0];
+        return shortName;
     }
 
     static formatBookname(name, publisher) {
@@ -54,11 +63,11 @@ class JD {
 
         const tempName = name
             // 去掉【】[] () {} 及其包含的内容
-            .replace(REGEX_REMOVE_BRACE, '')
+            .replace(REGEX_REMOVE_BRACE, ' ')
             // 去掉以作品集，系列，纪念版等结尾的字段
             .replace(/\S+(作品集|纪念版|作品|著作|丛书|新版)\d*(:|：)?/g, '')
             // 替换某些特殊字符，比如‘/’
-            .replace(/\//g, ' ');
+            .replace(/\/|:|：|·|\./g, ' ').trim();
 
         let result = tempName;
 

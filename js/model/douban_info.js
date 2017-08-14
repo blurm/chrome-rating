@@ -118,6 +118,15 @@ class DoubanInfo extends BaseInfo {
         return data;
     }
 
+    isMatchShortName(shortName, title) {
+        for (const sname of shortName) {
+            if (title.indexOf(sname) >= 0) {
+                return true;
+            }
+        }
+
+        return false;
+    }
     /**
      * 从返回结果生成信息对象
      *
@@ -137,8 +146,8 @@ class DoubanInfo extends BaseInfo {
                 for (const book of json.books) {
                     // 对于'东野圭吾：鸟人计划'，首先要重新匹配书名，因为结果
                     // 返回的可能是全部东野圭吾的作品
-                    if ((book.title.indexOf(this.shortName) >= 0 ||
-                            book.subtitle.indexOf(this.shortName) >= 0) &&
+                    if ((this.isMatchShortName(this.shortName, book.title) ||
+                            this.isMatchShortName(this.shortName, book.subtitle)) &&
                         // 根据作者匹配结果
                            (this.isMatchAuthor(this.author, book.author) ||
                         // 根据译者匹配结果
@@ -146,7 +155,7 @@ class DoubanInfo extends BaseInfo {
                         // 有时作者是出版商
                             book.publisher.indexOf(this.author) !== -1 ||
                         // 如果没有作者信息则直接返回当前记录
-                            this.author === ''
+                            this.author === '' || book.author.length === 0
                            )
                         ) {
 
@@ -173,34 +182,50 @@ class DoubanInfo extends BaseInfo {
             } else {
                 // 如果是电影信息
                 let id;
-                for (const s of json.subjects) {
-                    if (s.year == this.year) {
-                        id = s.id;
-                        break;
+                if (this.year === '') {
+                    id = json.subjects[0].id;
+                } else {
+                    for (const s of json.subjects) {
+                        if (s.year == this.year) {
+                            id = s.id;
+                            break;
+                        }
                     }
                 }
-                const movie = getSync(
-                            'https://api.douban.com/v2/movie/subject/' + id);
-                data.title = movie.title;
-                data.originalTitle = movie.original_title;
-                data.year = movie.year;
-                data.rating = movie.rating.average;
-                data.ratingNum = movie.ratings_count;
-                data.genre = movie.genres.join('，');
+                let movie = this.getSync(
+                    'https://api.douban.com/v2/movie/subject/' + id);
+                console.log('json movie:', movie);
 
-                data.director = '';
-                data.stars = '';
-                for (const d of movie.directors) {
-                    data.director += d.name + '，';
+                if (movie) {
+                    data.id = movie.id;
+                    data.title = movie.title;
+                    data.originalTitle = movie.original_title;
+                    data.year = movie.year;
+                    data.rating = movie.rating.average;
+                    data.ratingNum = movie.ratings_count || '';
+                    data.genre = movie.genres.join('，');
+                    data.star = movie.rating.stars;
+                    data.summary = movie.summary;
+
+                    data.director = '';
+                    data.stars = '';
+                    for (const d of movie.directors) {
+                        data.director += d.name + '，';
+                    }
+                    data.director = DoubanInfo.rmComma(data.director);
+                    for (const c of movie.casts) {
+                        data.stars += c.name + '，';
+                    }
+                    data.stars = DoubanInfo.rmComma(data.stars);
+                } else {
+                    // 如果没有结果返回
+                    if (!data.id) {
+                        data.errMsg = ERR_MSG_MAP.get(1001);
+                    }
                 }
-                data.director = DoubanInfo.rmComma(data.director);
-                for (const c of movie.casts) {
-                    data.stars += c.name + '，';
-                }
-                data.stars = DoubanInfo.rmComma(data.stars);
             }
         }
-
+        console.log(data);
         return data;
     }
 }

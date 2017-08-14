@@ -78,6 +78,7 @@ function matchCN(str) {
     return result;
 }
 
+
 function formatBookname(name) {
     const publisher = 'sdfasf';
     const regex = /(.+[:|：]\s*)?《?([^(:|：【|】|《|》|(|)|（|）)]+)/;
@@ -170,4 +171,5 @@ var arr = $('#test a');
 for (const a of arr) {
     console.log(a);
 }
+
 console.log(arr);
