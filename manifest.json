@@ -28,6 +28,8 @@
                 "https://film.qq.com/*",
                 "https://v.qq.com/*",
 
+                "http://ttmeiju.com/*/Movie*",
+
                 "http://item.jd.com/*",
                 "http://re.jd.com/cps/item/*",
                 "http://e.jd.com/*",
@@ -90,6 +92,17 @@
             ],
             "js": [
                 "js/controller/qq.js"
+            ]
+        },
+        {
+            "matches": [
+                "http://ttmeiju.com/*/Movie*"
+            ],
+            "js": [
+                "js/controller/ttmeiju.js",
+                "js/controller/util.js",
+                "js/utils/parse_torrent_name/patterns.js",
+                "js/utils/parse_torrent_name/parser.js"
             ]
         },
         {

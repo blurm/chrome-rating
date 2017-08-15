@@ -1,8 +1,13 @@
+const ERR_MSG_MAP_IMDB = new Map();
+ERR_MSG_MAP_IMDB.set(1001, '没有找到您要的内容');
+
 class IMDBInfo extends BaseInfo {
-    constructor(options) {
-        super(options);
+    set options(options) {
+        super.options = options;
         this.url = "https://www.theimdbapi.org/api/find/movie";
+        console.log('options: ', options);
     }
+
     getParams() {
         const params = {
             title : this.name,
@@ -12,19 +17,32 @@ class IMDBInfo extends BaseInfo {
         return params;
     }
 
-    getRatingInfo() {
+    popError(json) {
         const data = {};
-        this.get((json) => {
-            const movie = json[0];
-            data.title = movie.title;
-            data.year = movie.year;
-            data.rating = movie.rating;
-            data.ratingNum = movie.rating_count;
-            data.genre = movie.genre.join(', ');
-            data.director = movie.director;
-            data.stars = movie.stars.join();
-        });
+        data.type = this.type;
+        data.errMsg = ERR_MSG_MAP_IMDB.get(json.code);
 
         return data;
+    }
+
+    popData(json) {
+        const data = {};
+        console.log(`json result:`, json);
+        const movie = json[0];
+        data.title = movie.title;
+        data.year = movie.year;
+        data.rating = movie.rating;
+        data.star = this.countStar(data.rating);
+        data.ratingNum = movie.rating_count;
+        data.genre = movie.genre.join(', ');
+        data.director = movie.director;
+        data.stars = movie.stars.join();
+        data.summary = movie.description;
+
+        return data;
+    }
+
+    getRatingInfo(success, fail) {
+        this.get(success, fail);
     }
 }

@@ -1,7 +1,7 @@
 class Ttmeiju {
     static createOptions($target) {
-        let nameStr = $.trim($target.find('a[href^="/seed/"]').text());
-        nameStr = Util.matchEN(nameStr);
+        let nameStr = $.trim($target.text());
+        nameStr = Test.matchEN(nameStr)
         const options = {
             name: nameStr,
             type: "movie"
@@ -11,10 +11,11 @@ class Ttmeiju {
     }
 
     main() {
-        Common.listHandle(
+        const imdbInfo = new IMDBInfo();
+        const common = new Common(imdbInfo, Ttmeiju.createOptions);
+        common.listHandle(
             /\/seed\/\d+\.html/i,
-            'tr',
-            Ttmeiju.createOptions
+            'td a'
         );
     }
 }

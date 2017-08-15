@@ -175,6 +175,8 @@ class JD {
             //}).getRate();
         }
 
+        const doubanInfo = new DoubanInfo();
+        const common = new Common(doubanInfo, JD.createOptions);
         /**
          * 为list页面当前激活的item生成评分信息
          *
@@ -184,7 +186,7 @@ class JD {
          *      .m-list .tab-cnt-i-selected, 多tab item
          *      .m-list .gl-i-wrap, 普通item
          */
-        Common.listHandle(
+        common.listHandle(
             /^\/\/(item|e)\.jd\.com\/\d*\.html/i,
             '.m-list .j-sku-item, \
             .m-list .tab-cnt-i-selected, \
@@ -196,7 +198,7 @@ class JD {
             .tabcon li, \
             .tabcon .item, \
             .may-like-list li, \
-            .recent-view-list li', JD.createOptions
+            .recent-view-list li'
         );
     }
 }

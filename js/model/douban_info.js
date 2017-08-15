@@ -34,8 +34,9 @@ ERR_MSG_MAP.set(128, 'user_locked 用户被锁定');
 ERR_MSG_MAP.set(999, 'unknown 未知错误');
 
 class DoubanInfo extends BaseInfo {
-    constructor(options) {
-        super(options);
+
+    set options(options) {
+        super.options = options;
         this.shortName = options.shortName;
 
         if (this.type === "book") {
@@ -45,25 +46,6 @@ class DoubanInfo extends BaseInfo {
             this.url = "https://api.douban.com/v2/movie/search";
         }
         console.log('options: ', options);
-    }
-
-    /**
-     * 根据评分数字来计算星星的数量
-     * 目前计算的和douban并不一致，只是大概看下
-     *
-     */
-    static countStar(rating) {
-        const rateNum = Math.round(rating * 10 / 2);
-        let units = rateNum % 10;
-        let tens = rateNum - units;
-        if (units >= 5) {
-            units = 0;
-            tens += 10;
-        } else {
-            units = 5;
-        }
-
-        return tens + units;
     }
 
     /**
@@ -164,7 +146,7 @@ class DoubanInfo extends BaseInfo {
                         data.originTitle = book.origin_title;
                         data.rating = book.rating.average;
                         data.ratingNum = book.rating.numRaters;
-                        data.star = DoubanInfo.countStar(data.rating);
+                        data.star = this.countStar(data.rating);
                         data.author = book.author.join('，');
                         data.translator = book.translator.join('，');
                         data.publisher = book.publisher;

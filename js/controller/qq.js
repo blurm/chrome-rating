@@ -16,7 +16,8 @@ class QQ {
     }
 
     static createOptions($target, $link) {
-        const nameStr = $.trim($target.find('.figure_title a').text());
+        const nameStr = $.trim($target.find('.figure_title a').text()) ||
+                        $.trim($target.find('a .title_inner').text());
 
         //const bookName = JD.formatBookname(nameStr, publisher);
         const options = {
@@ -28,7 +29,6 @@ class QQ {
     }
 
     main() {
-        const that = this;
         if (this.isFilm && this.page.movie) {
             //new DoubanX({
                 //name: $('.player_title').text(),
@@ -57,10 +57,12 @@ class QQ {
             //}).getRate();
         }
 
-        Common.listHandle(
+        const doubanInfo = new DoubanInfo();
+        const common = new Common(doubanInfo, QQ.createOptions);
+        common.listHandle(
             /(^http:\/\/(film|v)\.qq\.com)*\/(x\/)?(cover|prev)\/.*\.html/i,
-            'li',
-            QQ.createOptions
+            'li, \
+            .top_list .title_inner'
         );
     }
 }
