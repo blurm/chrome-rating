@@ -88,7 +88,7 @@ class Common {
                     if (!tip.is(':hover')) {
                         tip.remove();
                     }
-                }, 1000);
+                }, 500);
 
                 $target.data('allow', false);
                 $target.data('movein', true);

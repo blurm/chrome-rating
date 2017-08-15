@@ -138,7 +138,7 @@ class Template {
                     <div class="doubanx-rating-logo">豆瓣简介</div>
                     <div class="doubanx-subject-tip-hd">
                         <h3>
-                            <a href="https://${data.type}.douban.com/subject/${data.id}" target="_blank"><span>${title}</span></a>
+                            <a href="https://${data.type}.douban.com/subject/${data.id}" target="_blank"><span>${title} (${data.year})</span></a>
                         </h3>
                         ${originTitle}
                     </div>
@@ -148,6 +148,15 @@ class Template {
                             ${director}
                             ${stars}
                             ${genre}
+                             <li>
+                                 <span>
+                                    <div class="video_tags">
+                                        <span class="tag_item">科幻</span>
+                                        <span class="tag_item">剧情</span>
+                                        <span class="tag_item">惊悚</span>
+                                    </div
+                                 </span>
+                             </li>
                         </ul>
                         ${summary}
                     </div>

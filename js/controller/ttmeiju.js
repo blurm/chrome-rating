@@ -1,9 +1,10 @@
 class Ttmeiju {
     static createOptions($target) {
         let nameStr = $.trim($target.text());
-        nameStr = Test.matchEN(nameStr)
+        const nameYear = TitleParser.parse(nameStr)
         const options = {
-            name: nameStr,
+            name: nameYear.name,
+            year: nameYear.year,
             type: "movie"
         };
 
@@ -19,5 +20,5 @@ class Ttmeiju {
         );
     }
 }
-console.log('ttmeiju.js');
+
 new Ttmeiju().main();

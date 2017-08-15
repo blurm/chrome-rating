@@ -223,6 +223,7 @@
     padding: 15px;
     box-shadow: 0px 0px 10px #ccc;
     border: 1px solid #ddd;
+    text-align: left;
 }
 #doubanx-subject-tip.doubanx-subject-tip-movie {
     width: 200px;
@@ -698,4 +699,18 @@ animation-duration: 0.63s; }
     animation-iteration-count: infinite;
     -webkit-animation-delay: 0;
     animation-delay: 0;
+}
+.video_tags {
+    display: inline-block;
+}
+.tag_item {
+    position: relative;
+    display: inline-block;
+    margin-right: 3px;
+    padding: 1px 4px 1px;
+    line-height: 18px;
+    border-radius: 2px;
+    /*background-color: #3f3f45;*/
+    background-color: #F2F3F4;
+    color: #6b6969;
 }

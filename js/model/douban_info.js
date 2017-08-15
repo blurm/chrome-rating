@@ -4,7 +4,8 @@ ERR_MSG_MAP.set(1001, '没有找到您要的内容');
 ERR_MSG_MAP.set(100, 'invalid_request_scheme 错误的请求协议');
 ERR_MSG_MAP.set(101, 'invalid_request_method 错误的请求方法');
 ERR_MSG_MAP.set(102, 'access_token_is_missing 未找到 access_token');
-ERR_MSG_MAP.set(103, 'invalid_access_token access_token 不存在或已被用户删除，或者用户修改了密码');
+ERR_MSG_MAP.set(103, 'invalid_access_token access_token 不存在或已被用户删除，\
+                          或者用户修改了密码');
 ERR_MSG_MAP.set(104, 'invalid_apikey apikey 不存在或已删除');
 ERR_MSG_MAP.set(105, 'apikey_is_blocked apikey 已被禁用');
 ERR_MSG_MAP.set(106, 'access_token_has_expired access_token 已过期');
@@ -25,9 +26,10 @@ ERR_MSG_MAP.set(120, 'username_password_mismatch 用户名密码不匹配');
 ERR_MSG_MAP.set(121, 'invalid_user 用户不存在或已删除');
 ERR_MSG_MAP.set(122, 'user_has_blocked 用户已被屏蔽');
 ERR_MSG_MAP.set(123, 'access_token_has_expired_since_password_changed \
-                      因用户修改密码而导致 access_token 过期');
+                          因用户修改密码而导致 access_token 过期');
 ERR_MSG_MAP.set(124, 'access_token_has_not_expired access_token 未过期');
-ERR_MSG_MAP.set(125, 'invalid_request_scope 访问的 scope 不合法，开发者不用太关注，一般不会出现该错误');
+ERR_MSG_MAP.set(125, 'invalid_request_scope 访问的 scope 不合法，\
+                          开发者不用太关注，一般不会出现该错误');
 ERR_MSG_MAP.set(126, 'invalid_request_source 访问来源不合法');
 ERR_MSG_MAP.set(127, 'thirdparty_login_auth_faied 第三方授权错误');
 ERR_MSG_MAP.set(128, 'user_locked 用户被锁定');
@@ -88,6 +90,15 @@ class DoubanInfo extends BaseInfo {
         return false;
     }
 
+    isMatchShortName(shortName, title) {
+        for (const sname of shortName) {
+            if (title.indexOf(sname) >= 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * 从返回结果生成错误信息对象
      *
@@ -100,15 +111,6 @@ class DoubanInfo extends BaseInfo {
         return data;
     }
 
-    isMatchShortName(shortName, title) {
-        for (const sname of shortName) {
-            if (title.indexOf(sname) >= 0) {
-                return true;
-            }
-        }
-
-        return false;
-    }
     /**
      * 从返回结果生成信息对象
      *
@@ -163,6 +165,7 @@ class DoubanInfo extends BaseInfo {
 
             } else {
                 // 如果是电影信息
+                // 根据年份得到精确的id，以便下一步取详细信息
                 let id;
                 if (this.year === '') {
                     id = json.subjects[0].id;
@@ -174,7 +177,7 @@ class DoubanInfo extends BaseInfo {
                         }
                     }
                 }
-                let movie = this.getSync(
+                const movie = this.getSync(
                     'https://api.douban.com/v2/movie/subject/' + id);
                 console.log('json movie:', movie);
 
