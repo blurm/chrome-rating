@@ -10,7 +10,9 @@
         "48": "icon3.png",
         "128": "icon3.png"
     },
-
+    "web_accessible_resources": [
+        "css/images/*.png"
+    ],
     "browser_action": {
         "default_icon": "icon3.png",
         "default_popup": "popup.html",
@@ -48,7 +50,9 @@
                 "https://sale.jd.com/*"
             ],
             "css": [
-                "css/doubanx.css"
+                "css/book.css",
+                "css/star.css",
+                "css/loaders.css"
             ],
             "js": [
                 "jquery-3.2.1.min.js",

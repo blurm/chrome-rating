@@ -149,6 +149,8 @@ class DoubanInfo extends BaseInfo {
                         data.rating = book.rating.average;
                         data.ratingNum = book.rating.numRaters;
                         data.star = this.countStar(data.rating);
+                        data.tags = book.tags
+
                         data.author = book.author.join('，');
                         data.translator = book.translator.join('，');
                         data.publisher = book.publisher;

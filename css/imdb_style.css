@@ -19,7 +19,7 @@
     text-decoration:none;
     background:#f93
 }
-.doubanx_star50,.doubanx_star45,.doubanx_star40,.doubanx_star35,.doubanx_star30,.doubanx_star25,.doubanx_star20,.doubanx_star15,.doubanx_star10,.doubanx_star05,.doubanx_star00 {
+.douban_star50,.douban_star45,.douban_star40,.douban_star35,.douban_star30,.douban_star25,.douban_star20,.douban_star15,.douban_star10,.douban_star05,.douban_star00 {
     display:inline-block;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAClCAYAAAAUAAAYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA5xJREFUeNrs3T9rFEEcxvG7qEQIglaCICKkin9AUEtBKxU7wS61VlYivgWj70TtNFj5BqzE7qxEWwsxKIoYn4UtluFmbm8nczvzm+/BjxyuDwNzu3uXD0+46f7LC5PA45Hm+WTYw1x2LRDc0jzTXB+wqMlsaLPutz8fDFjYZHYauAz3NBvt83XNnyUWNpn1nVm3OsHmsb3EomazzZnVXKMPNcc0xzUnNKc0Rzv/77fms+Z7O3vt9b1eU7bZrNN68l5zcolX4ofmsuZXTdnmMvyi2dR86Bmcac62P6vKrnVubpc0bxYE32nOab45N8YqsvPeDfcD4SOav4HjprPuu+H5BTt9LXDMfNbdLPfT678Fx6vKupt1o/O8+R3pkOaJ5/iktqx7z/qp+aq5q/nY+fczmheaK03Gs7D5rLtZdzSvA6/Ebc2u55j57HQB0TzW7AzkjiKzny6+2hlKNE8juMNcFqKBaIZndRlCNBBNgmx7ZkE0fbLtZkE0EA1EM17WuQwhGogGooFoss6296y52cNO+J6HLJoPaFdbsvA9zGerIxrPh85eWYgGooFoDiQbuAxp0UA0EVmdWbRo+ma1WbRoIBqIZtzsnHdDWjQQDUQD0WSbde5ZS2UhmtqJJtSEiVkXooFoIJre2VATJmZdiKZ2ogk1YSb8oVMvDeUPnSAaiCaPJkzMuhANRAPRQDQpsqEmTMy6EI11oolpwkA0EA1EcyDZmCYMRAPR+LMxTZjqiCamCQPRQDQQzehNGIgGooFoIJpVZ2OaMBBN7USTqgkD0UA0EE3vbKomDERTO9GkasKYJJpUTRiIBqKBaEZvwkA0EA1EA9GkyKZqwkA01olmrCYMRAPRQDR9LkO+0QmiKbAJUyTRjNWEgWggGohm9CYMRAPRQDQQzZDsWE0YiMYC0eTYhIFoIJrKiCbHJgxEY4FocmzCZEs0OTZhIBqIpjKiybEJA9FANBANROPL5tiEgWhKIJoSmzAQDURjjGhKbMJANCUQTYlNmNGIpsQmDEQD0RgjmhKbMBANRAPR1Es0JTZhIJpciMZaEwaigWgKJBprTRiIJheisdaESUo01powEA1EUyDRWGvCQDQQDURjm2isNWEgmlURzWw2q4pZIBqIJkOiCVyGJpkFolkV0ejMMvel28mIRptl7ku3IRqIpjCimfNuaJpZIBqIBqIpm2ice5Z5ZonJupvVkMRu4JW4qXnrOWY++1+AAQBw9BJSCTeN9wAAAABJRU5ErkJggg==) no-repeat;
     width:75px;
@@ -27,37 +27,37 @@
     margin:1px 0 0 0;
     overflow:hidden
 }
-.doubanx_star50 {
+.douban_star50 {
     background-position:0 0
 }
-.doubanx_star45 {
+.douban_star45 {
     background-position:0 -15px
 }
-.doubanx_star40 {
+.douban_star40 {
     background-position:0 -30px
 }
-.doubanx_star35 {
+.douban_star35 {
     background-position:0 -45px
 }
-.doubanx_star30 {
+.douban_star30 {
     background-position:0 -60px
 }
-.doubanx_star25 {
+.douban_star25 {
     background-position:0 -75px
 }
-.doubanx_star20 {
+.douban_star20 {
     background-position:0 -90px
 }
-.doubanx_star15 {
+.douban_star15 {
     background-position:0 -105px
 }
-.doubanx_star10 {
+.douban_star10 {
     background-position:0 -120px
 }
-.doubanx_star05 {
+.douban_star05 {
     background-position:0 -135px
 }
-.doubanx_star00 {
+.douban_star00 {
     background-position:0 -150px
 }
 .subject-rating {
@@ -82,7 +82,7 @@
     font-size:12px;
     line-height:14px
 }
-#doubanx_sectl .rating_wrap .doubanx-rating-logo {
+#doubanx_sectl .rating_wrap .logo {
     line-height:1
 }
 #doubanx_sectl .rating_self {
@@ -129,10 +129,10 @@
 .ll {
     float: left;
 }
-.doubanx_starstop,.doubanx_stars {
+.douban_starstop,.douban_stars {
     margin-right:5px
 }
-.doubanx_starstop {
+.douban_starstop {
     float:left
 }
 .doubanx_close {
@@ -213,7 +213,7 @@
     line-height: 1.7em
 }
 
-#doubanx-subject-tip {
+.book-douban {
     font-family: Arial;
     position: absolute;
     top: 0;
@@ -225,20 +225,20 @@
     border: 1px solid #ddd;
     text-align: left;
 }
-#doubanx-subject-tip.doubanx-subject-tip-movie {
+.book-douban.book-douban-movie {
     width: 200px;
 }
-#doubanx-subject-tip.doubanx-subject-tip-book {
+.book-douban.book-douban-book {
     width: auto;
     max-width: 300px;
     min-width: 200px;
 }
-#doubanx-subject-tip .doubanx-rating-logo {
+.book-douban .logo {
     color: #9b9b9b;
     margin-bottom: 10px;
 }
 
-#doubanx-subject-tip h3 {
+.book-douban h3 {
     word-break: break-all;
     font-weight: 400;
     font-size: 16px;
@@ -249,34 +249,34 @@
     line-height: 1;
 }
 
-#doubanx-subject-tip .doubanx-release-year {
+.book-douban .doubanx-release-year {
     font-size: 12px;
     margin-left: 8px;
     color: #aaa
 }
 
-#doubanx-subject-tip .doubanx-rater-num {
+.book-douban .doubanx-rater-num {
     color: #111;
     margin-left: 2px
 }
 
-#doubanx-subject-tip .doubanx-subject-intro {
+.book-douban .doubanx-subject-intro {
     margin-top: 8px;
     padding: 10px;
     background-color: #f7f7f7;
     color: #111
 }
 
-#doubanx-subject-tip .doubanx-douban-star {
+.book-douban .doubanx-douban-star {
     margin: 7px 0 0
 }
 .doubanx-subject-star {
     vertical-align: top;
 }
-.doubanx-subject-tip-hd {
+.book-douban-head {
     margin-bottom: 10px;
 }
-.doubanx-subject-tip-bd li {
+.book-douban-details li {
     padding-left: 40px;
     line-height: 20px;
     overflow: hidden;
@@ -284,17 +284,17 @@
     color: #111
 }
 
-.doubanx-subject-tip-bd li span {
+.book-douban-details li span {
     margin-right: 5px
 }
 
-.doubanx-subject-tip-bd li .douban-label {
+.book-douban-details li .label {
     color: #666;
     margin-left: -40px;
     float: left;
     padding: 0
 }
-.doubanx-subject-tip-bd p {
+.book-douban-details p {
     line-height: 16px;
     margin-top: 10px;
     overflow : hidden;
@@ -311,89 +311,89 @@
     animation-fill-mode: both;
 }
 @-webkit-keyframes fadeInRightBig {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(2000px, 0, 0);
-    transform: translate3d(2000px, 0, 0);
-  }
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(2000px, 0, 0);
+        transform: translate3d(2000px, 0, 0);
+    }
 
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
 }
 
 @keyframes fadeInRightBig {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(2000px, 0, 0);
-    transform: translate3d(2000px, 0, 0);
-  }
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(2000px, 0, 0);
+        transform: translate3d(2000px, 0, 0);
+    }
 
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
 }
 
 .fadeInRightBig {
-  -webkit-animation-name: fadeInRightBig;
-  animation-name: fadeInRightBig;
+    -webkit-animation-name: fadeInRightBig;
+    animation-name: fadeInRightBig;
 }
 @-webkit-keyframes fadeOutRightBig {
-  from {
-    opacity: 1;
-  }
+    from {
+        opacity: 1;
+    }
 
-  to {
-    opacity: 0;
-    -webkit-transform: translate3d(2000px, 0, 0);
-    transform: translate3d(2000px, 0, 0);
-  }
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(2000px, 0, 0);
+        transform: translate3d(2000px, 0, 0);
+    }
 }
 
 @keyframes fadeOutRightBig {
-  from {
-    opacity: 1;
-  }
+    from {
+        opacity: 1;
+    }
 
-  to {
-    opacity: 0;
-    -webkit-transform: translate3d(2000px, 0, 0);
-    transform: translate3d(2000px, 0, 0);
-  }
+    to {
+        opacity: 0;
+        -webkit-transform: translate3d(2000px, 0, 0);
+        transform: translate3d(2000px, 0, 0);
+    }
 }
 
 .fadeOutRightBig {
-  -webkit-animation-name: fadeOutRightBig;
-  animation-name: fadeOutRightBig;
+    -webkit-animation-name: fadeOutRightBig;
+    animation-name: fadeOutRightBig;
 }
 
 @-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
+    from {
+        opacity: 0;
+    }
 
-  to {
-    opacity: 1;
-  }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
+    from {
+        opacity: 0;
+    }
 
-  to {
-    opacity: 1;
-  }
+    to {
+        opacity: 1;
+    }
 }
 
 .fadeIn {
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
 }
 
 .pacman>div:first-of-type,.pacman>div:nth-child(2) {
@@ -522,29 +522,29 @@
     left: 100px
 }
 
-#doubanx-subject-tip a {
+.book-douban a {
     cursor:pointer
 }
-#doubanx-subject-tip a:link {
+.book-douban a:link {
     color:#37a;
     text-decoration:none
 }
-#doubanx-subject-tip a:visited {
+.book-douban a:visited {
     color:#669;
     text-decoration:none
 }
-#doubanx-subject-tip a:hover {
+.book-douban a:hover {
     color:#fff;
     text-decoration:none;
     background:#37a
 }
-#doubanx-subject-tip a:active {
+.book-douban a:active {
     color:#fff;
     text-decoration:none;
     background:#f93
 }
 
-#doubanx_rating {
+#rating {
     width: 160px;
     color:#9b9b9b;
     /*padding: 15px;*/
@@ -557,48 +557,48 @@
     /*box-shadow: 0px 0px 10px #ccc;*/
     font: 12px Helvetica,Arial,sans-serif;
 }
-#doubanx_rating .rating_wrap {
+#rating .rating_wrap {
     font-size:12px;
     line-height:14px
 }
-#doubanx_rating .rating_wrap .doubanx-rating-logo {
+#rating .rating_wrap .logo {
     line-height:1
 }
-#doubanx_rating .rating_self {
+#rating .rating_self {
     padding:0;
     line-height:2
 }
-#doubanx_rating .rating_self:before,#doubanx_rating .rating_self:after {
+#rating .rating_self:before,#rating .rating_self:after {
     content:'';
     display:block;
     clear:both
 }
-#doubanx_rating .rating_num {
+#rating .rating_num {
     color:#494949;
     padding:0;
     min-width:30%;
     font-size:28px
 }
-#doubanx_rating .rating_right {
+#rating .rating_right {
     float:left;
     padding:10px 0 10px 6px
 }
-#doubanx_rating .rating_right.not_showed {
+#rating .rating_right.not_showed {
     padding:10px 0 0
 }
-#doubanx_rating .power {
+#rating .power {
     height:10px;
     float:left;
     margin:1px 4px;
     background:#ffd596 none repeat scroll 0 0
 }
-#doubanx_rating .power.color_gray {
+#rating .power.color_gray {
     background:#ccc
 }
-#doubanx_rating .rating_per {
+#rating .rating_per {
     font-size:11px
 }
-#doubanx_rating .rating_betterthan {
+#rating .rating_betterthan {
     position:relative;
     padding:15px 0;
     border-top:1px solid #eaeaea;

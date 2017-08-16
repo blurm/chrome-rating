@@ -1,0 +1,364 @@
+.ll {
+    float: left;
+}
+.douban_starstop,.douban_stars {
+    margin-right:5px
+}
+.douban_starstop {
+    float:left
+}
+.doubanx_close {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    display: block;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+}
+.doubanx_close:hover::before, .doubanx_close:hover::after {
+    background: #fff;
+}
+.doubanx_close::before, .doubanx_close::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    background: #37a;
+}
+.doubanx_close::before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.doubanx_close::after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.doubanx_close.thick::before, .doubanx_close.thick::after {
+    height: 4px;
+    margin-top: -2px;
+}
+.doubanx_close:hover {
+    text-decoration: none;
+}
+
+/* --------------- 主体div ----------------*/
+.book-douban {
+    font-family: Arial;
+    position: absolute;
+    top: 0;
+    /*决定元素在z轴的摆放顺序，99999表示浮动窗在最上面*/
+    z-index: 99999;
+    /*width: 200px;*/
+    background-color: #f6f6f1;
+    padding: 15px;
+    box-shadow: 0px 0px 10px #515A5A;
+    border-radius:7px;
+    text-align: left;
+    width: auto;
+    max-width: 300px;
+    min-width: 200px;
+}
+/*.book-douban.book-douban-movie {*/
+    /*width: 200px;*/
+/*}*/
+/*.book-douban.book-douban-book {*/
+    /*width: auto;*/
+    /*max-width: 300px;*/
+    /*min-width: 200px;*/
+/*}*/
+.book-douban .logo {
+    color: #9b9b9b;
+    margin-bottom: 5px;
+    height: 30px;
+}
+
+.book-douban h3 {
+    word-break: break-all;
+    font-weight: 400;
+    font-size: 20px;
+    /*color: #111;*/
+    height: auto;
+    margin-left: 0;
+    /*background-color: #fff;*/
+    line-height: 1;
+}
+
+.book-douban-head {
+    margin-bottom: 5px;
+}
+.book-douban-details li {
+    padding-left: 40px;
+    line-height: 20px;
+    overflow: hidden;
+    zoom: 1;
+    color: #111
+}
+
+.book-douban-details li span {
+    margin-right: 5px
+}
+
+.book-douban-details li .label {
+    color: #666;
+    margin-left: -40px;
+    float: left;
+    padding: 0
+}
+.book-douban-details p {
+    line-height: 16px;
+    margin-top: 10px;
+    overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 15;
+    -webkit-box-orient: vertical;
+}
+
+.animated {
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@-webkit-keyframes fadeInRightBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInRightBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInRightBig {
+  -webkit-animation-name: fadeInRightBig;
+  animation-name: fadeInRightBig;
+}
+@-webkit-keyframes fadeOutRightBig {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+}
+
+@keyframes fadeOutRightBig {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(2000px, 0, 0);
+    transform: translate3d(2000px, 0, 0);
+  }
+}
+
+.fadeOutRightBig {
+  -webkit-animation-name: fadeOutRightBig;
+  animation-name: fadeOutRightBig;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+
+.book-douban a {
+    cursor:pointer
+}
+.book-douban a:link {
+    color:#37a;
+    text-decoration:none
+}
+.book-douban a:visited {
+    color:#669;
+    text-decoration:none
+}
+.book-douban a:hover {
+    color:#fff;
+    text-decoration:none;
+    background:#37a
+}
+.book-douban a:active {
+    color:#fff;
+    text-decoration:none;
+    background:#f93
+}
+
+/*评分部分的样式*/
+.rating {
+    width: 160px;
+    color:#9b9b9b;
+    /*padding: 15px;*/
+    /*position: fixed;*/
+    top: 100px;
+    right: 0;
+    z-index: 99999;
+    background-color: #f6f6f1;
+    /*background-color: #fff;*/
+    /*border: 1px dashed #ddd;*/
+    /*box-shadow: 0px 0px 10px #ccc;*/
+    font: 12px Helvetica,Arial,sans-serif;
+}
+.rating .rating_wrap {
+    font-size:12px;
+    line-height:14px
+}
+.rating .rating_wrap .logo {
+    line-height:1
+}
+.rating .rating_self {
+    padding:0;
+    line-height:2
+}
+.rating .rating_self:before,.rating .rating_self:after {
+    content:'';
+    display:block;
+    clear:both
+}
+.rating .rating_num {
+    color:#494949;
+    padding:0;
+    min-width:30%;
+    font-size:28px
+}
+.rating .rating_right {
+    float:left;
+    padding:10px 0 10px 6px
+}
+.rating .rating_right.not_showed {
+    padding:10px 0 0
+}
+.rating .power {
+    height:10px;
+    float:left;
+    margin:1px 4px;
+    background:#ffd596 none repeat scroll 0 0
+}
+.rating .power.color_gray {
+    background:#ccc
+}
+.rating .rating_per {
+    font-size:11px
+}
+.rating .rating_betterthan {
+    position:relative;
+    padding:15px 0;
+    border-top:1px solid #eaeaea;
+    color:#9b9b9b;
+    margin:0
+}
+
+.video_tags {
+    display: inline-block;
+}
+.nav-logo {
+    background: url('chrome-extension://__MSG_@@extension_id__/css/images/douban_logo.png') no-repeat 0 0;
+    background-image:url('chrome-extension://__MSG_@@extension_id__/css/images/douban_logo.png');
+    background-size: cover;
+    float: left;
+    height: 15px;
+    width: 66px;
+    margin: 0 13px 0 0;
+}
+
+.nav-logo a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    line-height: 100em;
+}
+
+.logo a:hover {
+    text-decoration:none;
+    background: transparent;
+}
+#tag_group {
+    margin-bottom:10px
+    padding-bottom: 10px;
+    /*border-bottom: 1px solid #ddd;*/
+}
+div#tag_group {
+    margin-bottom: 10px;
+}
+#tag_group .tag, .tag:link, .tag:visited {
+    width: auto;
+    word-break: keep-all;
+    white-space: nowrap;
+    background-color:#E5E8E8;
+    /*background-color:#E5E7E9;*/
+    color: #37A;
+    font-size: 13px;
+    padding: 2px 11px 0;
+    display: inline-block;
+    margin: 0 3px 5px 0;
+    line-height: 20px;
+    border-radius: 2px;
+}
+#tag_group .tag:hover {
+    background-color: #D7DBDD;
+    /*background-color: #CACFD2;*/
+    color: #37A;
+}
+
+/*测试用代码，在movie页面上显示*/
+.tag_item {
+    position: relative;
+    display: inline-block;
+    margin-right: 3px;
+    padding: 1px 4px 1px;
+    line-height: 18px;
+    border-radius: 4px;
+    /*background-color: #3f3f45;*/
+    background-color: #F2F3F4;
+    color: #6b6969;
+}

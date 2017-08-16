@@ -1,0 +1,33 @@
+img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
+
+.wrapper {
+    max-width:100px;
+    max-height:40px;
+    width: 120;
+    height: 40;
+    background-color: #6b6969;
+}
+
+.tag, .tag:link, .tag:visited {
+    width: auto;
+    word-break: keep-all;
+    white-space: nowrap;
+    background-color: #f5f5f5;
+    color: #37A;
+    font-size: 13px;
+    padding: 2px 11px 0;
+    display: inline-block;
+    margin: 0 3px 5px 0;
+    line-height: 20px;
+}
+.tag:hover {
+    background-color: #E5E7E9;
+}
+a:link {
+    color: #37a;
+    text-decoration: none;
+}

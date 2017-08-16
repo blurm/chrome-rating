@@ -31,7 +31,7 @@ class Template {
             default:
         }
 
-        $('#doubanx-subject-tip').remove();
+        $('.book-douban').remove();
         const $body = $('body');
 
         $body.append(renderOutput);
@@ -43,7 +43,7 @@ class Template {
         const listW = $list.width();
         const listH = $list.height();
 
-        const $tips = $('#doubanx-subject-tip');
+        const $tips = $('.book-douban');
         const tipsW = $tips.width();
         const tipsH = $tips.height();
 
@@ -75,32 +75,38 @@ class Template {
         const originTitle = data.originTitle || '';
 
         const author = data.author !== '' ? `<li>
-                                     <span class="douban-label">作者：</span>
+                                     <span class="label">作者：</span>
                                      <span>${data.author}</span>
                                  </li>` : '';
 
         const translator = data.translator !== '' ? `<li>
-                                     <span class="douban-label">译者：</span>
+                                     <span class="label">译者：</span>
                                      <span>${data.translator}</span>
                                  </li>` : '';
         const publisher = data.publisher !== '' ? `<li>
-                                     <span class="douban-label">出版社：</span>
+                                     <span class="label">出版社：</span>
                                      <span>${data.publisher}</span>
                                  </li>` : '';
         const summary = data.summary !== '' ? `<p>${data.summary}</p>` : '';
 
         const rate = this.renderRate();
+        const tags = this.renderTags(data.tags);
 
-        return `<div id="doubanx-subject-tip" class="doubanx-subject-tip-book">
-                    <div class="doubanx-rating-logo">豆瓣简介</div>
-                    <div class="doubanx-subject-tip-hd">
+        return `<div class="book-douban">
+                    <div class="logo">
+                        <div id="douban_logo" class="nav-logo">
+                            <a href="https://book.douban.com" alt="douban" target="_blank">douban</a>
+                        </div>
+                    </div>
+                    <div class="book-douban-head">
                         <h3>
                             <a href="https://${data.type}.douban.com/subject/${data.id}" target="_blank"><span>${title}</span></a>
                         </h3>
                         ${originTitle}
                     </div>
                     ${rate}
-                    <div class="doubanx-subject-tip-bd">
+                    ${tags}
+                    <div class="book-douban-details">
                         <ul>
                             ${author}
                             ${translator}
@@ -118,32 +124,32 @@ class Template {
         const originTitle = data.originTitle || '';
 
         const director = data.director !== '' ? `<li>
-                                     <span class="douban-label">导演：</span>
+                                     <span class="label">导演：</span>
                                      <span>${data.director}</span>
                                  </li>` : '';
 
         const stars = data.stars !== '' ? `<li>
-                                     <span class="douban-label">主演：</span>
+                                     <span class="label">主演：</span>
                                      <span>${data.stars}</span>
                                  </li>` : '';
         const genre = data.genre !== '' ? `<li>
-                                     <span class="douban-label">类型：</span>
+                                     <span class="label">类型：</span>
                                      <span>${data.genre}</span>
                                  </li>` : '';
         const summary = data.summary !== '' ? `<p>${data.summary}</p>` : '';
 
         const rate = this.renderRate();
 
-        return `<div id="doubanx-subject-tip" class="doubanx-subject-tip-book">
-                    <div class="doubanx-rating-logo">豆瓣简介</div>
-                    <div class="doubanx-subject-tip-hd">
+        return `<div class="book-douban">
+                    <div class="logo">豆瓣简介</div>
+                    <div class="book-douban-head">
                         <h3>
                             <a href="https://${data.type}.douban.com/subject/${data.id}" target="_blank"><span>${title} (${data.year})</span></a>
                         </h3>
                         ${originTitle}
                     </div>
                     ${rate}
-                    <div class="doubanx-subject-tip-bd">
+                    <div class="book-douban-details">
                         <ul>
                             ${director}
                             ${stars}
@@ -162,16 +168,30 @@ class Template {
                     </div>
                 </div>`;
     }
+
+    renderTags(tags) {
+        let result = `<div id="tag_group">`;
+        for (const tag of tags) {
+            tag.title;
+            // TODO
+            result += `<span class="">
+                <a class="tag" href="https://book.douban.com/tag/${tag.name}">${tag.title}</a></span>`;
+        }
+
+        result += `</div>`;
+        return result;
+    }
+
     renderRate() {
         const data = this.data;
         if (data.ratingNum > 10 || this.type === 'movie') {
-            return `<div id="doubanx_rating">
+            return `<div class="rating">
                         <a href="javascript:;" class="doubanx_close"></a>
                         <div class="rating_wrap clearbox">
                             <div class="rating_self clearfix">
                                 <strong class="ll rating_num">${data.rating}</strong>
                                 <div class="rating_right">
-                                    <div class="ll doubanx_star${data.star}"></div>
+                                    <div class="ll douban_star${data.star}"></div>
                                     <div class="rating_sum">
                                         <a href="https://${data.type}.douban.com/subject/${data.id}/collections" class="rating_people" target="_blank"><span>${data.ratingNum}</span>人评价</a>
                                     </div>
@@ -180,13 +200,13 @@ class Template {
                         </div>
                     </div>`;
         } else {
-            return `<div id="doubanx_rating">
-                            <div class="doubanx-rating-logo">豆瓣评分</div>
+            return `<div class="rating">
+                            <div class="logo">豆瓣评分</div>
                             <div class="rating_self clearfix">
                                 <strong class="ll rating_num"></strong>
                                 <span content="10.0"></span>
                                 <div class="rating_right not_showed">
-                                    <div class="ll doubanx_star00"></div>
+                                    <div class="ll douban_star00"></div>
                                     <div class="rating_sum">
                                         <a href="https://${data.type}.douban.com/subject/${data.id}/collections" target="_blank">评价人数不足</a>
                                     </div>
@@ -201,9 +221,11 @@ class Template {
      */
     renderErrorIntro() {
         const data = this.data;
-        return `<div id="doubanx-subject-tip">
-                    <div class="doubanx-rating-logo">豆瓣简介</div>
-                    <div class="doubanx-subject-tip-hd">
+        return `<div class="book-douban">
+                    <div class="nav-logo">
+                            <a href="https://book.douban.com">豆瓣读书</a>
+                    </div>
+                    <div class="book-douban-head">
                         <h3>暂无数据 :(</h3>
                         <br>
                         ${data.errMsg}
@@ -214,8 +236,8 @@ class Template {
      * 渲染简介前的Loading
      */
     renderLoadIntro() {
-        return `<div id="doubanx-subject-tip">
-                    <div class="doubanx-rating-logo">
+        return `<div class="book-douban">
+                    <div class="logo">
                         内容正在加载中...
                     </div>
                     <div class="loader-inner ball-grid-pulse">

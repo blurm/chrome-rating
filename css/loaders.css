@@ -1,0 +1,222 @@
+/* ----------- loader - ball-grid-pulse -------------------- */
+@-webkit-keyframes ball-grid-pulse {
+    0% {
+        -webkit-transform: scale(1);
+    transform: scale(1); }
+    50% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    opacity: 0.7; }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+opacity: 1; } }
+
+@keyframes ball-grid-pulse {
+    0% {
+        -webkit-transform: scale(1);
+    transform: scale(1); }
+    50% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    opacity: 0.7; }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+opacity: 1; } }
+
+.ball-grid-pulse {
+    width: 75px;
+    margin: 0 70px;
+    position: relative
+}
+.ball-grid-pulse > div:nth-child(1) {
+    -webkit-animation-delay: 0.22s;
+    animation-delay: 0.22s;
+    -webkit-animation-duration: 0.9s;
+animation-duration: 0.9s; }
+.ball-grid-pulse > div:nth-child(2) {
+    -webkit-animation-delay: 0.64s;
+    animation-delay: 0.64s;
+    -webkit-animation-duration: 1s;
+animation-duration: 1s; }
+.ball-grid-pulse > div:nth-child(3) {
+    -webkit-animation-delay: -0.15s;
+    animation-delay: -0.15s;
+    -webkit-animation-duration: 0.63s;
+animation-duration: 0.63s; }
+.ball-grid-pulse > div:nth-child(4) {
+    -webkit-animation-delay: -0.03s;
+    animation-delay: -0.03s;
+    -webkit-animation-duration: 1.24s;
+animation-duration: 1.24s; }
+.ball-grid-pulse > div:nth-child(5) {
+    -webkit-animation-delay: 0.08s;
+    animation-delay: 0.08s;
+    -webkit-animation-duration: 1.37s;
+animation-duration: 1.37s; }
+.ball-grid-pulse > div:nth-child(6) {
+    -webkit-animation-delay: 0.43s;
+    animation-delay: 0.43s;
+    -webkit-animation-duration: 1.55s;
+animation-duration: 1.55s; }
+.ball-grid-pulse > div:nth-child(7) {
+    -webkit-animation-delay: 0.05s;
+    animation-delay: 0.05s;
+    -webkit-animation-duration: 0.7s;
+animation-duration: 0.7s; }
+.ball-grid-pulse > div:nth-child(8) {
+    -webkit-animation-delay: 0.05s;
+    animation-delay: 0.05s;
+    -webkit-animation-duration: 0.97s;
+animation-duration: 0.97s; }
+.ball-grid-pulse > div:nth-child(9) {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+    -webkit-animation-duration: 0.63s;
+animation-duration: 0.63s; }
+.ball-grid-pulse > div {
+    background-color: #DC7633;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    margin: 2px;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    display: inline-block;
+    float: left;
+    -webkit-animation-name: ball-grid-pulse;
+    animation-name: ball-grid-pulse;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-delay: 0;
+    animation-delay: 0;
+}
+
+
+/* ----------- loader - pacman -------------------- */
+.pacman>div:first-of-type,.pacman>div:nth-child(2) {
+    width: 0;
+    height: 0;
+    border-right: 25px solid transparent;
+    border-top: 25px solid #4b8ccb;
+    border-left: 25px solid #4b8ccb;
+    border-bottom: 25px solid #4b8ccb;
+    border-radius: 25px
+}
+
+@-webkit-keyframes rotate_pacman_half_up {
+    0%,100% {
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg)
+    }
+
+    50% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes rotate_pacman_half_up {
+    0%,100% {
+        -webkit-transform: rotate(270deg);
+        transform: rotate(270deg)
+    }
+
+    50% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+@-webkit-keyframes rotate_pacman_half_down {
+    0%,100% {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg)
+    }
+
+    50% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+}
+
+@keyframes rotate_pacman_half_down {
+    0%,100% {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg)
+    }
+
+    50% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+}
+
+@-webkit-keyframes pacman-balls {
+    75% {
+        opacity: .7
+    }
+
+    100% {
+        -webkit-transform: translate(-100px,-6.25px);
+        transform: translate(-100px,-6.25px)
+    }
+}
+
+@keyframes pacman-balls {
+    75% {
+        opacity: .7
+    }
+
+    100% {
+        -webkit-transform: translate(-100px,-6.25px);
+        transform: translate(-100px,-6.25px)
+    }
+}
+
+.pacman {
+    width: 100px;
+    margin: 0 50px;
+    position: relative
+}
+
+.pacman>div:nth-child(3) {
+    -webkit-animation: pacman-balls 1s .33s infinite linear;
+    animation: pacman-balls 1s .33s infinite linear
+}
+
+.pacman>div:nth-child(4) {
+    -webkit-animation: pacman-balls 1s .66s infinite linear;
+    animation: pacman-balls 1s .66s infinite linear
+}
+
+.pacman>div:nth-child(5) {
+    -webkit-animation: pacman-balls 1s .99s infinite linear;
+    animation: pacman-balls 1s .99s infinite linear
+}
+
+.pacman>div:first-of-type {
+    -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+    animation: rotate_pacman_half_up .5s 0s infinite
+}
+
+.pacman>div:nth-child(2) {
+    -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+    animation: rotate_pacman_half_down .5s 0s infinite;
+    margin-top: -50px
+}
+
+.pacman>div:nth-child(3),.pacman>div:nth-child(4),.pacman>div:nth-child(5),.pacman>div:nth-child(6) {
+    background-color: #4b8ccb;
+    border-radius: 100%;
+    margin: 2px;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    -webkit-transform: translate(0,-6.25px);
+    -ms-transform: translate(0,-6.25px);
+    transform: translate(0,-6.25px);
+    top: 25px;
+    left: 100px
+}
