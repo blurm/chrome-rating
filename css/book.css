@@ -350,6 +350,11 @@ div#tag_group {
     color: #37A;
 }
 
+.book-douban .loader-inner {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
 /*测试用代码，在movie页面上显示*/
 .tag_item {
     position: relative;

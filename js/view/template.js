@@ -1,3 +1,6 @@
+const DUR_FO_TIP = 100 // duration for tip fade out animation
+const DUR_FI_TIP_DETAIL = 300 // duration for tip detail fading in
+
 class Template {
     constructor(data, type) {
         this.data = data || {};
@@ -15,15 +18,12 @@ class Template {
             case 'loading':
                 renderOutput = this.renderLoadIntro();
                 break;
-
             case 'error':
                 renderOutput = this.renderErrorIntro();
                 break;
-
             case 'movie':
                 renderOutput = this.renderMovieIntro();
                 break;
-
             case 'book':
                 renderOutput = this.renderBookIntro();
                 break;
@@ -31,13 +31,31 @@ class Template {
             default:
         }
 
-        $('.book-douban').remove();
-        const $body = $('body');
+        //如果是loading，则把原先的div删除掉。否则，在loading的div上更新内容
+        if (type === 'loading') {
+            $('.book-douban').remove();
+            $('body').append(this.renderContainer());
+            $('.book-douban .container').append(renderOutput);
+        } else {
+            $('.book-douban .container').empty();
+            let $appendTo = $('.book-douban .container').hide().append(renderOutput).fadeIn(DUR_FI_TIP_DETAIL);
 
-        $body.append(renderOutput).find('.book-douban').hide().fadeIn(100);
+            // 右上方关闭按钮的注册事件
+            $('.book-douban').on('click', '.doubanx_close', (ev) => {
+                console.log('douban close');
+                ev.preventDefault();
+                const $target = $(ev.currentTarget);
+                //$tips.toggleClass('animated fadeOutRightBig');
+                $tips.fadeOut(DUR_FO_TIP);
+                setTimeout(() => {
+                    $tips.remove();
+                }, DUR_FO_TIP);
+            });
+        }
 
         const $tips = $('.book-douban');
 
+        const $body = $('body');
         const bodyW = $body.width();
 
         // 允许我们检索一个元素 (包含其 border 边框，不包括 margin) 相对于文档（document）的当前位置
@@ -66,16 +84,7 @@ class Template {
             });
         }
 
-        $body.on('click', '.doubanx_close', (ev) => {
-            console.log('douban close');
-            ev.preventDefault();
-            const $target = $(ev.currentTarget);
-            //$tips.toggleClass('animated fadeOutRightBig');
-            $tips.fadeOut(100);
-            setTimeout(() => {
-                $tips.remove();
-            }, 500);
-        });
+
     }
 
     /**
@@ -105,28 +114,21 @@ class Template {
         const rate = this.renderRate();
         const tags = this.renderTags(data.tags);
 
-        return `<div class="book-douban">
-                    <div class="logo">
-                        <div id="douban_logo" class="nav-logo">
-                            <a href="https://book.douban.com" alt="douban" target="_blank">douban</a>
-                        </div>
-                    </div>
-                    <div class="book-douban-head">
-                        <h3>
-                            <a href="https://${data.type}.douban.com/subject/${data.id}" target="_blank"><span>${title}</span></a>
-                        </h3>
-                        ${originTitle}
-                    </div>
-                    ${rate}
-                    ${tags}
-                    <div class="book-douban-details">
-                        <ul>
-                            ${author}
-                            ${translator}
-                            ${publisher}
-                        </ul>
-                        ${summary}
-                    </div>
+        return `<div class="book-douban-head">
+                    <h3>
+                        <a href="https://${data.type}.douban.com/subject/${data.id}" target="_blank"><span>${title}</span></a>
+                    </h3>
+                    ${originTitle}
+                </div>
+                ${rate}
+                ${tags}
+                <div class="book-douban-details">
+                    <ul>
+                        ${author}
+                        ${translator}
+                        ${publisher}
+                    </ul>
+                    ${summary}
                 </div>`;
     }
 
@@ -234,28 +236,17 @@ class Template {
      */
     renderErrorIntro() {
         const data = this.data;
-        return `<div class="book-douban">
-                    <div class="nav-logo">
-                            <a href="https://book.douban.com">豆瓣读书</a>
-                    </div>
-                    <div class="book-douban-head">
-                        <h3>暂无数据 :(</h3>
-                        <br>
-                        ${data.errMsg}
-                    </div>
+        return `<div class="book-douban-head">
+                    <h3>暂无数据 :(</h3>
+                    <br>
+                    ${data.errMsg}
                 </div>`;
     }
     /**
      * 渲染简介前的Loading
      */
     renderLoadIntro() {
-        return `<div class="book-douban">
-                    <div class="logo">
-                        <div id="douban_logo" class="nav-logo">
-                            <a href="https://book.douban.com" alt="douban" target="_blank">douban</a>
-                        </div>
-                        <div>内容正在加载中...</div>
-                    </div>
+        return `<div>内容正在加载中...</div>
                     <div class="loader-inner ball-grid-pulse">
                         <div></div>
                         <div></div>
@@ -266,6 +257,17 @@ class Template {
                         <div></div>
                         <div></div>
                         <div></div>
+                </div>`;
+    }
+
+    renderContainer() {
+        return `<div class="book-douban">
+                    <div class="logo">
+                        <div id="douban_logo" class="nav-logo">
+                            <a href="https://book.douban.com" alt="douban" target="_blank">douban</a>
+                        </div>
+                    </div>
+                    <div class="container">
                     </div>
                 </div>`;
     }
