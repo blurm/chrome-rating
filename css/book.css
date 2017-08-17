@@ -62,6 +62,33 @@
     /*max-width: 300px;*/
     /*min-width: 200px;*/
 }
+
+/*气泡的小三角样式*/
+.book-douban:after, .book-douban:before {
+    right: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.book-douban:before {
+    border-right-color:#acacac;
+    border-width:8px;
+    /*三角距离顶部的距离*/
+    top: 50px;
+    /*before和after margin-top的差为三角border的大小*/
+    margin-top: -8px;
+}
+
+.book-douban:after {
+    border-right-color: #f6f6f1;
+    border-width: 7px;
+    top: 50px;
+    margin-top:-7px;
+}
 /*.book-douban.book-douban-movie {*/
     /*width: 200px;*/
 /*}*/
@@ -322,15 +349,10 @@
     text-decoration:none;
     background: transparent;
 }
-#tag_group {
-    margin-bottom:10px
-    padding-bottom: 10px;
-    /*border-bottom: 1px solid #ddd;*/
-}
-div#tag_group {
+div.tag_group {
     margin-bottom: 10px;
 }
-#tag_group .tag, .tag:link, .tag:visited {
+.tag_group .tag, .tag:link, .tag:visited {
     width: auto;
     word-break: keep-all;
     white-space: nowrap;
@@ -344,7 +366,7 @@ div#tag_group {
     line-height: 20px;
     border-radius: 2px;
 }
-#tag_group .tag:hover {
+.tag_group .tag:hover {
     background-color: #D7DBDD;
     /*background-color: #CACFD2;*/
     color: #37A;

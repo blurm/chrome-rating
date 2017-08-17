@@ -185,7 +185,7 @@ class Template {
     }
 
     renderTags(tags) {
-        let result = `<div id="tag_group">`;
+        let result = `<div class="tag_group">`;
         for (const tag of tags) {
             tag.title;
             // TODO

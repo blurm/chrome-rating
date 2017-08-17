@@ -31,95 +31,96 @@ a:link {
     color: #37a;
     text-decoration: none;
 }
+.bubble{
+    font-family: Arial;
+    position: absolute;
+    top: 0;
+    /*决定元素在z轴的摆放顺序，99999表示浮动窗在最上面*/
+    z-index: 99999;
+    [>width: 200px;<]
+    background-color: #f6f6f1;
+    padding: 15px;
+    box-shadow: 0px 0px 10px #515A5A;
+    border-radius:7px;
+    text-align: left;
+    width: 240px;
 
-.animated {
-    -webkit-animation-duration: 0.5s;
-    animation-duration: 0.5s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-}
-@-webkit-keyframes fadeInRightBig {
-    from {
-        opacity: 0;
-        -webkit-transform: translate3d(2000px, 0, 0);
-        transform: translate3d(2000px, 0, 0);
-    }
-
-    to {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none;
-    }
-}
-
-@keyframes fadeInRightBig {
-    from {
-        opacity: 0;
-        -webkit-transform: translate3d(2000px, 0, 0);
-        transform: translate3d(2000px, 0, 0);
-    }
-
-    to {
-        opacity: 1;
-        -webkit-transform: none;
-        transform: none;
-    }
+    /*background-color: #F2F2F2;*/
+    /*border-radius: 5px;*/
+    /*box-shadow: 0px 0px 6px #B2B2B2;*/
+    /*height: 200px;*/
+    /*margin: 20px;*/
+    /*width:  275px;*/
+    /*position: absolute;*/
 }
 
-.fadeInRightBig {
-    -webkit-animation-name: fadeInRightBig;
-    animation-name: fadeInRightBig;
-}
-@-webkit-keyframes fadeOutRightBig {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-        -webkit-transform: translate3d(2000px, 0, 0);
-        transform: translate3d(2000px, 0, 0);
-    }
-}
-
-@keyframes fadeOutRightBig {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-        -webkit-transform: translate3d(2000px, 0, 0);
-        transform: translate3d(2000px, 0, 0);
-    }
+.bubble::after {
+    background-color: #F2F2F2;
+    box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+    content: "\00a0";
+    display: block;
+    height: 20px;
+    left: -10px;
+    position: relative;
+    top: 20px;
+    transform:             rotate( 45deg );
+    -moz-transform:    rotate( 45deg );
+    -ms-transform:     rotate( 45deg );
+    -o-transform:      rotate( 45deg );
+    -webkit-transform: rotate( 45deg );
+    width:  20px;
 }
 
-.fadeOutRightBig {
-    -webkit-animation-name: fadeOutRightBig;
-    animation-name: fadeOutRightBig;
+/*.book-bubble {*/
+    /*position: fixed;*/
+    /*width: 200px;*/
+    /*height: 100px;*/
+    /*z-index: 999;*/
+    /*color: #666;*/
+    /*padding: 17px;*/
+    /*border: 1px solid #acacac;*/
+    /*background: #f6f6f1;*/
+    /*border-radius: 3px;*/
+    /*box-shadow: -2px 2px 2px 0 #515A5A;*/
+    /*[>box-shadow:5 5px 10px #fdfdfd inset, 5 5px 5px #dcdbd4;<]*/
+/*}*/
+
+.book-bubble {
+    font-family: Arial;
+    position: absolute;
+    top: 0;
+    /*决定元素在z轴的摆放顺序，99999表示浮动窗在最上面*/
+    z-index: 99999;
+    /*width: 200px;*/
+    background-color: #f6f6f1;
+    padding: 15px;
+    box-shadow: 0px 0px 10px #515A5A;
+    border-radius:7px;
+    text-align: left;
+    width: 240px;
+    /*max-width: 300px;*/
+    /*min-width: 200px;*/
+}
+.book-bubble:after, .book-bubble:before {
+    right: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
 }
 
-@-webkit-keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+.book-bubble:before {
+    border-right-color:#acacac;
+    border-width:8px;
+    top: 50%;
+    margin-top: -8px;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-.fadeIn {
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
+.book-bubble:after {
+    border-right-color: #f6f6f1;
+    border-width: 7px;
+    top: 50%;
+    margin-top:-7px;
 }
