@@ -78,10 +78,23 @@ class Template {
         // 其次在左侧展示
         else if (listL > tipsW)
         {
+            if (!$tips.hasClass('left')) {
+                $tips.addClass('left');
+            }
             $tips.css({
                 top: listT,
                 left: listL - tipsW
             });
+
+            //$tips.find('.book-douban-before-after').css({
+                //"left": "100%"
+            //});
+            //$tips.find('.book-douban-before').css({
+                //"border-left-color": "#acacac"
+            //});
+            //$tips.find('.book-douban-after').css({
+                //"border-left-color": "#f6f6f1"
+            //});
         }
 
 

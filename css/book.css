@@ -63,9 +63,10 @@
     /*min-width: 200px;*/
 }
 
-/*气泡的小三角样式*/
+/*气泡的小三角样式 默认是右侧布局*/
 .book-douban:after, .book-douban:before {
     right: 100%;
+    /*left: 100%;*/
     border: solid transparent;
     content: " ";
     height: 0;
@@ -76,18 +77,32 @@
 
 .book-douban:before {
     border-right-color:#acacac;
+    /*border-left-color:#acacac;*/
     border-width:8px;
     /*三角距离顶部的距离*/
-    top: 50px;
+    top: 60px;
     /*before和after margin-top的差为三角border的大小*/
     margin-top: -8px;
+}
+.book-douban.left:before {
+    right:;
+    left: 100%;
+    border-left-color:#acacac;
+    border-right-color:transparent;
 }
 
 .book-douban:after {
     border-right-color: #f6f6f1;
+    /*border-left-color: #f6f6f1;*/
     border-width: 7px;
-    top: 50px;
+    top: 60px;
     margin-top:-7px;
+}
+.book-douban.left:after {
+    right:;
+    left: 100%;
+    border-left-color: #f6f6f1;
+    border-right-color: transparent;
 }
 /*.book-douban.book-douban-movie {*/
     /*width: 200px;*/
