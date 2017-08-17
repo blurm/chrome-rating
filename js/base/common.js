@@ -78,15 +78,21 @@ class Common {
             //const href = $.trim($link.attr('href'));
 
             //if (reg.test(href)) {
-                //const tip = $('.book-douban');
+                //const $tip = $('.book-douban');
 
-                //tip.on('mouseleave', () => {
-                    //tip.remove();
+                //$tip.on('mouseleave', () => {
+                    //$tip.fadeOut(100);
+                    //setTimeout(() => {
+                        //$tip.remove();
+                    //}, 500);
                 //});
 
                 //setTimeout(function () {
-                    //if (!tip.is(':hover')) {
-                        //tip.remove();
+                    //if (!$tip.is(':hover')) {
+                        //$tip.fadeOut(100);
+                        //setTimeout(() => {
+                            //$tip.remove();
+                        //}, 500);
                     //}
                 //}, 500);
 

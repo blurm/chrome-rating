@@ -34,7 +34,10 @@ class Template {
         $('.book-douban').remove();
         const $body = $('body');
 
-        $body.append(renderOutput);
+        $body.append(renderOutput).find('.book-douban').hide().fadeIn(100);
+
+        const $tips = $('.book-douban');
+
         const bodyW = $body.width();
 
         // 允许我们检索一个元素 (包含其 border 边框，不包括 margin) 相对于文档（document）的当前位置
@@ -43,7 +46,6 @@ class Template {
         const listW = $list.width();
         const listH = $list.height();
 
-        const $tips = $('.book-douban');
         const tipsW = $tips.width();
         const tipsH = $tips.height();
 
@@ -63,6 +65,17 @@ class Template {
                 left: listL - tipsW
             });
         }
+
+        $body.on('click', '.doubanx_close', (ev) => {
+            console.log('douban close');
+            ev.preventDefault();
+            const $target = $(ev.currentTarget);
+            //$tips.toggleClass('animated fadeOutRightBig');
+            $tips.fadeOut(100);
+            setTimeout(() => {
+                $tips.remove();
+            }, 500);
+        });
     }
 
     /**
@@ -238,7 +251,10 @@ class Template {
     renderLoadIntro() {
         return `<div class="book-douban">
                     <div class="logo">
-                        内容正在加载中...
+                        <div id="douban_logo" class="nav-logo">
+                            <a href="https://book.douban.com" alt="douban" target="_blank">douban</a>
+                        </div>
+                        <div>内容正在加载中...</div>
                     </div>
                     <div class="loader-inner ball-grid-pulse">
                         <div></div>

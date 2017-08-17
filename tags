@@ -1,0 +1,227 @@
+active	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/active/;"	v	lineno:15	namespace:getCurrentTabUrl.queryInfo	type:boolean
+age	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/age/;"	v	lineno:11	namespace:Human	type:number
+age	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/age/;"	v	lineno:13	namespace:man1	type:number
+age	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/age/;"	v	lineno:33	namespace:Student	type:number
+age	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/"age"/;"	v	lineno:50	namespace:params	type:number
+api	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/api/;"	v	lineno:6	namespace:DoubanX
+au1	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/au1/;"	v	lineno:141	type:string
+au2	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/au2/;"	v	lineno:142	type:string
+au3	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/au3/;"	v	lineno:143	type:string
+au4	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/au4/;"	v	lineno:144	type:string
+au5	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/au5/;"	v	lineno:145	type:string
+au6	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/au6/;"	v	lineno:146	type:string
+au7	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/au7/;"	v	lineno:147	type:string
+author	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/author/;"	v	lineno:89	namespace:JD.formatAuthor
+BaseInfo	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/base_info.js	/BaseInfo/;"	f	lineno:1	type:void function()
+bookName	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/bookName/;"	v	lineno:43	namespace:JD.getBookShortName	type:string
+callback	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/callback/;"	f	lineno:136	namespace:DoubanX.prototype.getReviewOnline	type:void function(?)
+callback	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/callback/;"	f	lineno:149	namespace:DoubanX.prototype.getReviewOffline	type:void function(?)
+callback	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/callback/;"	f	lineno:159	namespace:DoubanX.prototype.getReview	type:void function(?)
+callback	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/callback/;"	f	lineno:177	namespace:DoubanX.prototype.getIntroOffline	type:void function(?)
+callback	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/callback/;"	f	lineno:187	namespace:DoubanX.prototype.getIntroOnline	type:void function(?)
+callback	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/callback/;"	f	lineno:48	namespace:DoubanX.prototype.getOnline	type:void function(?)
+callback	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/callback/;"	f	lineno:70	namespace:DoubanX.prototype.getOffline	type:void function(?)
+callback	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/callback/;"	f	lineno:84	namespace:DoubanX.prototype.getRateOnline	type:void function(?)
+callback	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/callback/;"	f	lineno:97	namespace:DoubanX.prototype.getRateOffline	type:void function(?)
+callback	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/callback/;"	v	lineno:200	namespace:DoubanX.prototype.getIntro
+callback	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/callback/;"	f	lineno:11	namespace:getCurrentTabUrl	type:void function(?)
+callback	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/callback/;"	f	lineno:57	namespace:getImageUrl	type:void function(?, number, number)
+Common	/home/damon/mydata/vim/chrome_extentions/imdb/js/base/common.js	/Common/;"	f	lineno:1	type:void function(?, ?)
+constructor	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/constructor/;"	f	lineno:39	namespace:Student.prototype	type:void function(string, number, number)
+countStar	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/base_info.js	/countStar/;"	f	lineno:34	namespace:BaseInfo.prototype	type:number function(?)
+createOptions	/home/damon/mydata/vim/chrome_extentions/imdb/js/base/common.js	/createOptions/;"	v	lineno:4	namespace:Common.prototype.listHandle.that
+createOptions	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/createOptions/;"	f	lineno:95	namespace:JD	type:JD.createOptions.!ret function(?, ?)
+createOptions	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/qq.js	/createOptions/;"	f	lineno:18	namespace:QQ	type:QQ.createOptions.!ret function(?, ?)
+createOptions	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/ttmeiju.js	/createOptions/;"	f	lineno:2	namespace:Ttmeiju	type:Ttmeiju.createOptions.!ret function(?)
+curAuthor	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/curAuthor/;"	v	lineno:76	namespace:DoubanInfo.prototype.isMatchAuthor
+curAuthor	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/curAuthor/;"	v	lineno:149	namespace:isMatchAuthor	type:string
+curAuthor	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/curAuthor/;"	v	lineno:167	type:string
+currentWindow	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/currentWindow/;"	v	lineno:16	namespace:getCurrentTabUrl.queryInfo	type:boolean
+data	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/data/;"	v	lineno:136	namespace:DoubanX.prototype.getReviewOnline
+data	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/data/;"	v	lineno:159	namespace:DoubanX.prototype.getReview
+DoubanInfo	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/DoubanInfo/;"	f	lineno:38	type:void function()
+DoubanX	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/DoubanX/;"	f	lineno:1	type:void function(?)
+doWork	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/doWork/;"	f	lineno:41	namespace:Student.prototype	type:void function()
+ERR_MSG_MAP	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/ERR_MSG_MAP/;"	v	lineno:1	type:Map
+ERR_MSG_MAP_IMDB	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/imdb_info.js	/ERR_MSG_MAP_IMDB/;"	v	lineno:1	type:Map
+errorCallback	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/errorCallback/;"	f	lineno:57	namespace:getImageUrl	type:void function(string)
+error	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/error/;"	v	lineno:187	namespace:DoubanX.prototype.getIntroOnline
+error	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/error/;"	v	lineno:200	namespace:DoubanX.prototype.getIntro
+error	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/error/;"	v	lineno:48	namespace:DoubanX.prototype.getOnline
+ex1	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/ex1/;"	v	lineno:99	type:string
+ex2	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/ex2/;"	v	lineno:100	type:string
+ex3	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/ex3/;"	v	lineno:101	type:string
+ex4	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/ex4/;"	v	lineno:102	type:string
+ex5	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/ex5/;"	v	lineno:103	type:string
+ex6	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/ex6/;"	v	lineno:104	type:string
+ex7	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/ex7/;"	v	lineno:105	type:string
+f1	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/f1/;"	f	lineno:117	namespace:test	type:void function(string)
+f2	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/f2/;"	f	lineno:117	namespace:test	type:!this function(?)
+fail	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/base_info.js	/fail/;"	v	lineno:10	namespace:BaseInfo.prototype.get
+fail	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/fail/;"	v	lineno:68	namespace:DoubanInfo.prototype.getRatingInfo
+fail	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/imdb_info.js	/fail/;"	v	lineno:51	namespace:IMDBInfo.prototype.getRatingInfo
+firstResult	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/firstResult/;"	v	lineno:74	namespace:getImageUrl.x.onload
+formatAuthor	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/formatAuthor/;"	f	lineno:89	namespace:JD	type:void function(?)
+formatBookname	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/formatBookname/;"	f	lineno:56	namespace:JD	type:string function(?, string)
+formatBookname	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/formatBookname/;"	f	lineno:82	type:string function(string)
+formatData	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/formatData/;"	f	lineno:39	namespace:DoubanX	type:!0 function(DoubanX.formatData.!0)
+formatName	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/formatName/;"	f	lineno:17	namespace:DoubanX	type:void function(string)
+Fun1	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/test.js	/Fun1/;"	f	lineno:1	type:void function()
+getBookShortName	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/getBookShortName/;"	f	lineno:43	namespace:JD	type:[string] function(string)
+getCurrentTabUrl	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/getCurrentTabUrl/;"	f	lineno:11	type:void function(fn(url: ?)
+get	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/base_info.js	/get/;"	f	lineno:10	namespace:BaseInfo.prototype	type:void function(?, ?)
+getImageUrl	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/getImageUrl/;"	f	lineno:57	type:void function(string, fn(imageUrl: ?, number, number)
+getIntro	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/getIntro/;"	f	lineno:200	namespace:DoubanX.prototype	type:void function(?, ?)
+getIntro	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/getIntro/;"	v	lineno:9	namespace:DoubanX.api	type:string
+getIntroOffline	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/getIntroOffline/;"	f	lineno:177	namespace:DoubanX.prototype	type:boolean function(fn(intro: ?)
+getIntroOnline	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/getIntroOnline/;"	f	lineno:187	namespace:DoubanX.prototype	type:void function(fn(intro: ?)
+getOffline	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/getOffline/;"	f	lineno:70	namespace:DoubanX.prototype	type:boolean function(string, fn(data: ?)
+getOnline	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/getOnline/;"	f	lineno:48	namespace:DoubanX.prototype	type:void function(string, string, string, fn(data: ?)
+getParams	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/base_info.js	/getParams/;"	f	lineno:21	namespace:BaseInfo.prototype	type:void function()
+getParams	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/getParams/;"	f	lineno:57	namespace:DoubanInfo.prototype	type:DoubanInfo.prototype.getParams.!ret function()
+getParams	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/imdb_info.js	/getParams/;"	f	lineno:11	namespace:IMDBInfo.prototype	type:IMDBInfo.prototype.getParams.!ret function()
+getRate	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/getRate/;"	f	lineno:107	namespace:DoubanX.prototype	type:void function()
+getRate	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/getRate/;"	v	lineno:7	namespace:DoubanX.api	type:string
+getRateOffline	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/getRateOffline/;"	f	lineno:97	namespace:DoubanX.prototype	type:boolean function(fn(data: ?)
+getRateOnline	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/getRateOnline/;"	f	lineno:84	namespace:DoubanX.prototype	type:void function(fn(data: ?)
+getRatingInfo	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/getRatingInfo/;"	f	lineno:68	namespace:DoubanInfo.prototype	type:void function(?, ?)
+getRatingInfo	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/imdb_info.js	/getRatingInfo/;"	f	lineno:51	namespace:IMDBInfo.prototype	type:void function(?, ?)
+getReview	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/getReview/;"	f	lineno:159	namespace:DoubanX.prototype	type:void function(?, fn(review: ?)
+getReview	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/getReview/;"	v	lineno:8	namespace:DoubanX.api	type:string
+getReviewOffline	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/getReviewOffline/;"	f	lineno:149	namespace:DoubanX.prototype	type:boolean function(fn(review: ?)
+getReviewOnline	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/getReviewOnline/;"	f	lineno:136	namespace:DoubanX.prototype	type:void function(?, fn(review: ?)
+getSync	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/base_info.js	/getSync/;"	f	lineno:14	namespace:BaseInfo.prototype	type:void function(?)
+grade	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/grade/;"	v	lineno:33	namespace:Student	type:number
+grade	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/grade/;"	v	lineno:35	namespace:stu1	type:number
+height	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/height/;"	v	lineno:110	namespace:Element	type:number
+height	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/height/;"	v	lineno:79	namespace:getImageUrl.x.onload	type:number
+hidden	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/hidden/;"	v	lineno:112	namespace:Element	type:boolean
+Human	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/Human/;"	f	lineno:11	type:void function(string, number)
+i	/home/damon/mydata/vim/chrome_extentions/imdb/js/base/loaders.css.js	/i/;"	v	lineno:37	type:number
+imageUrl	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/imageUrl/;"	v	lineno:77	namespace:getImageUrl.x.onload
+IMDBInfo	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/imdb_info.js	/IMDBInfo/;"	f	lineno:4	type:void function()
+infoModule	/home/damon/mydata/vim/chrome_extentions/imdb/js/base/common.js	/infoModule/;"	v	lineno:3	namespace:Common.prototype.listHandle.that
+isMatchAuthor	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/isMatchAuthor/;"	f	lineno:76	namespace:DoubanInfo.prototype	type:boolean function(?, ?)
+isMatchAuthor	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/isMatchAuthor/;"	f	lineno:149	type:boolean function(string, Array[string])
+isMatchShortName	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/isMatchShortName/;"	f	lineno:93	namespace:DoubanInfo.prototype	type:boolean function(?, ?)
+JD	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/JD/;"	f	lineno:3	type:void function()
+jsonAuthor	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/jsonAuthor/;"	v	lineno:76	namespace:DoubanInfo.prototype.isMatchAuthor
+jsonAuthor	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/jsonAuthor/;"	v	lineno:149	namespace:isMatchAuthor	type:[string]
+jsonAuthor	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/jsonAuthor/;"	v	lineno:166	type:[string]
+json	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/json/;"	v	lineno:106	namespace:DoubanInfo.prototype.popError
+json	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/json/;"	v	lineno:118	namespace:DoubanInfo.prototype.popData
+json	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/imdb_info.js	/json/;"	v	lineno:20	namespace:IMDBInfo.prototype.popError
+json	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/imdb_info.js	/json/;"	v	lineno:28	namespace:IMDBInfo.prototype.popData
+jsonObj	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/jsonObj/;"	v	lineno:73	namespace:DoubanX.prototype.getOffline
+key	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/key/;"	v	lineno:48	namespace:DoubanX.prototype.getOnline	type:string
+key	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/key/;"	v	lineno:70	namespace:DoubanX.prototype.getOffline	type:string
+$link	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/\$link/;"	v	lineno:95	namespace:JD.createOptions
+$link	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/qq.js	/\$link/;"	v	lineno:18	namespace:QQ.createOptions
+listHandle	/home/damon/mydata/vim/chrome_extentions/imdb/js/base/common.js	/listHandle/;"	f	lineno:14	namespace:Common.prototype	type:void function(?, ?)
+$list	/home/damon/mydata/vim/chrome_extentions/imdb/js/view/template.js	/\$list/;"	v	lineno:12	namespace:Template.prototype.showTips
+main	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/main/;"	f	lineno:154	namespace:JD.prototype	type:void function()
+main	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/qq.js	/main/;"	f	lineno:31	namespace:QQ.prototype	type:void function()
+main	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/ttmeiju.js	/main/;"	f	lineno:14	namespace:Ttmeiju.prototype	type:void function()
+man1	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/man1/;"	v	lineno:22
+matchCN	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/matchCN/;"	f	lineno:33	namespace:JD	type:string function(string)
+matchCN	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/util.js	/matchCN/;"	f	lineno:20	namespace:Util	type:string function(?)
+matchCN	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/matchCN/;"	f	lineno:71	type:string function(string)
+matchEN	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/matchEN/;"	f	lineno:20	namespace:JD	type:string function(?)
+matchEN	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/util.js	/matchEN/;"	f	lineno:7	namespace:Util	type:string function(?)
+matchEN	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/matchEN/;"	f	lineno:62	type:string function(string)
+name	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/name/;"	v	lineno:56	namespace:JD.formatBookname
+name	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/name/;"	v	lineno:17	namespace:DoubanX.formatName	type:string
+name	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/name/;"	v	lineno:3	namespace:DoubanX	type:string
+name	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/name/;"	v	lineno:11	namespace:Human	type:string
+name	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/name/;"	v	lineno:12	namespace:man1	type:string
+name	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/name/;"	v	lineno:33	namespace:Student	type:string
+name	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/"name"/;"	v	lineno:49	namespace:params	type:string
+name	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/name/;"	v	lineno:82	namespace:formatBookname	type:string
+onerror	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/onerror/;"	f	lineno:85	namespace:getImageUrl.x	type:void function()
+onload	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/onload/;"	f	lineno:66	namespace:getImageUrl.x	type:void function()
+origin	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/origin/;"	v	lineno:5	namespace:DoubanX	type:string
+output	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/output/;"	v	lineno:71	namespace:DoubanX.prototype.getOffline	type:boolean
+p1	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/p1/;"	v	lineno:132
+p2	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/p2/;"	v	lineno:133
+p3	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/p3/;"	v	lineno:136
+params	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/params/;"	v	lineno:48	namespace:DoubanX.prototype.getOnline	type:string
+params	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/params/;"	v	lineno:48
+parse	/home/damon/mydata/vim/chrome_extentions/imdb/js/utils/parse_torrent_name/parser.js	/parse/;"	f	lineno:31	namespace:TitleParser	type:TitleParser.parse.!ret function(?)
+patternMap	/home/damon/mydata/vim/chrome_extentions/imdb/js/utils/parse_torrent_name/parser.js	/patternMap/;"	v	lineno:1	type:Map
+popData	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/popData/;"	f	lineno:118	namespace:DoubanInfo.prototype	type:DoubanInfo.prototype.popData.!ret function(?)
+popData	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/imdb_info.js	/popData/;"	f	lineno:28	namespace:IMDBInfo.prototype	type:IMDBInfo.prototype.popData.!ret function(?)
+popError	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/popError/;"	f	lineno:106	namespace:DoubanInfo.prototype	type:DoubanInfo.prototype.popError.!ret function(?)
+popError	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/imdb_info.js	/popError/;"	f	lineno:20	namespace:IMDBInfo.prototype	type:IMDBInfo.prototype.popError.!ret function(?)
+prototype	/home/damon/mydata/vim/chrome_extentions/imdb/js/base/common.js	/class Common \{/;"	v	lineno:1	namespace:Common
+prototype	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/class JD \{/;"	v	lineno:3	namespace:JD
+prototype	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/qq.js	/class QQ \{/;"	v	lineno:1	namespace:QQ
+prototype	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/ttmeiju.js	/class Ttmeiju \{/;"	v	lineno:1	namespace:Ttmeiju
+prototype	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/util.js	/class Util \{/;"	v	lineno:1	namespace:Util
+prototype	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/base_info.js	/class BaseInfo \{/;"	v	lineno:1	namespace:BaseInfo
+prototype	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/class DoubanInfo extends BaseInfo \{/;"	v	lineno:38	namespace:DoubanInfo
+prototype	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/imdb_info.js	/class IMDBInfo extends BaseInfo \{/;"	v	lineno:4	namespace:IMDBInfo
+prototype	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/class DoubanX \{/;"	v	lineno:1	namespace:DoubanX
+prototype	/home/damon/mydata/vim/chrome_extentions/imdb/js/utils/parse_torrent_name/parser.js	/class TitleParser \{/;"	v	lineno:25	namespace:TitleParser
+prototype	/home/damon/mydata/vim/chrome_extentions/imdb/js/view/template.js	/class Template \{/;"	v	lineno:1	namespace:Template
+prototype	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/prototype/;"	v	lineno:38	namespace:Student
+publisher	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/publisher/;"	v	lineno:56	namespace:JD.formatBookname	type:string
+QQ	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/qq.js	/QQ/;"	f	lineno:1	type:void function()
+queryInfo	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/queryInfo/;"	v	lineno:14	namespace:getCurrentTabUrl
+rating	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/base_info.js	/rating/;"	v	lineno:34	namespace:BaseInfo.prototype.countStar
+raw	/home/damon/mydata/vim/chrome_extentions/imdb/js/utils/parse_torrent_name/parser.js	/raw/;"	v	lineno:31	namespace:TitleParser.parse
+regex	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/regex/;"	v	lineno:107
+REGEX_REMOVE_BRACE	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/REGEX_REMOVE_BRACE/;"	v	lineno:1	type:regexp
+reg	/home/damon/mydata/vim/chrome_extentions/imdb/js/base/common.js	/reg/;"	v	lineno:14	namespace:Common.prototype.listHandle
+renderBookIntro	/home/damon/mydata/vim/chrome_extentions/imdb/js/view/template.js	/renderBookIntro/;"	f	lineno:71	namespace:Template.prototype	type:string function()
+renderErrorIntro	/home/damon/mydata/vim/chrome_extentions/imdb/js/view/template.js	/renderErrorIntro/;"	f	lineno:222	namespace:Template.prototype	type:string function()
+renderLoadIntro	/home/damon/mydata/vim/chrome_extentions/imdb/js/view/template.js	/renderLoadIntro/;"	f	lineno:238	namespace:Template.prototype	type:string function()
+renderMovieIntro	/home/damon/mydata/vim/chrome_extentions/imdb/js/view/template.js	/renderMovieIntro/;"	f	lineno:120	namespace:Template.prototype	type:string function()
+renderRate	/home/damon/mydata/vim/chrome_extentions/imdb/js/view/template.js	/renderRate/;"	f	lineno:185	namespace:Template.prototype	type:string function()
+renderStatus	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/renderStatus/;"	f	lineno:91	type:void function(string)
+renderTags	/home/damon/mydata/vim/chrome_extentions/imdb/js/view/template.js	/renderTags/;"	f	lineno:172	namespace:Template.prototype	type:string function(?)
+response	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/response/;"	v	lineno:68	namespace:getImageUrl.x.onload	type:Document
+responseType	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/responseType/;"	v	lineno:65	namespace:getImageUrl.x	type:string
+rmComma	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/base_info.js	/rmComma/;"	f	lineno:23	namespace:BaseInfo	type:void function(?)
+searchTerm	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/searchTerm/;"	v	lineno:57	namespace:getImageUrl	type:string
+searchUrl	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/searchUrl/;"	v	lineno:60	namespace:getImageUrl	type:string
+shortName	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/shortName/;"	v	lineno:93	namespace:DoubanInfo.prototype.isMatchShortName
+showTips	/home/damon/mydata/vim/chrome_extentions/imdb/js/view/template.js	/showTips/;"	f	lineno:12	namespace:Template.prototype	type:void function(?, ?)
+ss	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/ss/;"	v	lineno:67	type:string
+statusText	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/statusText/;"	v	lineno:91	namespace:renderStatus	type:string
+str	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/str/;"	v	lineno:20	namespace:JD.matchEN
+str	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/str/;"	v	lineno:33	namespace:JD.matchCN	type:string
+str	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/util.js	/str/;"	v	lineno:20	namespace:Util.matchCN
+str	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/util.js	/str/;"	v	lineno:7	namespace:Util.matchEN
+str	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/base_info.js	/str/;"	v	lineno:23	namespace:BaseInfo.rmComma
+str	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/test.js	/str/;"	v	lineno:3	namespace:Fun1	type:string
+str	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/str/;"	v	lineno:62	namespace:matchEN	type:string
+str	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/str/;"	v	lineno:71	namespace:matchCN	type:string
+stu1	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/stu1/;"	v	lineno:44
+Student	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/Student/;"	f	lineno:33	type:void function(string, number, number)
+success	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/base_info.js	/success/;"	v	lineno:10	namespace:BaseInfo.prototype.get
+success	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/success/;"	v	lineno:68	namespace:DoubanInfo.prototype.getRatingInfo
+success	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/imdb_info.js	/success/;"	v	lineno:51	namespace:IMDBInfo.prototype.getRatingInfo
+tag	/home/damon/mydata/vim/chrome_extentions/imdb/js/base/common.js	/tag/;"	v	lineno:14	namespace:Common.prototype.listHandle
+tags	/home/damon/mydata/vim/chrome_extentions/imdb/js/view/template.js	/tags/;"	v	lineno:172	namespace:Template.prototype.renderTags
+$target	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/jd.js	/\$target/;"	v	lineno:95	namespace:JD.createOptions
+$target	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/qq.js	/\$target/;"	v	lineno:18	namespace:QQ.createOptions
+$target	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/ttmeiju.js	/\$target/;"	v	lineno:2	namespace:Ttmeiju.createOptions
+Template	/home/damon/mydata/vim/chrome_extentions/imdb/js/view/template.js	/Template/;"	f	lineno:1	type:void function(?, ?)
+test	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/test/;"	f	lineno:117	type:!this) function(fn(value: string)
+textContent	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/textContent/;"	v	lineno:92	namespace:Element	type:string
+text	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/text/;"	v	lineno:53	type:string
+that	/home/damon/mydata/vim/chrome_extentions/imdb/js/base/common.js	/that/;"	v	lineno:15	namespace:Common.prototype.listHandle
+:t	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/function \(result\) \{/;"	v	lineno:133	namespace:p2	type:string
+:t	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/test/;"	v	lineno:132	namespace:p1	type:string
+timeOut	/home/damon/mydata/vim/chrome_extentions/imdb/test.js	/timeOut/;"	v	lineno:118	namespace:test	type:number
+title	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/douban_info.js	/title/;"	v	lineno:93	namespace:DoubanInfo.prototype.isMatchShortName
+TitleParser	/home/damon/mydata/vim/chrome_extentions/imdb/js/utils/parse_torrent_name/parser.js	/TitleParser/;"	f	lineno:25	type:void function()
+Ttmeiju	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/ttmeiju.js	/Ttmeiju/;"	f	lineno:1	type:void function()
+type	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/type/;"	v	lineno:4	namespace:DoubanX	type:string
+type	/home/damon/mydata/vim/chrome_extentions/imdb/js/view/template.js	/type/;"	v	lineno:12	namespace:Template.prototype.showTips
+url	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/base_info.js	/url/;"	v	lineno:14	namespace:BaseInfo.prototype.getSync
+url	/home/damon/mydata/vim/chrome_extentions/imdb/js/model/ratingInfo.js	/url/;"	v	lineno:48	namespace:DoubanX.prototype.getOnline	type:string
+Util	/home/damon/mydata/vim/chrome_extentions/imdb/js/controller/util.js	/Util/;"	f	lineno:1	type:void function()
+width	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/width/;"	v	lineno:109	namespace:Element	type:number
+width	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/width/;"	v	lineno:78	namespace:getImageUrl.x.onload	type:number
+x	/home/damon/mydata/vim/chrome_extentions/imdb/popup.js	/x/;"	v	lineno:62	namespace:getImageUrl
