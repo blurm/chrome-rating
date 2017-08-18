@@ -151,6 +151,17 @@ class DoubanInfo extends BaseInfo {
                         data.star = this.countStar(data.rating);
                         data.tags = book.tags
 
+                        // 将tag按长度从小到大排序，方便显示
+                        data.tags.sort((a,b) => {
+                            if (a.title.length > b.title.length) {
+                                return 1;
+                            } else if (a.title.length < b.title.length) {
+                                return -1;
+                            }
+                            return 0;
+                        });
+                        console.log('tags', data.tags);
+
                         data.author = book.author.join('，');
                         data.translator = book.translator.join('，');
                         data.publisher = book.publisher;
