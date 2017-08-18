@@ -69,6 +69,46 @@ class DoubanInfo extends BaseInfo {
         this.get(success, fail);
     }
 
+    sortTags(tags) {
+         //将tag按长度从小到大排序，方便显示
+        //tags.sort((a,b) => {
+            //if (a.title.length > b.title.length) {
+                //return 1;
+            //} else if (a.title.length < b.title.length) {
+                //return -1;
+            //}
+            //return 0;
+        //});
+
+        const max = 243;
+        const resultArr = [];
+        while (tags.length > 0) {
+            const indexArr = [];
+            indexArr.push(tags.length-1);
+            resultArr.push(tags[tags.length-1]);
+
+            const getTagLength = (tag) => {
+                const num = tag.title.length;
+                return num * 13 + 22 + 6;
+            };
+
+            let tempLength = getTagLength(tags[tags.length-1]);
+            for (let i = tags.length-2; i >= 0; i--) {
+                if (tempLength + getTagLength(tags[i]) < max) {
+                    tempLength += getTagLength(tags[i]);
+                    indexArr.push(i);
+                    resultArr.push(tags[i]);
+                }
+
+            }
+
+            for (let i = 0, len = indexArr.length; i < len; i++) {
+                tags.splice(indexArr[i], 1);
+            }
+        }
+        console.log(resultArr);
+        return resultArr;
+    }
     /**
      * 将当前作者按‘ ’或者‘，’‘,'分割，然后分别与jsonAuthor匹配，如果全部匹配则返回
      * true
@@ -149,18 +189,7 @@ class DoubanInfo extends BaseInfo {
                         data.rating = book.rating.average;
                         data.ratingNum = book.rating.numRaters;
                         data.star = this.countStar(data.rating);
-                        data.tags = book.tags
-
-                        // 将tag按长度从小到大排序，方便显示
-                        data.tags.sort((a,b) => {
-                            if (a.title.length > b.title.length) {
-                                return 1;
-                            } else if (a.title.length < b.title.length) {
-                                return -1;
-                            }
-                            return 0;
-                        });
-                        console.log('tags', data.tags);
+                        data.tags = this.sortTags(book.tags);
 
                         data.author = book.author.join('，');
                         data.translator = book.translator.join('，');
