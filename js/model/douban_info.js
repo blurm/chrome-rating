@@ -89,7 +89,10 @@ class DoubanInfo extends BaseInfo {
 
             const getTagLength = (tag) => {
                 const num = tag.title.length;
-                return num * 13 + 22 + 6;
+                if (Util.matchCN(tag.title)) {
+                    return num * 13 + 22 + 6;
+                }
+                return num * 13 / 2 + 22 + 6;
             };
 
             let tempLength = getTagLength(tags[tags.length-1]);
