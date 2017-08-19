@@ -71,34 +71,34 @@ class Common {
             }
         });
 
-        $('body').on('mouseleave', tag, (ev) => {
-            const $target = $(ev.currentTarget);
-            const a = $target.find('a');
-            const $link = a.eq(0).length !== 0 ? a.eq(0) : $target;
-            const href = $.trim($link.attr('href'));
+        //$('body').on('mouseleave', tag, (ev) => {
+            //const $target = $(ev.currentTarget);
+            //const a = $target.find('a');
+            //const $link = a.eq(0).length !== 0 ? a.eq(0) : $target;
+            //const href = $.trim($link.attr('href'));
 
-            if (reg.test(href)) {
-                const $tip = $('.book-douban');
+            //if (reg.test(href)) {
+                //const $tip = $('.book-douban');
 
-                $tip.on('mouseleave', () => {
-                    $tip.fadeOut(DUR_FO_TIP);
-                    setTimeout(() => {
-                        $tip.remove();
-                    }, DUR_FO_TIP);
-                });
+                //$tip.on('mouseleave', () => {
+                    //$tip.fadeOut(DUR_FO_TIP);
+                    //setTimeout(() => {
+                        //$tip.remove();
+                    //}, DUR_FO_TIP);
+                //});
 
-                setTimeout(function () {
-                    if (!$tip.is(':hover')) {
-                        $tip.fadeOut(100);
-                        setTimeout(() => {
-                            $tip.remove();
-                        }, DUR_FO_TIP);
-                    }
-                }, DUR_FO_TIP);
+                //setTimeout(function () {
+                    //if (!$tip.is(':hover')) {
+                        //$tip.fadeOut(100);
+                        //setTimeout(() => {
+                            //$tip.remove();
+                        //}, DUR_FO_TIP);
+                    //}
+                //}, DUR_FO_TIP);
 
-                $target.data('allow', false);
-                $target.data('movein', true);
-            }
-        });
+                //$target.data('allow', false);
+                //$target.data('movein', true);
+            //}
+        //});
     }
 }

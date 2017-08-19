@@ -1,76 +1,19 @@
-.all {
-    position:absolute;
-    top:100;
-    left:100;
-    width:300;
-    background-color:#333;
-    padding:15px;
-    box-shadow: 0px 0px 10px #515A5A;
-    border-radius:7px;
-}
-.banner {
-    height:30px;
-    margin-bottom:10px;
-    background-color:silver
-}
-.content {
-    background-color:silver
-}
-.head {
-
-}
-.xclose {
-    position: absolute;
-    top: 13px;
-    right: 13px;
-    display: block;
-    width: 15px;
-    height: 15px;
-    text-align: center;
-}
-.xrating-wrap1 {
-    display:block;
-}
-.xrating-self {
-    line-height:2;
-}
-.xrating .xrating-wrap1:before,.xrating .xrating-wrap1:after {
-    content:'';
-    display:block;
-    clear:both
-}
-.xrating_num {
-    color: #ff6428;
-    padding: 0;
-    min-width: 30%;
-    font-size: 28px;
-}
-.xll {
-    float:left;
-}
-.xrating .xrating_right {
-    float: left;
-    padding: 10px 0 10px 6px;
-}
-
-
-
-
-
-
 /*-------------- 主体div ----------------*/
 .book-douban {
+    font-family: Arial;
     position: absolute;
     top: 0;
     /*决定元素在z轴的摆放顺序，99999表示浮动窗在最上面*/
     z-index: 99999;
     /*width: 200px;*/
-    background-color: #333;
+    background-color: #0e0e0e;
     padding: 15px;
     box-shadow: 0px 0px 10px #515A5A;
     border-radius:7px;
     text-align: left;
     width: 240px;
+    /*max-width: 300px;*/
+    /*min-width: 200px;*/
 }
 
 /*气泡的小三角样式 默认是右侧布局*/
@@ -102,8 +45,8 @@
 }
 
 .book-douban:after {
-    border-right-color: #333;
-    /*border-left-color: #333;*/
+    border-right-color: #0e0e0e;
+    /*border-left-color: #0e0e0e;*/
     border-width: 7px;
     top: 60px;
     margin-top:-7px;
@@ -111,7 +54,7 @@
 .book-douban.left:after {
     right:;
     left: 100%;
-    border-left-color: #333;
+    border-left-color: #0e0e0e;
     border-right-color: transparent;
 }
 /*.book-douban.book-douban-movie {*/
@@ -131,8 +74,8 @@
 .book-douban h3 {
     word-break: break-all;
     font-weight: 400;
-    font-size: 20px;
-    /*color: #111;*/
+    font-size: 30px;
+    color: #111;
     height: auto;
     margin-left: 0;
     /*background-color: #fff;*/
@@ -141,9 +84,9 @@
 
 .book-douban-head {
     margin-bottom: 5px;
-    color:#fff;
+    color:silver;
 }
-.book-douban-head a:link {
+.book-douban .book-douban-head a:link {
     color:#fff;
     text-decoration:none
 }
@@ -152,7 +95,7 @@
     line-height: 20px;
     overflow: hidden;
     zoom: 1;
-    color: #111
+    color: silver
 }
 
 .book-douban-details li span {
@@ -160,7 +103,7 @@
 }
 
 .book-douban-details li .label {
-    color: #666;
+    color: #888;
     margin-left: -40px;
     float: left;
     padding: 0
@@ -226,7 +169,7 @@
     top: 50%;
     left: 0;
     margin-top: -1px;
-    background: silver;
+    background: #ff6428;
 }
 .doubanx_close::before {
     -webkit-transform: rotate(45deg);
@@ -253,7 +196,7 @@
     top: 100px;
     right: 0;
     z-index: 99999;
-    background-color: #333;
+    background-color: #0e0e0e;
     /*background-color: #fff;*/
     /*border: 1px dashed #ddd;*/
     /*box-shadow: 0px 0px 10px #ccc;*/
@@ -307,7 +250,7 @@
     color:#9b9b9b;
     margin:0
 }
-
+/* ------------------------------------------------------------------ */
 .video_tags {
     display: inline-block;
 }
@@ -351,8 +294,8 @@ div.tag_group {
     border-radius: 2px;
 }
 /*.tag_group .tag:link {*/
-/*color: #888;*/
-/*text-decoration:none*/
+    /*color: #888;*/
+    /*text-decoration:none*/
 /*}*/
 .tag_group .tag:hover {
     background-color: #595960;
