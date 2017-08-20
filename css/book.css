@@ -144,7 +144,7 @@
 .douban_starstop {
     float:left
 }
-.doubanx_close {
+.rating_close {
     position: absolute;
     top: 13px;
     right: 13px;
@@ -153,10 +153,10 @@
     height: 15px;
     text-align: center;
 }
-.doubanx_close:hover::before, .doubanx_close:hover::after {
+.rating_close:hover::before, .rating_close:hover::after {
     background: #fff;
 }
-.doubanx_close::before, .doubanx_close::after {
+.rating_close::before, .rating_close::after {
     content: '';
     position: absolute;
     height: 2px;
@@ -166,19 +166,19 @@
     margin-top: -1px;
     background: #37a;
 }
-.doubanx_close::before {
+.rating_close::before {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-.doubanx_close::after {
+.rating_close::after {
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
-.doubanx_close.thick::before, .doubanx_close.thick::after {
+.rating_close.thick::before, .rating_close.thick::after {
     height: 4px;
     margin-top: -2px;
 }
-.doubanx_close:hover {
+.rating_close:hover {
     text-decoration: none;
 }
 

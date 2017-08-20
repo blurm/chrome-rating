@@ -1,65 +1,8 @@
-.all {
-    position:absolute;
-    top:100;
-    left:100;
-    width:300;
-    background-color:#333;
-    padding:15px;
-    box-shadow: 0px 0px 10px #515A5A;
-    border-radius:7px;
-}
-.banner {
-    height:30px;
-    margin-bottom:10px;
-    background-color:silver
-}
-.content {
-    background-color:silver
-}
-.head {
 
-}
-.xclose {
-    position: absolute;
-    top: 13px;
-    right: 13px;
-    display: block;
-    width: 15px;
-    height: 15px;
-    text-align: center;
-}
-.xrating-wrap1 {
-    display:block;
-}
-.xrating-self {
-    line-height:2;
-}
-.xrating .xrating-wrap1:before,.xrating .xrating-wrap1:after {
-    content:'';
-    display:block;
-    clear:both
-}
-.xrating_num {
-    color: #ff6428;
-    padding: 0;
-    min-width: 30%;
-    font-size: 28px;
-}
-.xll {
-    float:left;
-}
-.xrating .xrating_right {
-    float: left;
-    padding: 10px 0 10px 6px;
-}
-
-
-
-
-
-
+/* -------------------------- 主题布局 ------------------------------- ×/
 /*-------------- 主体div ----------------*/
-.book-douban {
+.movie-rating {
+    font-family: Arial;
     position: absolute;
     top: 0;
     /*决定元素在z轴的摆放顺序，99999表示浮动窗在最上面*/
@@ -70,11 +13,88 @@
     box-shadow: 0px 0px 10px #515A5A;
     border-radius:7px;
     text-align: left;
-    width: 240px;
+    width: 440px;
+    /*max-width: 300px;*/
+    /*min-width: 200px;*/
+}
+
+.movie-rating-head {
+    margin-bottom: 5px;
+    color:silver;
+}
+
+.rating_close {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: #ff6428
+    text-align: center;
+}
+
+
+/*评分部分的样式*/
+.rating {
+    /*width: 160px;*/
+    color:#9b9b9b;
+    background-color: #0e0e0e;
+    font: 12px Helvetica,Arial,sans-serif;
+}
+.douban_rating {
+    width: 200px;
+    height: 100px;
+    float:left;
+    line-height:2
+}
+/*.rating:before,.rating:after {*/
+    /*content:'';*/
+    /*display:block;*/
+    /*clear:both*/
+/*}*/
+.rating .rating_num {
+    float:left;
+    color:#ff6428;
+    min-width:30%;
+    font-size:28px
+}
+.rating .rating_star {
+    float:left;
+    padding:10px 0 10px 6px
+}
+/* ----------------- IMDB Rating ---------------------*/
+.imdb_rating {
+    float:right;
+    width: 50%;
+}
+.imdb_rating .ratings_wrapper {
+    /*float: right;*/
+    /*position: relative;*/
+    /*margin-left: 5px;*/
+    width: 185px;
+    z-index: 2;
+}
+/* ------------------------------------------------------------------ */
+div.tag_group {
+    margin-bottom: 10px;
+    clear:both;
+}
+.tag_group .tag, .tag:link, .tag:visited {
+    width: auto;
+    background-color:silver;
+    display: inline-block;
+}
+
+.douban_starstop,.douban_stars {
+    margin-right:5px
+}
+.douban_starstop {
+    float:left
 }
 
 /*气泡的小三角样式 默认是右侧布局*/
-.book-douban:after, .book-douban:before {
+.movie-rating:after, .movie-rating:before {
     right: 100%;
     /*left: 100%;*/
     border: solid transparent;
@@ -85,7 +105,7 @@
     pointer-events: none;
 }
 
-.book-douban:before {
+.movie-rating:before {
     /*border-right-color:#acacac;*/
     /*border-left-color:#acacac;*/
     border-width:8px;
@@ -94,78 +114,70 @@
     /*before和after margin-top的差为三角border的大小*/
     margin-top: -8px;
 }
-.book-douban.left:before {
+
+.movie-rating.left:before {
     right:;
     left: 100%;
     /*border-left-color:#acacac;*/
     border-right-color:transparent;
 }
 
-.book-douban:after {
-    border-right-color: #333;
-    /*border-left-color: #333;*/
+.movie-rating:after {
+    border-right-color: #0e0e0e;
+    /*border-left-color: #0e0e0e;*/
     border-width: 7px;
     top: 60px;
     margin-top:-7px;
 }
-.book-douban.left:after {
+
+.movie-rating.left:after {
     right:;
     left: 100%;
-    border-left-color: #333;
+    border-left-color: #0e0e0e;
     border-right-color: transparent;
 }
-/*.book-douban.book-douban-movie {*/
-/*width: 200px;*/
-/*}*/
-/*.book-douban.book-douban-book {*/
-/*width: auto;*/
-/*max-width: 300px;*/
-/*min-width: 200px;*/
-/*}*/
-.book-douban .logo {
+
+.movie-rating .logo {
     color: #9b9b9b;
     margin-bottom: 5px;
     height: 30px;
+    line-height:1
 }
 
-.book-douban h3 {
+.movie-rating h3 {
     word-break: break-all;
     font-weight: 400;
-    font-size: 20px;
-    /*color: #111;*/
+    font-size: 30px;
+    color: #111;
     height: auto;
     margin-left: 0;
     /*background-color: #fff;*/
     line-height: 1;
 }
 
-.book-douban-head {
-    margin-bottom: 5px;
-    color:#fff;
-}
-.book-douban-head a:link {
+.movie-rating .movie-rating-head a:link {
     color:#fff;
     text-decoration:none
 }
-.book-douban-details li {
+.movie-rating-details li {
     padding-left: 40px;
     line-height: 20px;
     overflow: hidden;
     zoom: 1;
-    color: #111
+    color: silver
 }
 
-.book-douban-details li span {
+.movie-rating-details li span {
     margin-right: 5px
 }
 
-.book-douban-details li .label {
-    color: #666;
+.movie-rating-details li .label {
+    color: #888;
     margin-left: -40px;
     float: left;
     padding: 0
 }
-.book-douban-details p {
+.movie-rating-details p {
     line-height: 16px;
     margin-top: 10px;
     overflow : hidden;
@@ -175,50 +187,32 @@
     -webkit-box-orient: vertical;
 }
 
-.book-douban a {
+.movie-rating a {
     cursor:pointer
 }
-.book-douban a:link {
+.movie-rating a:link {
     color:#888;
     text-decoration:none
 }
-.book-douban a:visited {
+.movie-rating a:visited {
     color:#888;
     text-decoration:none
 }
-.book-douban a:hover {
+.movie-rating a:hover {
     color:#fff;
     text-decoration:none;
     /*background:#37a*/
 }
-.book-douban a:active {
+.movie-rating a:active {
     color:#fff;
     text-decoration:none;
     background:#f93
 }
 
-.ll {
-    float: left;
-}
-.douban_starstop,.douban_stars {
-    margin-right:5px
-}
-.douban_starstop {
-    float:left
-}
-.doubanx_close {
-    position: absolute;
-    top: 13px;
-    right: 13px;
-    display: block;
-    width: 15px;
-    height: 15px;
-    text-align: center;
-}
-.doubanx_close:hover::before, .doubanx_close:hover::after {
+.rating_close:hover::before, .rating_close:hover::after {
     background: #fff;
 }
-.doubanx_close::before, .doubanx_close::after {
+.rating_close::before, .rating_close::after {
     content: '';
     position: absolute;
     height: 2px;
@@ -226,65 +220,24 @@
     top: 50%;
     left: 0;
     margin-top: -1px;
-    background: silver;
+    background: #ff6428;
 }
-.doubanx_close::before {
+.rating_close::before {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-.doubanx_close::after {
+.rating_close::after {
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
-.doubanx_close.thick::before, .doubanx_close.thick::after {
+.rating_close.thick::before, .rating_close.thick::after {
     height: 4px;
     margin-top: -2px;
 }
-.doubanx_close:hover {
+.rating_close:hover {
     text-decoration: none;
 }
 
-/*评分部分的样式*/
-.rating {
-    width: 160px;
-    color:#9b9b9b;
-    /*padding: 15px;*/
-    /*position: fixed;*/
-    top: 100px;
-    right: 0;
-    z-index: 99999;
-    background-color: #333;
-    /*background-color: #fff;*/
-    /*border: 1px dashed #ddd;*/
-    /*box-shadow: 0px 0px 10px #ccc;*/
-    font: 12px Helvetica,Arial,sans-serif;
-}
-.rating .rating_wrap {
-    font-size:12px;
-    line-height:14px
-}
-.rating .rating_wrap .logo {
-    line-height:1
-}
-.rating .rating_self {
-    padding:0;
-    line-height:2
-}
-.rating .rating_self:before,.rating .rating_self:after {
-    content:'';
-    display:block;
-    clear:both
-}
-.rating .rating_num {
-    color:#ff6428;
-    padding:0;
-    min-width:30%;
-    font-size:28px
-}
-.rating .rating_right {
-    float:left;
-    padding:10px 0 10px 6px
-}
 .rating .rating_right.not_showed {
     padding:10px 0 0
 }
@@ -308,31 +261,6 @@
     margin:0
 }
 
-.video_tags {
-    display: inline-block;
-}
-.nav-logo {
-    background: url('chrome-extension://__MSG_@@extension_id__/css/images/douban_logo.png') no-repeat 0 0;
-    background-image:url('chrome-extension://__MSG_@@extension_id__/css/images/douban_logo.png');
-    background-size: cover;
-    float: left;
-    height: 15px;
-    width: 66px;
-    margin: 0 13px 0 0;
-}
-
-.nav-logo a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    line-height: 100em;
-}
-
-.logo a:hover {
-    text-decoration:none;
-    background: transparent;
-}
 div.tag_group {
     margin-bottom: 10px;
 }
@@ -360,7 +288,7 @@ div.tag_group {
     text-decoration:none
 }
 
-.book-douban .loader-inner {
+.movie-rating .loader-inner {
     margin-top: 20px;
     margin-bottom: 50px;
 }

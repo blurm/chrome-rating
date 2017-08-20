@@ -1,5 +1,5 @@
-const DUR_FO_TIP = 100 // duration for tip fade out animation
-const DUR_FI_TIP_DETAIL = 300 // duration for tip detail fading in
+const DUR_FO_TIP = 100; // duration for tip fade out animation
+const DUR_FI_TIP_DETAIL = 300; // duration for tip detail fading in
 
 class Template {
     constructor(data, type) {
@@ -31,18 +31,25 @@ class Template {
             default:
         }
 
+        let $mainDiv = '';
+        if (this.type === 'book') {
+            $mainDiv = '.book-douban';
+        } else {
+            $mainDiv = '.movie-rating';
+        }
+
         //如果是loading，则把原先的div删除掉。否则，在loading的div上更新内容
         if (type === 'loading') {
-            $('.book-douban').remove();
+            $($mainDiv).remove();
             $('body').append(this.renderContainer());
-            $('.book-douban .container').append(renderOutput);
+            $($mainDiv + ' .container').append(renderOutput);
         } else {
-            $('.book-douban .container').empty();
-            let $appendTo = $('.book-douban .container').hide().append(renderOutput).fadeIn(DUR_FI_TIP_DETAIL);
+            $($mainDiv + ' .container').empty();
+            let $appendTo = $($mainDiv + ' .container').hide().append(renderOutput).fadeIn(DUR_FI_TIP_DETAIL);
 
             // 右上方关闭按钮的注册事件
-            $('.book-douban').on('click', '.doubanx_close', (ev) => {
-                console.log('douban close');
+            $($mainDiv).on('click', '.rating_close', (ev) => {
+                console.log('rating close');
                 ev.preventDefault();
                 const $target = $(ev.currentTarget);
                 //$tips.toggleClass('animated fadeOutRightBig');
@@ -53,7 +60,7 @@ class Template {
             });
         }
 
-        const $tips = $('.book-douban');
+        const $tips = $($mainDiv);
 
         const $body = $('body');
         const bodyW = $body.width();
@@ -150,37 +157,29 @@ class Template {
                                      <span class="label">主演：</span>
                                      <span>${data.stars}</span>
                                  </li>` : '';
-        const genre = data.genre !== '' ? `<li>
-                                     <span class="label">类型：</span>
-                                     <span>${data.genre}</span>
-                                 </li>` : '';
+        let tags = `<div class="tag_group">`;
+        for (const tag of data.genre) {
+            tags += `<span class="">
+                <a class="tag" href="">${tag}</a></span>`;
+        }
+
+        tags += `</div>`;
         const summary = data.summary !== '' ? `<p>${data.summary}</p>` : '';
 
         const rate = this.renderRate();
 
-        return `<div class="book-douban">
-                    <div class="logo">豆瓣简介</div>
-                    <div class="book-douban-head">
+        return `<div class="movie-rating-head">
                         <h3>
                             <a href="https://${data.type}.douban.com/subject/${data.id}" target="_blank"><span>${title} (${data.year})</span></a>
                         </h3>
                         ${originTitle}
                     </div>
                     ${rate}
-                    <div class="book-douban-details">
+                    ${tags}
+                    <div class="movie-rating-details">
                         <ul>
                             ${director}
                             ${stars}
-                            ${genre}
-                             <li>
-                                 <span>
-                                    <div class="video_tags">
-                                        <span class="tag_item">科幻</span>
-                                        <span class="tag_item">剧情</span>
-                                        <span class="tag_item">惊悚</span>
-                                    </div
-                                 </span>
-                             </li>
                         </ul>
                         ${summary}
                     </div>
@@ -204,18 +203,15 @@ class Template {
         const data = this.data;
         if (data.ratingNum > 10 || this.type === 'movie') {
             return `<div class="rating">
-                        <a href="javascript:;" class="doubanx_close"></a>
-                        <div class="rating_wrap clearbox">
-                            <div class="rating_self clearfix">
-                                <strong class="ll rating_num">${data.rating}</strong>
-                                <div class="rating_right">
-                                    <div class="ll douban_star${data.star}"></div>
+                            <div class="douban_rating">
+                                <strong class="rating_num">${data.rating}</strong>
+                                <div class="rating_star">
+                                    <div class="douban_star${data.star}"></div>
                                     <div class="rating_sum">
                                         <a href="https://${data.type}.douban.com/subject/${data.id}/collections" class="rating_people" target="_blank"><span>${data.ratingNum}</span>人评价</a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                     </div>`;
         } else {
             return `<div class="rating">
@@ -264,11 +260,21 @@ class Template {
     }
 
     renderContainer() {
-        return `<div class="book-douban">
+        if (this.type === 'book') {
+            return `<div class="book-douban">
                     <div class="logo">
                         <div id="douban_logo" class="nav-logo">
                             <a href="https://book.douban.com" alt="douban" target="_blank">douban</a>
                         </div>
+                        <a href="javascript:;" class="rating_close"></a>
+                    </div>
+                    <div class="container">
+                    </div>
+                </div>`;
+        }
+        return `<div class="movie-rating">
+                    <div class="logo">
+                        <a href="javascript:;" class="rating_close"></a>
                     </div>
                     <div class="container">
                     </div>

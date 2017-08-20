@@ -83,7 +83,7 @@
                 "https://sale.jd.com/*"
             ],
             "css": [
-                "css/movie.css"
+                "css/book.css"
             ],
             "js": [
                 "js/controller/jd.js"
@@ -95,6 +95,9 @@
                 "http://v.qq.com/*",
                 "https://film.qq.com/*",
                 "https://v.qq.com/*"
+            ],
+            "css": [
+                "css/movie.css"
             ],
             "js": [
                 "js/controller/qq.js"

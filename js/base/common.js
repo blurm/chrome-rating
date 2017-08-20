@@ -39,7 +39,7 @@ class Common {
                                                             $target, $link);
 
                         const type = that.infoModule.type;
-                        new Template().showTips($target, 'loading');
+                        new Template(null, type).showTips($target, 'loading');
 
                         new Promise((success, error) =>
                             that.infoModule.getRatingInfo(success, error))
@@ -49,7 +49,7 @@ class Common {
                             $target.data('loading', false);
                             if (!$target.data('movein')) {
                                 if (data.errMsg && data.errMsg !== '') {
-                                    new Template(data)
+                                    new Template(data, type)
                                         .showTips($target, 'error');
                                 } else {
                                     new Template(data, type)
@@ -63,7 +63,7 @@ class Common {
                             $target.data('allow', true);
                             $target.data('loading', false);
                             if (!$target.data('movein')) {
-                                new Template(data).showTips($target, 'error');
+                                new Template(data, type).showTips($target, 'error');
                             }
                         });
                     }

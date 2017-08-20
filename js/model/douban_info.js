@@ -233,7 +233,7 @@ class DoubanInfo extends BaseInfo {
                     data.year = movie.year;
                     data.rating = movie.rating.average;
                     data.ratingNum = movie.ratings_count || '';
-                    data.genre = movie.genres.join('，');
+                    data.genre = movie.genres;
                     data.star = movie.rating.stars;
                     data.summary = movie.summary;
 
