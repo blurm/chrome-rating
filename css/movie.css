@@ -1,3 +1,6 @@
+.ll {
+    float: left;
+}
 /* -------------------------- 主题布局 ------------------------------- ×/
 /*-------------- 主体div ----------------*/
 .movie-rating {
@@ -12,7 +15,7 @@
     box-shadow: 0px 0px 10px #515A5A;
     border-radius:7px;
     text-align: left;
-    width: 440px;
+    width: 270px;
     /*max-width: 300px;*/
     /*min-width: 200px;*/
 }
@@ -35,11 +38,13 @@
 
 
 /*评分部分的样式*/
-.rating {
+.movie-rating .rating {
     /*width: 160px;*/
+    position:relative;
     color:#9b9b9b;
     background-color: #0e0e0e;
     font: 12px Helvetica,Arial,sans-serif;
+    padding: 10px 0;
 }
 .douban_rating {
     float:left;
@@ -58,19 +63,71 @@
 }
 .rating .rating_star {
     float:left;
-    padding:5px 0 10px 6px
+    padding:10px 0 15px 6px
 }
 /* ----------------- IMDB Rating ---------------------*/
 .imdb_rating {
     float:right;
     width: 50%;
+    border-style:solid;
+    border-color:#484848;
+    border-width:0 0 0 1px;
 }
+
+.ratings_wrapper {
+    margin-top:6px;
+    margin-left:20px;
+    width: 100px;
+}
+
+.imdbRating {
+    background: url('chrome-extension://__MSG_@@extension_id__/css/images/if_favorites_18321.png') no-repeat 0 0;
+    background-image:url('chrome-extension://__MSG_@@extension_id__/css/images/if_favorites_18321.png');
+    background-size: 40px;
+    font-size: 11px;
+    /*height: 40px;*/
+    /*line-height: 2;*/
+    /*padding: 2px 0 0 34px;*/
+    /*width: 158px;*/
+    float:right;
+    padding: 2px 0 0 45px;
+}
+
+/*.imdb_rating .imdb_rating_star {*/
+    /*background: url('chrome-extension://__MSG_@@extension_id__/css/images/if_favorites_18321.png') no-repeat 0 0;*/
+    /*background-image:url('chrome-extension://__MSG_@@extension_id__/css/images/if_favorites_18321.png');*/
+    /*background-size: cover;*/
+    /*float:left;*/
+    /*width:45px;*/
+    /*height:45px;*/
+/*}*/
+
+.ratingValue {
+    margin-bottom: -2px;
+    white-space: nowrap;
+}
+
+.ratingValue strong {
+    font-size: 30px;
+    font-weight: normal;
+    font-family: Arial;
+    line-height: 24px;
+}
+
+.imdbRating .grey {
+    color: #6b6b6b;
+    font-size: 10px;
+}
+
+.imdbRating .small {
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
 .imdb_rating .ratings_wrapper {
     /*float: right;*/
     /*position: relative;*/
     /*margin-left: 5px;*/
-    width: 185px;
-    z-index: 2;
 }
 /* ------------------------------------------------------------------ */
 div.tag_group {

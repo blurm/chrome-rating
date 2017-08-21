@@ -1,7 +1,7 @@
 const ERR_MSG_MAP_IMDB = new Map();
 ERR_MSG_MAP_IMDB.set(1001, '没有找到您要的内容');
 
-class IMDBInfo extends BaseInfo {
+class MovieInfo extends BaseInfo {
     set options(options) {
         super.options = options;
         this.url = "https://www.theimdbapi.org/api/find/movie";
@@ -26,7 +26,7 @@ class IMDBInfo extends BaseInfo {
     }
 
     popData(json) {
-        const data = {};u
+        const data = {};
         console.log(`json result:`, json);
         if (json && json.length > 0) {
             const movie = json[0];

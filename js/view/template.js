@@ -186,13 +186,18 @@ class Template {
                 </div>`;
     }
 
+    renderAnoRating() {
+        this.renderRate();
+    }
+
     renderTags(tags) {
         let result = `<div class="tag_group">`;
         for (const tag of tags) {
             tag.title;
-            // TODO
             result += `<span class="">
-                <a class="tag" href="https://book.douban.com/tag/${tag.name}">${tag.title}</a></span>`;
+                <a class="tag" href="https://book.douban.com/tag/${tag.name}">
+                    ${tag.title}
+                </a></span>`;
         }
 
         result += `</div>`;
@@ -201,25 +206,13 @@ class Template {
 
     renderRate() {
         const data = this.data;
-        if (data.ratingNum > 10 || this.type === 'movie') {
-            return `<div class="rating">
+        let result = '';
+        if (data.ratingNum <= 10) {
+            result += `<div class="rating">
                             <div class="douban_rating">
-                                <strong class="rating_num">${data.rating}</strong>
-                                <div class="rating_star">
-                                    <div class="douban_star${data.star}"></div>
-                                    <div class="rating_sum">
-                                        <a href="https://${data.type}.douban.com/subject/${data.id}/collections" class="rating_people" target="_blank"><span>${data.ratingNum}</span>人评价</a>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>`;
-        } else {
-            return `<div class="rating">
-                            <div class="logo">豆瓣评分</div>
-                            <div class="rating_self clearfix">
-                                <strong class="ll rating_num"></strong>
+                                <strong class="rating_num"></strong>
                                 <span content="10.0"></span>
-                                <div class="rating_right not_showed">
+                                <div class="rating_star not_showed">
                                     <div class="ll douban_star00"></div>
                                     <div class="rating_sum">
                                         <a href="https://${data.type}.douban.com/subject/${data.id}/collections" target="_blank">评价人数不足</a>
@@ -227,7 +220,37 @@ class Template {
                                 </div>
                             </div>
                         </div>`;
+        } else {
+            result += `<div class="rating">
+                            <div class="douban_rating">
+                                <strong class="rating_num">${data.rating}</strong>
+                                <div class="rating_star">
+                                    <div class="ll douban_star${data.star}"></div>
+                                    <div class="rating_sum">
+                                        <a href="https://${data.type}.douban.com/subject/${data.id}/collections" class="rating_people" target="_blank"><span>${data.ratingNum}</span>人评价</a>
+                                    </div>
+                                </div>
+                            </div>`;
+
         }
+
+        if (this.type === 'movie') {
+            result += `<div class="imdb_rating">
+                            <div class="ratings_wrapper">
+                                <div class="imdbRating">
+                                    <div class="ratingValue">
+                                        <strong><span>7.2</span></strong><span class="grey">/</span><span class="grey">10</span>
+                                    </div>
+                                    <span class="small">3,683</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+        } else {
+            result += `</div>`;
+
+        }
+        return result;
     }
 
     /**
