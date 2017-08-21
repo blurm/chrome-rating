@@ -48,7 +48,7 @@
 }
 .douban_rating {
     float:left;
-    line-height:2
+    /*line-height:2*/
 }
 /*.rating:before,.rating:after {*/
     /*content:'';*/
@@ -59,16 +59,25 @@
     float:left;
     color:#ff6428;
     min-width:30%;
-    font-size:28px
+    font-size:28px;
+    margin-top:10px;
 }
 .rating .rating_star {
     float:left;
-    padding:10px 0 15px 6px
+    padding:10px 0 10px 6px
 }
 /* ----------------- IMDB Rating ---------------------*/
+div.movie-rating .loader-inner {
+    margin: 20px 30px;
+}
+
+.ball-clip-rotate > div {
+    background-color: orange;
+}
 .imdb_rating {
     float:right;
     width: 50%;
+    height: 54px;
     border-style:solid;
     border-color:#484848;
     border-width:0 0 0 1px;
@@ -83,14 +92,15 @@
 .imdbRating {
     background: url('chrome-extension://__MSG_@@extension_id__/css/images/if_favorites_18321.png') no-repeat 0 0;
     background-image:url('chrome-extension://__MSG_@@extension_id__/css/images/if_favorites_18321.png');
-    background-size: 40px;
+    background-size: 37px;
     font-size: 11px;
     /*height: 40px;*/
     /*line-height: 2;*/
     /*padding: 2px 0 0 34px;*/
     /*width: 158px;*/
     float:right;
-    padding: 2px 0 0 45px;
+    padding: 2px 0 0 39px;
+    margin-right: 10px;
 }
 
 /*.imdb_rating .imdb_rating_star {*/
@@ -108,7 +118,7 @@
 }
 
 .ratingValue strong {
-    font-size: 30px;
+    font-size: 27px;
     font-weight: normal;
     font-family: Arial;
     line-height: 24px;
@@ -132,6 +142,7 @@
 /* ------------------------------------------------------------------ */
 div.tag_group {
     margin-bottom: 10px;
+    padding-top: 10px;
     clear:both;
 }
 .tag_group .tag, .tag:link, .tag:visited {
@@ -201,7 +212,7 @@ div.tag_group {
 .movie-rating h3 {
     word-break: break-all;
     font-weight: 400;
-    font-size: 30px;
+    font-size: 23px;
     color: #111;
     height: auto;
     margin-left: 0;

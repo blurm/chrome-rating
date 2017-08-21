@@ -159,6 +159,9 @@ class DoubanInfo extends BaseInfo {
      *
      */
     popData(json) {
+        if (TEST_MODE) {
+            return TEST_DATA_DOUBAN_MOVIE;
+        }
         console.log('Request params: ', this.getParams());
         console.log('json result: ', json);
         const data = {};
@@ -229,13 +232,39 @@ class DoubanInfo extends BaseInfo {
                 if (movie) {
                     data.id = movie.id;
                     data.title = movie.title;
-                    data.originalTitle = movie.original_title;
+                    data.originTitle = movie.original_title;
                     data.year = movie.year;
                     data.rating = movie.rating.average;
                     data.ratingNum = movie.ratings_count || '';
                     data.genre = movie.genres;
                     data.star = movie.rating.stars;
                     data.summary = movie.summary;
+
+                    // 得到影片的英文名，以方便之后在IMDB查询
+                    if (data.originTitle && !Util.matchCN(data.originTitle)) {
+                        data.enName = data.originTitle;
+                    } else {
+                        const aka = movie.aka;
+                        for (let i = aka.length-1;i >= 0;i--) {
+                            if (Util.matchCN(aka[i])) {
+                                aka.splice(i, 1);
+                            }
+                        }
+
+                        //将tag按长度从小到大排序，方便显示
+                        aka.sort((a,b) => {
+                            if (a.length < b.length) {
+                                return 1;
+                            } else if (a.length > b.length) {
+                                return -1;
+                            }
+                            return 0;
+                        });
+
+                        if (aka.length > 0) {
+                            data.enName = aka[0];
+                        }
+                    }
 
                     data.director = '';
                     data.stars = '';

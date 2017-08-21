@@ -57,8 +57,8 @@ class QQ {
             //}).getRate();
         }
 
-        const doubanInfo = new DoubanInfo();
-        const common = new Common(doubanInfo, QQ.createOptions);
+        const modules = [new DoubanInfo(), new IMDBInfo()];
+        const common = new Common(modules, QQ.createOptions, 'movie');
         common.listHandle(
             /(^http:\/\/(film|v)\.qq\.com)*\/(x\/)?(cover|prev)\/.*\.html/i,
             'li, \

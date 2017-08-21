@@ -26,7 +26,11 @@ class IMDBInfo extends BaseInfo {
     }
 
     popData(json) {
-        const data = {};u
+        if (TEST_MODE) {
+            return TEST_DATA_DOUBAN_MOVIE;
+        }
+        console.log('imdb json result:', json);
+        const data = {};
         console.log(`json result:`, json);
         if (json && json.length > 0) {
             const movie = json[0];
@@ -45,6 +49,7 @@ class IMDBInfo extends BaseInfo {
         if (!data.title) {
             data.errMsg = ERR_MSG_MAP_IMDB.get(1001);
         }
+        console.log('imdb data', data);
         return data;
     }
 

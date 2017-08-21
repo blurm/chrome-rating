@@ -100,7 +100,8 @@
                 "css/movie.css"
             ],
             "js": [
-                "js/controller/qq.js"
+                "js/controller/qq.js",
+                "js/model/test_data.js"
             ]
         },
         {

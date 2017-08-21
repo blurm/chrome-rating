@@ -175,8 +175,8 @@ class JD {
             //}).getRate();
         }
 
-        const doubanInfo = new DoubanInfo();
-        const common = new Common(doubanInfo, JD.createOptions);
+        const modules = [new DoubanInfo()];
+        const common = new Common(modules, JD.createOptions, 'book');
         /**
          * 为list页面当前激活的item生成评分信息
          *

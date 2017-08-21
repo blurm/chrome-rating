@@ -12,8 +12,8 @@ class Ttmeiju {
     }
 
     main() {
-        const imdbInfo = new IMDBInfo();
-        const common = new Common(imdbInfo, Ttmeiju.createOptions);
+        const common = new Common(
+        [new DoubanInfo(), new IMDBInfo()], Ttmeiju.createOptions, 'movie');
         common.listHandle(
             /\/seed\/\d+\.html/i,
             'td a'

@@ -8,6 +8,10 @@ class BaseInfo {
     }
 
     get(success, fail) {
+        if (TEST_MODE) {
+            success();
+            return;
+        }
         $.getJSON(this.url, this.getParams(), success).fail(fail);
     }
 

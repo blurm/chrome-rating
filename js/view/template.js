@@ -1,4 +1,4 @@
-const DUR_FO_TIP = 100; // duration for tip fade out animation
+const DUR_FO_TIP = 300; // duration for tip fade out animation
 const DUR_FI_TIP_DETAIL = 300; // duration for tip detail fading in
 
 class Template {
@@ -186,8 +186,21 @@ class Template {
                 </div>`;
     }
 
-    renderAnoRating() {
-        this.renderRate();
+    showIMDBRating() {
+        let data = this.data;
+        // 获得imdb 外层div
+        const $imdb = $('.imdb_rating');
+        let html = `<div class="ratings_wrapper">
+                        <div class="imdbRating">
+                            <div class="ratingValue">
+                                <strong><span>${data.rating}</span></strong><span class="grey">/</span><span class="grey">10</span>
+                            </div>
+                            <span class="small">${data.ratingNum}</span>
+                        </div>
+                    </div>
+            `;
+        $imdb.empty();
+        $imdb.append(html);
     }
 
     renderTags(tags) {
@@ -218,8 +231,7 @@ class Template {
                                         <a href="https://${data.type}.douban.com/subject/${data.id}/collections" target="_blank">评价人数不足</a>
                                     </div>
                                 </div>
-                            </div>
-                        </div>`;
+                            </div>`;
         } else {
             result += `<div class="rating">
                             <div class="douban_rating">
@@ -235,21 +247,26 @@ class Template {
         }
 
         if (this.type === 'movie') {
-            result += `<div class="imdb_rating">
-                            <div class="ratings_wrapper">
-                                <div class="imdbRating">
-                                    <div class="ratingValue">
-                                        <strong><span>7.2</span></strong><span class="grey">/</span><span class="grey">10</span>
-                                    </div>
-                                    <span class="small">3,683</span>
-                                </div>
+           result += `<div class="imdb_rating">
+                           <div class="loader-inner ball-pulse">
+                                <div></div>
+                                <div></div>
+                                <div></div>
                             </div>
-                        </div>
-                    </div>`;
-        } else {
-            result += `</div>`;
-
+                       </div>`;
+            //result += `<div class="imdb_rating">
+                            //<div class="ratings_wrapper">
+                                //<div class="imdbRating">
+                                    //<div class="ratingValue">
+                                        //<strong><span>7.2</span></strong><span class="grey">/</span><span class="grey">10</span>
+                                    //</div>
+                                    //<span class="small">3,683</span>
+                                //</div>
+                            //</div>
+                        //</div>`;
         }
+
+        result += `</div>`;
         return result;
     }
 

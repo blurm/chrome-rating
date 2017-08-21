@@ -1,7 +1,66 @@
 class Common {
-    constructor(infoModule, createOptions) {
-        this.infoModule = infoModule;
+    constructor(modules, createOptions, type) {
+        this.modules = modules;
         this.createOptions = createOptions;
+        this.type = type;
+    }
+
+    showTips($target, $link) {
+        var that = this;
+
+        const module = that.modules[0];
+        module.options = that.createOptions($target, $link);
+        const type = this.type;
+        new Template(null, type).showTips($target, 'loading');
+
+        function baseResolve(result, module, isIMDBRating) {
+            const data = module.popData(result);
+
+            // 如果只更新imdb评分div
+            if (isIMDBRating) {
+                if (!TEST_MODE) {
+                    new Template(data, type).showIMDBRating();
+                }
+            } else if (data.errMsg && data.errMsg !== '') {
+                // 显示错误信息div
+                new Template(data, type).showTips($target, 'error');
+            } else {
+                // 显示正常信息div
+                new Template(data, type).showTips($target, type);
+            }
+
+            return data;
+        }
+
+        function imdbResolve(result) {
+            baseResolve(result, that.modules[1], true);
+        }
+
+        function mainResolve(result) {
+            const data = baseResolve(result, that.modules[0], false);
+
+            // 如果是海外发行的电影，就去IMDB取评分
+            if (that.modules[1] && data.enName !== '') {
+                const imdbModule = that.modules[1];
+                imdbModule.options = {name: data.enName, year:data.year, type:that.type};
+
+                new Promise(
+                    (success, error) => imdbModule.getRatingInfo(success, error))
+                    .then(imdbResolve)
+                    .catch(mainReject);
+            }
+        }
+
+        function mainReject(reason) {
+            console.log('失败：', reason);
+            const data =module.popError(reason.responseJSON);
+            new Template(data, type).showTips($target, 'error');
+        }
+
+        new Promise(
+                (success, error) => module.getRatingInfo(success, error))
+                .then(mainResolve)
+                .catch(mainReject);
     }
 
     /**
@@ -28,46 +87,58 @@ class Common {
             if (reg.test(href)) {
                 //data() 方法允许我们在DOM元素上绑定任意类型的数据,避免了循环引用的内存泄漏风险。
                 // allow: 允许发起ajax请求并显示结果
-                $target.data('allow', true);
-                $target.data('movein', false);
+                //$target.data('allow', true);
+                //$target.data('movein', false);
                 setTimeout(() => {
-                    if ($target.data('allow')) {
-                        $target.data('allow', false);
-                        $target.data('loading', true);
+                    //if ($target.data('allow')) {
+                        //$target.data('allow', false);
+                        //$target.data('loading', true);
+                if ($target.is(':hover')) {
+                    this.showTips($target, $link);
 
-                        that.infoModule.options = that.createOptions(
-                                                            $target, $link);
+                        //for (let i = 0; i < that.modules.length; i++) {
+                            //// 显示的主要内容源
+                            //if (i === 0) {
+                                //const module = that.modules[i];
+                                //module.options = that.createOptions($target, $link);
+                                //const type = module.type;
+                                //new Template(null, type).showTips($target, 'loading');
 
-                        const type = that.infoModule.type;
-                        new Template(null, type).showTips($target, 'loading');
+                                //new Promise((success, error) =>
+                                    //module.getRatingInfo(success, error))
+                                        //.then(function (result) {
+                                            //const data = module.popData(result);
+                                            ////$target.data('allow', true);
+                                            ////$target.data('loading', false);
+                                            ////if (!$target.data('movein')) {
+                                                //if (data.errMsg && data.errMsg !== '') {
+                                                    //new Template(data, type)
+                                                        //.showTips($target, 'error');
+                                                //} else {
+                                                    //new Template(data, type)
+                                                        //.showTips($target, type);
+                                                //}
+                                            ////}
+                                        //}).catch(function (reason) {
+                                            //console.log('失败：', reason);
+                                            //const data =module
+                                                //.popError(reason.responseJSON);
+                                            ////$target.data('allow', true);
+                                            ////$target.data('loading', false);
+                                            //if (!$target.data('movein')) {
+                                                //new Template(data, type).showTips($target, 'error');
+                                            //}
+                                        //});
 
-                        new Promise((success, error) =>
-                            that.infoModule.getRatingInfo(success, error))
-                                .then(function (result) {
-                            const data = that.infoModule.popData(result);
-                            $target.data('allow', true);
-                            $target.data('loading', false);
-                            if (!$target.data('movein')) {
-                                if (data.errMsg && data.errMsg !== '') {
-                                    new Template(data, type)
-                                        .showTips($target, 'error');
-                                } else {
-                                    new Template(data, type)
-                                        .showTips($target, type);
-                                }
-                            }
-                        }).catch(function (reason) {
-                            console.log('失败：', reason);
-                            const data =that.infoModule
-                                .popError(reason.responseJSON);
-                            $target.data('allow', true);
-                            $target.data('loading', false);
-                            if (!$target.data('movein')) {
-                                new Template(data, type).showTips($target, 'error');
-                            }
-                        });
-                    }
-                }, 300);
+                            //} else {
+                                //// 显示的其他评分源
+
+                            //}
+
+                        //}
+                    //}
+                }
+                }, 500);
             }
         });
 
@@ -78,7 +149,12 @@ class Common {
             //const href = $.trim($link.attr('href'));
 
             //if (reg.test(href)) {
-                //const $tip = $('.book-douban');
+                //let $tip = '';
+                //if (that.type === 'book') {
+                    //$tip = $('.book-douban');
+                //} else {
+                    //$tip = $('.movie-rating');
+                //}
 
                 //$tip.on('mouseleave', () => {
                     //$tip.fadeOut(DUR_FO_TIP);
@@ -96,9 +172,13 @@ class Common {
                     //}
                 //}, DUR_FO_TIP);
 
-                //$target.data('allow', false);
-                //$target.data('movein', true);
+                ////$target.data('allow', false);
+                ////$target.data('movein', true);
             //}
         //});
     }
 }
+
+jQuery.fn.mouseIsOver = function () {
+    return $(this).parent().find($(this).selector + ":hover").length > 0;
+};
