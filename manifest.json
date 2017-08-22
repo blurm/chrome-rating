@@ -60,7 +60,8 @@
                 "js/model/imdb_info.js",
                 "js/view/template.js",
                 "js/base/common.js",
-                "js/controller/util.js"
+                "js/controller/util.js",
+                "js/model/test_data.js"
             ]
         },
         {
@@ -100,8 +101,7 @@
                 "css/movie.css"
             ],
             "js": [
-                "js/controller/qq.js",
-                "js/model/test_data.js"
+                "js/controller/qq.js"
             ]
         },
         {

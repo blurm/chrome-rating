@@ -18,7 +18,10 @@ class Common {
 
             // 如果只更新imdb评分div
             if (isIMDBRating) {
-                if (!TEST_MODE) {
+                if (data.errMsg && data.errMsg !== '') {
+                    // 显示错误信息div
+                    new Template(data, type).showIMDBError();
+                } else {
                     new Template(data, type).showIMDBRating();
                 }
             } else if (data.errMsg && data.errMsg !== '') {
@@ -66,8 +69,8 @@ class Common {
     /**
      * 处理list列表中的mouse hover over事件
      *
-     * reg: regex for url address. 只针对有效的item进行处理
-     * tag: selecor to match all list style, which allow to trigger Info
+     * reg: regex for url address. 只针对有效的item进行处理, 用来过滤触发的元素
+     * tag: selecor to match all list style 在这些元素上触发评分信息提示
      * type: book/movie
      */
     listHandle(reg, tag) {

@@ -234,19 +234,19 @@ class DoubanInfo extends BaseInfo {
                     data.title = movie.title;
                     data.originTitle = movie.original_title;
                     data.year = movie.year;
-                    data.rating = movie.rating.average;
+                    data.rating = movie.rating.average.toFixed(1);
                     data.ratingNum = movie.ratings_count || '';
                     data.genre = movie.genres;
                     data.star = movie.rating.stars;
                     data.summary = movie.summary;
 
                     // 得到影片的英文名，以方便之后在IMDB查询
-                    if (data.originTitle && !Util.matchCN(data.originTitle)) {
+                    if (data.originTitle && Util.isENStr(data.originTitle)) {
                         data.enName = data.originTitle;
                     } else {
                         const aka = movie.aka;
                         for (let i = aka.length-1;i >= 0;i--) {
-                            if (Util.matchCN(aka[i])) {
+                            if (!Util.isENStr(aka[i])) {
                                 aka.splice(i, 1);
                             }
                         }

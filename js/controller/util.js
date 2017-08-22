@@ -14,6 +14,18 @@ class Util {
     }
 
     /**
+     * 是否是纯英文字符组成
+     *
+     */
+    static isENStr(str) {
+        const nonASCII = /[^\x00-\x7F]+/;
+        if (str.match(nonASCII)) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * Return matched Chinese string, return empty string if not matched
      *
      */

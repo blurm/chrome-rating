@@ -193,7 +193,9 @@ class Template {
         let html = `<div class="ratings_wrapper">
                         <div class="imdbRating">
                             <div class="ratingValue">
+                                <a href="http://www.imdb.com/title/${data.id}" target="_blank">
                                 <strong><span>${data.rating}</span></strong><span class="grey">/</span><span class="grey">10</span>
+                                </a>
                             </div>
                             <span class="small">${data.ratingNum}</span>
                         </div>
@@ -203,6 +205,17 @@ class Template {
         $imdb.append(html);
     }
 
+    showIMDBError() {
+        let data = this.data;
+        // 获得imdb 外层div
+        const $imdb = $('.imdb_rating');
+        let html = `<div class="ratings_wrapper">
+                        <img style="width:50px;height=50px;" src="chrome-extension://imooppmfkkhafmgkjnmbanmpebakjfoh/css/images/unhappy.png">
+                    </div>
+            `;
+        $imdb.empty();
+        $imdb.append(html);
+    }
     renderTags(tags) {
         let result = `<div class="tag_group">`;
         for (const tag of tags) {
@@ -221,6 +234,7 @@ class Template {
         const data = this.data;
         let result = '';
         if (data.ratingNum <= 10) {
+            // 评价人数不足
             result += `<div class="rating">
                             <div class="douban_rating">
                                 <strong class="rating_num"></strong>
@@ -233,6 +247,7 @@ class Template {
                                 </div>
                             </div>`;
         } else {
+            // 正常显示评分
             result += `<div class="rating">
                             <div class="douban_rating">
                                 <strong class="rating_num">${data.rating}</strong>
@@ -246,24 +261,28 @@ class Template {
 
         }
 
+        // IMD评分子div
         if (this.type === 'movie') {
-           result += `<div class="imdb_rating">
+            if (!TEST_MODE || TEST_UI_LOADER) {
+                result += `<div class="imdb_rating">
                            <div class="loader-inner ball-pulse">
                                 <div></div>
                                 <div></div>
                                 <div></div>
                             </div>
                        </div>`;
-            //result += `<div class="imdb_rating">
-                            //<div class="ratings_wrapper">
-                                //<div class="imdbRating">
-                                    //<div class="ratingValue">
-                                        //<strong><span>7.2</span></strong><span class="grey">/</span><span class="grey">10</span>
-                                    //</div>
-                                    //<span class="small">3,683</span>
-                                //</div>
-                            //</div>
-                        //</div>`;
+            } else {
+                result += `<div class="imdb_rating">
+                            <div class="ratings_wrapper">
+                                <div class="imdbRating">
+                                    <div class="ratingValue">
+                                        <strong><span>7</span></strong><span class="grey">/</span><span class="grey">10</span>
+                                    </div>
+                                    <span class="small">3,683</span>
+                                </div>
+                            </div>
+                        </div>`;
+            }
         }
 
         result += `</div>`;
