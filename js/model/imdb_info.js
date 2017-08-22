@@ -1,6 +1,6 @@
 const ERR_MSG_MAP_IMDB = new Map();
-ERR_MSG_MAP_IMDB.set(1001, '没有找到您要的内容');
-ERR_MSG_MAP_IMDB.set(1002, '暂时没有评分');
+ERR_MSG_MAP_IMDB.set(1001, 'No Result');
+ERR_MSG_MAP_IMDB.set(1002, 'No Rating');
 
 class IMDBInfo extends BaseInfo {
     set options(options) {
@@ -28,35 +28,38 @@ class IMDBInfo extends BaseInfo {
 
     popData(json) {
         if (TEST_MODE) {
-            return TEST_DATA_IMDB_MOVIE;
-        }
-        console.log('imdb json result:', json);
-        const data = {};
-        console.log(`json result:`, json);
+            setTimeout(function () {
+                return TEST_DATA_IMDB_MOVIE;
+            }, 10000);
+        } else {
+            console.log('imdb json result:', json);
+            const data = {};
+            console.log(`json result:`, json);
 
-        if (json && json.length > 0) {
-            const movie = json[0];
-            data.id = movie.imdb_id;
-            data.title = movie.title;
-            data.year = movie.year;
-            data.rating = movie.rating;
-            data.star = this.countStar(data.rating);
-            data.ratingNum = movie.rating_count;
-            data.genre = movie.genre.join(', ');
-            data.director = movie.director;
-            data.stars = movie.stars.join();
-            data.summary = movie.description;
-        }
+            if (json && json.length > 0) {
+                const movie = json[0];
+                data.id = movie.imdb_id;
+                data.title = movie.title;
+                data.year = movie.year;
+                data.rating = movie.rating;
+                data.star = this.countStar(data.rating);
+                data.ratingNum = movie.rating_count;
+                data.genre = movie.genre.join(', ');
+                data.director = movie.director;
+                data.stars = movie.stars.join();
+                data.summary = movie.description;
+            }
 
-        // 如果没有结果返回
-        if (!data.title) {
-            data.errMsg = ERR_MSG_MAP_IMDB.get(1001);
-        } else if (!data.rating || data.rating === ''){
-            data.errMsg = ERR_MSG_MAP_IMDB.get(1002);
-        }
+            // 如果没有结果返回
+            if (!data.title) {
+                data.errMsg = ERR_MSG_MAP_IMDB.get(1001);
+            } else if (!data.rating || data.rating === ''){
+                data.errMsg = ERR_MSG_MAP_IMDB.get(1002);
+            }
 
-        console.log('imdb data', data);
-        return data;
+            console.log('imdb data', data);
+            return data;
+        }
     }
 
     getRatingInfo(success, fail) {

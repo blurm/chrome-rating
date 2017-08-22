@@ -261,7 +261,7 @@
     line-height: 100em;
 }
 
-.logo a:hover {
+.nav-logo a:hover {
     text-decoration:none;
     background: transparent;
 }
@@ -290,8 +290,8 @@ div.tag_group {
 }
 
 .book-douban .loader-inner {
-    margin-top: 20px;
-    margin-bottom: 50px;
+    padding: 20px 0 30px 20px;
+    margin-bottom:40px;
 }
 
 /*测试用代码，在movie页面上显示*/
@@ -305,4 +305,29 @@ div.tag_group {
     /*background-color: #3f3f45;*/
     background-color: #F2F3F4;
     color: #6b6969;
+}
+.error_info {
+    text-align: center;
+    padding: 10px 0 20px 0;
+}
+
+.error_info img {
+    height:60px;
+    width:86px;
+}
+.error_wrapper {
+    /*background: url('chrome-extension://__MSG_@@extension_id__/css/images/unhappy.png') no-repeat 0 0;*/
+    /*background-image:url('chrome-extension://__MSG_@@extension_id__/css/images/unhappy.png');*/
+    /*background-size: 80px;*/
+    background-color: #f6f6f1;
+    margin-left: auto;
+    margin-right: auto;
+}
+.error_info .oops {
+    font-size:20px;
+    text-align:center;
+}
+.error_info .message {
+    text-align:left;
+    padding: 10px 30px;
 }

@@ -66,7 +66,7 @@ class Template {
         const bodyW = $body.width();
 
         // 允许我们检索一个元素 (包含其 border 边框，不包括 margin) 相对于文档（document）的当前位置
-        const listT = $list.offset().top;
+        const listT = $list.offset().top - 54;
         const listL = $list.offset().left;
         const listW = $list.width();
         const listH = $list.height();
@@ -170,9 +170,10 @@ class Template {
 
         return `<div class="movie-rating-head">
                         <h3>
-                            <a href="https://${data.type}.douban.com/subject/${data.id}" target="_blank"><span>${title} (${data.year})</span></a>
+                            <a href="https://${data.type}.douban.com/subject/${data.id}" target="_blank"><span>${title}</span></a>
+                            <span class="year">(${data.year})</span>
                         </h3>
-                        ${originTitle}
+                        <div class="originTitle">${originTitle}</div>
                     </div>
                     ${rate}
                     ${tags}
@@ -192,11 +193,11 @@ class Template {
         const $imdb = $('.imdb_rating');
         let html = `<div class="ratings_wrapper">
                         <div class="imdbRating">
-                            <div class="ratingValue">
                                 <a href="http://www.imdb.com/title/${data.id}" target="_blank">
+                            <div class="ratingValue">
                                 <strong><span>${data.rating}</span></strong><span class="grey">/</span><span class="grey">10</span>
-                                </a>
                             </div>
+                                </a>
                             <span class="small">${data.ratingNum}</span>
                         </div>
                     </div>
@@ -209,10 +210,14 @@ class Template {
         let data = this.data;
         // 获得imdb 外层div
         const $imdb = $('.imdb_rating');
-        let html = `<div class="ratings_wrapper">
-                        <img style="width:50px;height=50px;" src="chrome-extension://imooppmfkkhafmgkjnmbanmpebakjfoh/css/images/unhappy.png">
+        let html = `<div class="error_info">
+                    <div class="error_wrapper">
+                        <img src="chrome-extension://imooppmfkkhafmgkjnmbanmpebakjfoh/css/images/oops.png">
+                        <div class="message">
+                            ${data.errMsg}
+                        </div>
                     </div>
-            `;
+                </div>`;
         $imdb.empty();
         $imdb.append(html);
     }
@@ -294,17 +299,21 @@ class Template {
      */
     renderErrorIntro() {
         const data = this.data;
-        return `<div class="book-douban-head">
-                    <h3>暂无数据 :(</h3>
-                    <br>
-                    ${data.errMsg}
+        return `<div class="error_info">
+                    <div class="error_wrapper">
+                        <img src="chrome-extension://imooppmfkkhafmgkjnmbanmpebakjfoh/css/images/oops.png">
+                        <div class="message">
+                            ${data.errMsg}
+                        </div>
+                    </div>
                 </div>`;
     }
     /**
      * 渲染简介前的Loading
      */
     renderLoadIntro() {
-        return `<div>内容正在加载中...</div>
+        return `<div class="main_loader">
+                    <div>内容正在加载中...</div>
                     <div class="loader-inner ball-grid-pulse">
                         <div></div>
                         <div></div>
@@ -315,6 +324,7 @@ class Template {
                         <div></div>
                         <div></div>
                         <div></div>
+                    </div>
                 </div>`;
     }
 

@@ -21,4 +21,5 @@ class Ttmeiju {
     }
 }
 
+console.log('ttmeiju');
 new Ttmeiju().main();

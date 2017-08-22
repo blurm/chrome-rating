@@ -108,9 +108,11 @@
             "matches": [
                 "http://ttmeiju.com/*/Movie*"
             ],
+            "css": [
+                "css/movie.css"
+            ],
             "js": [
                 "js/controller/ttmeiju.js",
-                "js/controller/util.js",
                 "js/utils/parse_torrent_name/patterns.js",
                 "js/utils/parse_torrent_name/parser.js"
             ]

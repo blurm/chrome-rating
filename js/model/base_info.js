@@ -24,9 +24,13 @@ class BaseInfo {
 
     getParams() {}
 
+    /**
+     * 移除最后一个逗号
+     *
+     */
     static rmComma(str) {
         if (str.length > 0 && str[str.length-1] == '，') {
-            return str.substring(0, str.length-2);
+            return str.substring(0, str.length-1);
         }
     }
 

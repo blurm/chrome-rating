@@ -22,7 +22,12 @@
 
 .movie-rating .movie-rating-head {
     margin-bottom: 5px;
-    color:silver;
+    color:#888;
+}
+
+.movie-rating-head .year {
+    font-size: 20px;
+    color: silver;
 }
 
 .rating_close {
@@ -66,8 +71,8 @@
     padding:10px 0 10px 6px
 }
 /* ----------------- IMDB Rating ---------------------*/
-div.movie-rating .loader-inner {
-    margin: 20px 30px;
+.imdb_rating .loader-inner {
+    margin: 15px 0 0 25px;
 }
 
 .ball-clip-rotate > div {
@@ -203,9 +208,10 @@ div.tag_group {
 
 .movie-rating .logo {
     color: #9b9b9b;
-    margin-bottom: 5px;
+    margin: 0 0 5px 0;
     height: 10px;
-    line-height:1
+    line-height:1;
+    float: none;
 }
 
 .movie-rating h3 {
@@ -265,7 +271,7 @@ div.tag_group {
 .movie-rating a:hover {
     color:#fff;
     text-decoration:none;
-    /*background:#37a*/
+    background:#ff6428
 }
 .movie-rating a:active {
     color:#fff;
@@ -352,9 +358,9 @@ div.tag_group {
     text-decoration:none
 }
 
-.movie-rating .loader-inner {
-    margin-top: 20px;
-    margin-bottom: 50px;
+.main_loader .loader-inner {
+    padding:20px 0 30px 30px;
+    margin-bottom:40px;
 }
 
 /*测试用代码，在movie页面上显示*/
@@ -368,4 +374,36 @@ div.tag_group {
     /*background-color: #3f3f45;*/
     background-color: #F2F3F4;
     color: #6b6969;
+}
+
+.error_info {
+    text-align: center;
+    padding: 10px 0 20px 0;
+}
+.error_info img {
+    height:60px;
+    width:86px;
+}
+.error_wrapper {
+    background-color: #0e0e0e;
+    margin-left: auto;
+    margin-right: auto;
+}
+.error_info .message {
+    text-align:left;
+    padding: 10px 30px;
+}
+
+.imdb_rating .error_info {
+    text-align: center;
+    padding: 10px 0 0 0;
+}
+.imdb_rating .error_info img {
+    height:20px;
+    width:36px;
+}
+.imdb_rating .message {
+    color: #666;
+    text-align:center;
+    padding: 0 0;
 }
