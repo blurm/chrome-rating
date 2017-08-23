@@ -39,24 +39,34 @@ class Common {
             baseResolve(result, that.modules[1], true);
         }
 
+        function imdbReject(reason) {
+            console.log('失败：', reason);
+            const data =that.modules[1].popError(reason);
+            new Template(data, type).showIMDBError();
+        }
+
         function mainResolve(result) {
             const data = baseResolve(result, that.modules[0], false);
 
             // 如果是海外发行的电影，就去IMDB取评分
             if (that.modules[1] && data.enName !== '') {
                 const imdbModule = that.modules[1];
-                imdbModule.options = {name: data.enName, year:data.year, type:that.type};
+                imdbModule.options = {
+                    name: data.enName,
+                    year:data.year,
+                    type:that.type
+                };
 
-                new Promise(
-                    (success, error) => imdbModule.getRatingInfo(success, error))
+                new Promise((success, error) => imdbModule.getRatingInfo(
+                                                            success, error))
                     .then(imdbResolve)
-                    .catch(mainReject);
+                    .catch(imdbReject);
             }
         }
 
         function mainReject(reason) {
             console.log('失败：', reason);
-            const data =module.popError(reason.responseJSON);
+            const data =module.popError(reason);
             new Template(data, type).showTips($target, 'error');
         }
 

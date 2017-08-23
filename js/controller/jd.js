@@ -13,33 +13,6 @@ class JD {
             $('#name h2').length > 0;
     }
 
-    /**
-     * 返回匹配的非中文字符串，如没有匹配则返回空字符串
-     *
-     */
-    static matchEN(str) {
-        const regexEN = /[^\u4e00-\u9fa5]+/g;
-        let result = '';
-        if (str.match(regexEN)) {
-            result = str.match(regexEN).join(' ').trim();
-        }
-        return result;
-    }
-
-    /**
-     * Return matched Chinese string, return empty string if not matched
-     *
-     */
-    static matchCN(str) {
-        const regexCN = /[\u4e00-\u9fa5]+/g;
-
-        let result = '';
-        if (str.match(regexCN)) {
-            result = str.match(regexCN)[0];
-        }
-        return result;
-    }
-
     static getBookShortName(bookName) {
         // Remove 第二|2版
         //const arr = name.match(/第(?:\d|[\u4e00-\u9fa5])版/);
@@ -65,7 +38,7 @@ class JD {
             // 去掉【】[] () {} 及其包含的内容
             .replace(REGEX_REMOVE_BRACE, ' ')
             // 去掉以作品集，系列，纪念版等结尾的字段
-            .replace(/\S+(作品集|纪念版|作品|著作|丛书|新版)\d*(:|：)?/g, '')
+            .replace(/\S+(作品集|珍藏版|纪念版|作品|著作|丛书|新版)\d*(:|：)?/g, '')
             // 替换某些特殊字符，比如‘/’
             .replace(/\/|:|：|·|\./g, ' ').trim();
 
@@ -73,8 +46,8 @@ class JD {
 
         // 如果是英文原版书籍，只取英文部分作为标题
         // 部分电子书出版商是空
-        if (publisher !== '' && JD.matchCN(publisher) === '') {
-            result = JD.matchEN(tempName);
+        if (publisher !== '' && Util.matchCN(publisher) === '') {
+            result = Util.matchEN(tempName);
             //if (JD.matchEN(tempName) !== '') {
                 //result += ' ' + JD.matchEN(tempName);
             //}

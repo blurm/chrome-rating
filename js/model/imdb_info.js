@@ -1,6 +1,8 @@
 const ERR_MSG_MAP_IMDB = new Map();
 ERR_MSG_MAP_IMDB.set(1001, 'No Result');
 ERR_MSG_MAP_IMDB.set(1002, 'No Rating');
+ERR_MSG_MAP_IMDB.set(1003, '暂时失联=_="');
+ERR_MSG_MAP_IMDB.set(1004, '返回异常 稍后再试');
 
 class IMDBInfo extends BaseInfo {
     set options(options) {
@@ -18,19 +20,29 @@ class IMDBInfo extends BaseInfo {
         return params;
     }
 
-    popError(json) {
+    popError(response) {
         const data = {};
         data.type = this.type;
-        data.errMsg = ERR_MSG_MAP_IMDB.get(json.code);
+
+        // 是否timeout
+        if (response.readyState == 4 && response.status == 524)
+        {
+            data.errMsg = ERR_MSG_MAP_IMDB.get(1003);
+        } else {
+            if (!response.responseJSON) {
+                data.errMsg = ERR_MSG_MAP_IMDB.get(1004);
+            }
+
+        }
 
         return data;
     }
 
     popData(json) {
         if (TEST_MODE) {
-            setTimeout(function () {
+            //setTimeout(function () {
                 return TEST_DATA_IMDB_MOVIE;
-            }, 10000);
+            //}, 0);
         } else {
             console.log('imdb json result:', json);
             const data = {};

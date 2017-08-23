@@ -1,4 +1,5 @@
 const ERR_MSG_MAP = new Map();
+ERR_MSG_MAP.set(1000, '出错啦！请把书名和链接反馈给作者，会尽快修正！');
 ERR_MSG_MAP.set(1001, '没有找到您要的内容');
 
 ERR_MSG_MAP.set(100, 'invalid_request_scheme 错误的请求协议');
@@ -150,7 +151,8 @@ class DoubanInfo extends BaseInfo {
     popError(json) {
         const data = {};
         data.type = this.type;
-        data.errMsg = ERR_MSG_MAP.get(json.code);
+
+        data.errMsg = ERR_MSG_MAP.get(1000);
 
         return data;
     }

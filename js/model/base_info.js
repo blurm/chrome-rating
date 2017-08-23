@@ -32,6 +32,7 @@ class BaseInfo {
         if (str.length > 0 && str[str.length-1] == '，') {
             return str.substring(0, str.length-1);
         }
+        return str;
     }
 
     /**

@@ -25,29 +25,34 @@
     "content_scripts": [
         {
             "matches": [
-                "http://film.qq.com/*",
-                "http://v.qq.com/*",
-                "https://film.qq.com/*",
-                "https://v.qq.com/*",
+                "*://rarbg.is/*",
+
+                "*://film.qq.com/*",
+                "*://v.qq.com/*",
 
                 "http://ttmeiju.com/*/Movie*",
 
-                "http://item.jd.com/*",
-                "http://re.jd.com/cps/item/*",
-                "http://e.jd.com/*",
-                "http://book.jd.com/*",
-                "http://list.jd.com/*",
-                "http://search.e.jd.com/*",
-                "http://search.jd.com/*",
-                "http://sale.jd.com/*",
-                "https://item.jd.com/*",
-                "https://re.jd.com/cps/item/*",
-                "https://e.jd.com/*",
-                "https://book.jd.com/*",
-                "https://list.jd.com/*",
-                "https://search.e.jd.com/*",
-                "https://search.jd.com/*",
-                "https://sale.jd.com/*"
+                "*://www.iqiyi.com/dianying/",
+                "*://www.iqiyi.com/dianshiju/",
+                "*://list.iqiyi.com/www/1/*",
+                "*://list.iqiyi.com/www/2/*",
+                "*://list.iqiyi.com/www/3/*",
+                "*://list.iqiyi.com/www/4/*",
+                "*://so.iqiyi.com/so/q_*",
+
+                "*://movie.youku.com/*",
+                "*://list.youku.com/category/show/c_97*",
+                "*://list.youku.com/category/show/c_96*",
+                "*://list.youku.com/category/show/c_100*",
+
+                "*://item.jd.com/*",
+                "*://re.jd.com/cps/item/*",
+                "*://e.jd.com/*",
+                "*://book.jd.com/*",
+                "*://list.jd.com/*",
+                "*://search.e.jd.com/*",
+                "*://search.jd.com/*",
+                "*://sale.jd.com/*"
             ],
             "css": [
                 "css/star.css",
@@ -106,6 +111,49 @@
         },
         {
             "matches": [
+                "*://so.iqiyi.com/so/q_*",
+                "*://www.iqiyi.com/dianying/",
+                "*://www.iqiyi.com/dianshiju/",
+                "*://list.iqiyi.com/www/1/*",
+                "*://list.iqiyi.com/www/2/*",
+                "*://list.iqiyi.com/www/3/*",
+                "*://list.iqiyi.com/www/4/*"
+            ],
+            "css": [
+                "css/movie.css"
+            ],
+            "js": [
+                "js/controller/iqiyi.js"
+            ]
+        },
+        {
+            "matches": [
+                "*://movie.youku.com/*",
+                "*://list.youku.com/category/show/c_97*",
+                "*://list.youku.com/category/show/c_96*",
+                "*://list.youku.com/category/show/c_100*"
+            ],
+            "css": [
+                "css/movie.css"
+            ],
+            "js": [
+                "js/controller/youku.js"
+            ]
+        },
+        {
+            "matches": [
+                "*://rarbg.is/*"
+            ],
+            "css": [
+                "css/movie.css"
+            ],
+            "js": [
+                "js/utils/parse_torrent_name/parser.js",
+                "js/controller/rarbg.js"
+            ]
+        },
+        {
+            "matches": [
                 "http://ttmeiju.com/*/Movie*"
             ],
             "css": [
@@ -113,19 +161,7 @@
             ],
             "js": [
                 "js/controller/ttmeiju.js",
-                "js/utils/parse_torrent_name/patterns.js",
                 "js/utils/parse_torrent_name/parser.js"
-            ]
-        },
-        {
-            "matches": [
-                "https://movie.douban.com/*",
-                "https://book.douban.com/*"
-            ],
-            "js": [
-                "js/base/common.js",
-                "js/view/template.js",
-                "js/model/base_info.js"
             ]
         }
     ]

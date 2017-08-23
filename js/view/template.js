@@ -1,5 +1,7 @@
 const DUR_FO_TIP = 300; // duration for tip fade out animation
 const DUR_FI_TIP_DETAIL = 300; // duration for tip detail fading in
+const DUR_FI_IMDB_RATING = 500; // duration for tip detail fading in
+const EXTENSION_ID = chrome.runtime.id;
 
 class Template {
     constructor(data, type) {
@@ -42,10 +44,10 @@ class Template {
         if (type === 'loading') {
             $($mainDiv).remove();
             $('body').append(this.renderContainer());
-            $($mainDiv + ' .container').append(renderOutput);
+            $($mainDiv + ' .m_r_container').append(renderOutput);
         } else {
-            $($mainDiv + ' .container').empty();
-            let $appendTo = $($mainDiv + ' .container').hide().append(renderOutput).fadeIn(DUR_FI_TIP_DETAIL);
+            $($mainDiv + ' .m_r_container').empty();
+            let $appendTo = $($mainDiv + ' .m_r_container').hide().append(renderOutput).fadeIn(DUR_FI_TIP_DETAIL);
 
             // 右上方关闭按钮的注册事件
             $($mainDiv).on('click', '.rating_close', (ev) => {
@@ -66,7 +68,7 @@ class Template {
         const bodyW = $body.width();
 
         // 允许我们检索一个元素 (包含其 border 边框，不包括 margin) 相对于文档（document）的当前位置
-        const listT = $list.offset().top - 54;
+        const listT = $list.offset().top - 34;
         const listL = $list.offset().left;
         const listW = $list.width();
         const listH = $list.height();
@@ -203,7 +205,7 @@ class Template {
                     </div>
             `;
         $imdb.empty();
-        $imdb.append(html);
+        $imdb.hide().append(html).fadeIn(DUR_FI_IMDB_RATING);
     }
 
     showIMDBError() {
@@ -212,7 +214,7 @@ class Template {
         const $imdb = $('.imdb_rating');
         let html = `<div class="error_info">
                     <div class="error_wrapper">
-                        <img src="chrome-extension://imooppmfkkhafmgkjnmbanmpebakjfoh/css/images/oops.png">
+                        <img src="chrome-extension://${EXTENSION_ID}/css/images/oops.png">
                         <div class="message">
                             ${data.errMsg}
                         </div>
@@ -240,7 +242,7 @@ class Template {
         let result = '';
         if (data.ratingNum <= 10) {
             // 评价人数不足
-            result += `<div class="rating">
+            result += `<div class="rating_section">
                             <div class="douban_rating">
                                 <strong class="rating_num"></strong>
                                 <span content="10.0"></span>
@@ -253,7 +255,7 @@ class Template {
                             </div>`;
         } else {
             // 正常显示评分
-            result += `<div class="rating">
+            result += `<div class="rating_section">
                             <div class="douban_rating">
                                 <strong class="rating_num">${data.rating}</strong>
                                 <div class="rating_star">
@@ -268,7 +270,6 @@ class Template {
 
         // IMD评分子div
         if (this.type === 'movie') {
-            if (!TEST_MODE || TEST_UI_LOADER) {
                 result += `<div class="imdb_rating">
                            <div class="loader-inner ball-pulse">
                                 <div></div>
@@ -276,18 +277,18 @@ class Template {
                                 <div></div>
                             </div>
                        </div>`;
-            } else {
-                result += `<div class="imdb_rating">
-                            <div class="ratings_wrapper">
-                                <div class="imdbRating">
-                                    <div class="ratingValue">
-                                        <strong><span>7</span></strong><span class="grey">/</span><span class="grey">10</span>
-                                    </div>
-                                    <span class="small">3,683</span>
-                                </div>
-                            </div>
-                        </div>`;
-            }
+            //} else {
+                //result += `<div class="imdb_rating">
+                            //<div class="ratings_wrapper">
+                                //<div class="imdbRating">
+                                    //<div class="ratingValue">
+                                        //<strong><span>7</span></strong><span class="grey">/</span><span class="grey">10</span>
+                                    //</div>
+                                    //<span class="small">3,683</span>
+                                //</div>
+                            //</div>
+                        //</div>`;
+            //}
         }
 
         result += `</div>`;
@@ -301,7 +302,7 @@ class Template {
         const data = this.data;
         return `<div class="error_info">
                     <div class="error_wrapper">
-                        <img src="chrome-extension://imooppmfkkhafmgkjnmbanmpebakjfoh/css/images/oops.png">
+                        <img src="chrome-extension://${EXTENSION_ID}/css/images/oops.png">
                         <div class="message">
                             ${data.errMsg}
                         </div>
@@ -337,7 +338,7 @@ class Template {
                         </div>
                         <a href="javascript:;" class="rating_close"></a>
                     </div>
-                    <div class="container">
+                    <div class="m_r_container">
                     </div>
                 </div>`;
         }
@@ -345,7 +346,7 @@ class Template {
                     <div class="logo">
                         <a href="javascript:;" class="rating_close"></a>
                     </div>
-                    <div class="container">
+                    <div class="m_r_container">
                     </div>
                 </div>`;
     }

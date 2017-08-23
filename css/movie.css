@@ -1,3 +1,51 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+v2.0 | 20110126
+License: none (public domain)
+ */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
 .ll {
     float: left;
 }
@@ -15,14 +63,17 @@
     box-shadow: 0px 0px 10px #515A5A;
     border-radius:7px;
     text-align: left;
-    width: 260px;
+    width:fit-content;
+    max-width:265px;
+    color:#888;
+    /*min-width: 262px;*/
     /*max-width: 300px;*/
     /*min-width: 200px;*/
 }
 
 .movie-rating .movie-rating-head {
     margin-bottom: 5px;
-    color:#888;
+    /*color:#888;*/
 }
 
 .movie-rating-head .year {
@@ -43,32 +94,39 @@
 
 
 /*评分部分的样式*/
-.movie-rating .rating {
+.movie-rating .rating_section {
     /*width: 160px;*/
-    position:relative;
+    /*position:relative;*/
     color:#9b9b9b;
     background-color: #0e0e0e;
     padding: 12px 0;
 }
+
 .douban_rating {
     float:left;
+    padding-right:20px;
+    border-style:solid;
+    border-color:#484848;
+    border-width:0 1px 0 0;
+    /*min-width: 121px;*/
     /*line-height:2*/
 }
-/*.rating:before,.rating:after {*/
+/*.rating_section:before,.rating_section:after {*/
     /*content:'';*/
     /*display:block;*/
     /*clear:both*/
 /*}*/
-.rating .rating_num {
+.rating_section .rating_num {
     font: 28px Helvetica,Arial,sans-serif;
     float:left;
     color:#ff6428;
     min-width:30%;
-    margin-top:10px;
+    padding-top:8px;
+    /*margin-top:10px;*/
 }
-.rating .rating_star {
+.rating_section .rating_star {
     float:left;
-    padding:10px 0 10px 6px
+    padding:8px 0 7px 6px
 }
 /* ----------------- IMDB Rating ---------------------*/
 .imdb_rating .loader-inner {
@@ -79,18 +137,18 @@
     background-color: orange;
 }
 .imdb_rating {
-    float:right;
-    width: 46%;
+    float:left;
+    /*width: 46%;*/
     height: 50px;
-    border-style:solid;
-    border-color:#484848;
-    border-width:0 0 0 1px;
+    /*border-style:solid;*/
+    /*border-color:#484848;*/
+    /*border-width:0 0 0 1px;*/
 }
 
 .ratings_wrapper {
     margin-top:6px;
     margin-left:20px;
-    width: 100px;
+    /*width: 100px;*/
 }
 
 .imdbRating {
@@ -102,9 +160,9 @@
     /*line-height: 2;*/
     /*padding: 2px 0 0 34px;*/
     /*width: 158px;*/
-    float:right;
+    float:left;
     padding: 2px 0 0 39px;
-    margin-right: 10px;
+    /*margin-right: 0px;*/
 }
 
 /*.imdb_rating .imdb_rating_star {*/
@@ -179,7 +237,7 @@ div.tag_group {
     /*border-left-color:#acacac;*/
     border-width:8px;
     /*三角距离顶部的距离*/
-    top: 60px;
+    top: 40px;
     /*before和after margin-top的差为三角border的大小*/
     margin-top: -8px;
 }
@@ -195,8 +253,9 @@ div.tag_group {
     border-right-color: #0e0e0e;
     /*border-left-color: #0e0e0e;*/
     border-width: 7px;
-    top: 60px;
+    top: 40px;
     margin-top:-7px;
+    visibility: visible;
 }
 
 .movie-rating.left:after {
@@ -204,6 +263,7 @@ div.tag_group {
     left: 100%;
     border-left-color: #0e0e0e;
     border-right-color: transparent;
+    /*visibility: visible;*/
 }
 
 .movie-rating .logo {
@@ -242,12 +302,13 @@ div.tag_group {
 }
 
 .movie-rating-details li .label {
-    color: #888;
+    /*color: #888;*/
     margin-left: -40px;
     float: left;
     padding: 0
 }
 .movie-rating-details p {
+    color: #505050;
     line-height: 16px;
     margin-top: 10px;
     overflow : hidden;
@@ -308,22 +369,22 @@ div.tag_group {
     text-decoration: none;
 }
 
-.rating .rating_right.not_showed {
-    padding:10px 0 0
+.rating_section .rating_star.not_showed {
+    padding:2px 0 9px 0;
 }
-.rating .power {
+.rating_section .power {
     height:10px;
     float:left;
     margin:1px 4px;
     background:#ffd596 none repeat scroll 0 0
 }
-.rating .power.color_gray {
+.rating_section .power.color_gray {
     background:#ccc
 }
-.rating .rating_per {
+.rating_section .rating_per {
     font-size:11px
 }
-.rating .rating_betterthan {
+.rating_section .rating_betterthan {
     position:relative;
     padding:15px 0;
     border-top:1px solid #eaeaea;
@@ -396,7 +457,7 @@ div.tag_group {
 
 .imdb_rating .error_info {
     text-align: center;
-    padding: 10px 0 0 0;
+    padding: 8px 0 0 20px;
 }
 .imdb_rating .error_info img {
     height:20px;

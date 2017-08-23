@@ -5,7 +5,7 @@ const TEST_DATA_DOUBAN_MOVIE = {
     originTitle: 'Guadians of Galaxy vol 2',
     year: 2017,
     rating: '7.0',
-    ratingNum: '234000',
+    ratingNum: '2340000',
     star: 40,
     director: 'sdf fs fasdf',
     stars: 'sdf fasdf sdf',
