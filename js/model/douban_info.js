@@ -15,7 +15,6 @@ ERR_MSG_MAP.set(109, 'invalid_credencial2 apikey 未申请此权限');
 ERR_MSG_MAP.set(110, 'not_trial_user 未注册的测试用户');
 ERR_MSG_MAP.set(111, 'rate_limit_exceeded1 用户访问速度限制');
 ERR_MSG_MAP.set(112, 'IP 访问速度限制, 豆瓣限制您每小时最多只能发起100次请求');
-
 ERR_MSG_MAP.set(113, 'required_parameter_is_missing 缺少参数');
 ERR_MSG_MAP.set(114, 'unsupported_grant_type 错误的 grant_type');
 ERR_MSG_MAP.set(115, 'unsupported_response_type 错误的 response_type');
@@ -136,7 +135,8 @@ class DoubanInfo extends BaseInfo {
 
     isMatchShortName(shortName, title) {
         for (const sname of shortName) {
-            if (title.indexOf(sname) >= 0) {
+            if (title.indexOf(sname) >= 0 ||
+                    title.indexOf(sname.replace('，', ','))) {
                 return true;
             }
         }
