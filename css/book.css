@@ -1,3 +1,55 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+ */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-weight: normal;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a:link {
+    font-weight: normal;
+}
 /*-------------- 主体div ----------------*/
 .book-douban {
     font-family: Arial;
@@ -184,7 +236,7 @@
 }
 
 /*评分部分的样式*/
-.rating {
+.rating_section {
     width: 160px;
     color:#9b9b9b;
     /*position: fixed;*/
@@ -194,45 +246,45 @@
     /*box-shadow: 0px 0px 10px #ccc;*/
     font: 12px Helvetica,Arial,sans-serif;
 }
-/*.rating .rating_wrap {*/
+/*.rating_section .rating_wrap {*/
     /*font-size:12px;*/
     /*line-height:14px*/
 /*}*/
-/*.rating .rating_wrap .logo {*/
+/*.rating_section .rating_wrap .logo {*/
     /*line-height:1*/
 /*}*/
-.rating .douban_rating {
+.rating_section .douban_rating {
     padding:0;
     line-height:2
 }
 
-.rating .rating_num {
+.rating_section .rating_num {
     float:left;
     color:#494949;
     padding:0;
     min-width:30%;
     font-size:28px
 }
-.rating .rating_star {
+.rating_section .rating_star {
     float:left;
     padding:10px 0 10px 6px
 }
-.rating .rating_star.not_showed {
+.rating_section .rating_star.not_showed {
     padding:10px 0 0
 }
-.rating .power {
+.rating_section .power {
     height:10px;
     float:left;
     margin:1px 4px;
     background:#ffd596 none repeat scroll 0 0
 }
-.rating .power.color_gray {
+.rating_section .power.color_gray {
     background:#ccc
 }
-.rating .rating_per {
+.rating_section .rating_per {
     font-size:11px
 }
-.rating .rating_betterthan {
+.rating_section .rating_betterthan {
     position:relative;
     padding:15px 0;
     border-top:1px solid #eaeaea;

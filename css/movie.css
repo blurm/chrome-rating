@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
 v2.0 | 20110126
 License: none (public domain)
  */
@@ -12,8 +12,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
     margin: 0;
@@ -22,9 +22,10 @@ time, mark, audio, video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    font-weight: normal;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
@@ -46,12 +47,15 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-.ll {
+a:link {
+    font-weight: normal;
+}
+#rating4U_movie .ll {
     float: left;
 }
 /* -------------------------- 主题布局 ------------------------------- ×/
 /*-------------- 主体div ----------------*/
-.movie-rating {
+#rating4U_movie {
     font: 12px Helvetica,Arial,sans-serif;
     position: absolute;
     top: 0;
@@ -71,17 +75,17 @@ table {
     /*min-width: 200px;*/
 }
 
-.movie-rating .movie-rating-head {
+#rating4U_movie .movie-rating-head {
     margin-bottom: 5px;
     /*color:#888;*/
 }
 
-.movie-rating-head .year {
+#rating4U_movie .movie-rating-head .year {
     font-size: 20px;
     color: silver;
 }
 
-.rating_close {
+#rating4U_movie .rating_close {
     position: absolute;
     top: 13px;
     right: 13px;
@@ -94,15 +98,15 @@ table {
 
 
 /*评分部分的样式*/
-.movie-rating .rating_section {
+#rating4U_movie .rating_section {
     /*width: 160px;*/
     /*position:relative;*/
     color:#9b9b9b;
     background-color: #0e0e0e;
-    padding: 12px 0;
+    padding: 12px 0 0 0;
 }
 
-.douban_rating {
+#rating4U_movie .douban_rating {
     float:left;
     padding-right:20px;
     border-style:solid;
@@ -116,7 +120,7 @@ table {
     /*display:block;*/
     /*clear:both*/
 /*}*/
-.rating_section .rating_num {
+#rating4U_movie .rating_section .rating_num {
     font: 28px Helvetica,Arial,sans-serif;
     float:left;
     color:#ff6428;
@@ -124,19 +128,19 @@ table {
     padding-top:8px;
     /*margin-top:10px;*/
 }
-.rating_section .rating_star {
+#rating4U_movie .rating_section .rating_star {
     float:left;
     padding:8px 0 7px 6px
 }
 /* ----------------- IMDB Rating ---------------------*/
-.imdb_rating .loader-inner {
+#rating4U_movie .imdb_rating .loader-inner {
     margin: 15px 0 0 25px;
 }
 
-.ball-clip-rotate > div {
+#rating4U_movie .ball-clip-rotate > div {
     background-color: orange;
 }
-.imdb_rating {
+#rating4U_movie .imdb_rating {
     float:left;
     /*width: 46%;*/
     height: 50px;
@@ -145,13 +149,13 @@ table {
     /*border-width:0 0 0 1px;*/
 }
 
-.ratings_wrapper {
+#rating4U_movie .ratings_wrapper {
     margin-top:6px;
     margin-left:20px;
     /*width: 100px;*/
 }
 
-.imdbRating {
+#rating4U_movie .imdbRating {
     background: url('chrome-extension://__MSG_@@extension_id__/css/images/if_favorites_18321.png') no-repeat 0 0;
     background-image:url('chrome-extension://__MSG_@@extension_id__/css/images/if_favorites_18321.png');
     background-size: 37px;
@@ -174,29 +178,29 @@ table {
     /*height:45px;*/
 /*}*/
 
-.ratingValue {
+#rating4U_movie .ratingValue {
     color: #ff6428;
     margin-bottom: -2px;
     white-space: nowrap;
 }
 
-.ratingValue strong {
+#rating4U_movie .ratingValue strong {
     font-size: 27px;
     font-weight: normal;
     line-height: 24px;
 }
 
-.imdbRating .grey {
+#rating4U_movie .imdbRating .grey {
     color: #6b6b6b;
     font-size: 10px;
 }
 
-.imdbRating .small {
+#rating4U_movie .imdbRating .small {
     font-size: 10px;
     margin-bottom: 5px;
 }
 
-.imdb_rating .ratings_wrapper {
+#rating4U_movie .imdb_rating .ratings_wrapper {
     /*float: right;*/
     /*position: relative;*/
     /*margin-left: 5px;*/
@@ -207,21 +211,22 @@ div.tag_group {
     padding-top: 15px;
     clear:both;
 }
-.tag_group .tag, .tag:link, .tag:visited {
+#rating4U_movie .tag_group .tag, .tag:link, .tag:visited {
     width: auto;
     background-color:silver;
     display: inline-block;
+    font-weight: normal;
 }
 
-.douban_starstop,.douban_stars {
+#rating4U_movie .douban_starstop,.douban_stars {
     margin-right:5px
 }
-.douban_starstop {
+#rating4U_movie .douban_starstop {
     float:left
 }
 
 /*气泡的小三角样式 默认是右侧布局*/
-.movie-rating:after, .movie-rating:before {
+#rating4U_movie:after, #rating4U_movie:before {
     right: 100%;
     /*left: 100%;*/
     border: solid transparent;
@@ -232,7 +237,7 @@ div.tag_group {
     pointer-events: none;
 }
 
-.movie-rating:before {
+#rating4U_movie:before {
     /*border-right-color:#acacac;*/
     /*border-left-color:#acacac;*/
     border-width:8px;
@@ -242,14 +247,14 @@ div.tag_group {
     margin-top: -8px;
 }
 
-.movie-rating.left:before {
+#rating4U_movie.left:before {
     right:;
     left: 100%;
     /*border-left-color:#acacac;*/
     border-right-color:transparent;
 }
 
-.movie-rating:after {
+#rating4U_movie:after {
     border-right-color: #0e0e0e;
     /*border-left-color: #0e0e0e;*/
     border-width: 7px;
@@ -258,7 +263,7 @@ div.tag_group {
     visibility: visible;
 }
 
-.movie-rating.left:after {
+#rating4U_movie.left:after {
     right:;
     left: 100%;
     border-left-color: #0e0e0e;
@@ -266,7 +271,7 @@ div.tag_group {
     /*visibility: visible;*/
 }
 
-.movie-rating .logo {
+#rating4U_movie .logo {
     color: #9b9b9b;
     margin: 0 0 5px 0;
     height: 10px;
@@ -274,7 +279,7 @@ div.tag_group {
     float: none;
 }
 
-.movie-rating h3 {
+#rating4U_movie h3 {
     word-break: break-all;
     font-weight: 400;
     font-size: 23px;
@@ -285,11 +290,11 @@ div.tag_group {
     line-height: 1;
 }
 
-.movie-rating .movie-rating-head a:link {
+#rating4U_movie .movie-rating-head a:link {
     color:#fff;
     text-decoration:none
 }
-.movie-rating-details li {
+#rating4U_movie .movie-rating-details li {
     padding-left: 40px;
     line-height: 20px;
     overflow: hidden;
@@ -297,17 +302,17 @@ div.tag_group {
     color: silver
 }
 
-.movie-rating-details li span {
+#rating4U_movie .movie-rating-details li span {
     margin-right: 5px
 }
 
-.movie-rating-details li .label {
-    /*color: #888;*/
+#rating4U_movie .movie-rating-details li .label {
+    color: #878787;
     margin-left: -40px;
     float: left;
     padding: 0
 }
-.movie-rating-details p {
+#rating4U_movie .movie-rating-details p {
     color: #505050;
     line-height: 16px;
     margin-top: 10px;
@@ -318,32 +323,32 @@ div.tag_group {
     -webkit-box-orient: vertical;
 }
 
-.movie-rating a {
+#rating4U_movie a {
     cursor:pointer
 }
-.movie-rating a:link {
+#rating4U_movie a:link {
     color:#888;
     text-decoration:none
 }
-.movie-rating a:visited {
+#rating4U_movie a:visited {
     color:#888;
     text-decoration:none
 }
-.movie-rating a:hover {
+#rating4U_movie a:hover {
     color:#fff;
     text-decoration:none;
     background:#ff6428
 }
-.movie-rating a:active {
+#rating4U_movie a:active {
     color:#fff;
     text-decoration:none;
     background:#f93
 }
 
-.rating_close:hover::before, .rating_close:hover::after {
+#rating4U_movie .rating_close:hover::before, .rating_close:hover::after {
     background: #fff;
 }
-.rating_close::before, .rating_close::after {
+#rating4U_movie .rating_close::before, .rating_close::after {
     content: '';
     position: absolute;
     height: 2px;
@@ -353,38 +358,38 @@ div.tag_group {
     margin-top: -1px;
     background: #ff6428;
 }
-.rating_close::before {
+#rating4U_movie .rating_close::before {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-.rating_close::after {
+#rating4U_movie .rating_close::after {
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
-.rating_close.thick::before, .rating_close.thick::after {
+#rating4U_movie .rating_close.thick::before, .rating_close.thick::after {
     height: 4px;
     margin-top: -2px;
 }
-.rating_close:hover {
+#rating4U_movie .rating_close:hover {
     text-decoration: none;
 }
 
-.rating_section .rating_star.not_showed {
+#rating4U_movie .rating_section .rating_star.not_showed {
     padding:2px 0 9px 0;
 }
-.rating_section .power {
+#rating4U_movie .rating_section .power {
     height:10px;
     float:left;
     margin:1px 4px;
     background:#ffd596 none repeat scroll 0 0
 }
-.rating_section .power.color_gray {
+#rating4U_movie .rating_section .power.color_gray {
     background:#ccc
 }
-.rating_section .rating_per {
+#rating4U_movie .rating_section .rating_per {
     font-size:11px
 }
-.rating_section .rating_betterthan {
+#rating4U_movie .rating_section .rating_betterthan {
     position:relative;
     padding:15px 0;
     border-top:1px solid #eaeaea;
@@ -392,10 +397,7 @@ div.tag_group {
     margin:0
 }
 
-div.tag_group {
-    margin-bottom: 10px;
-}
-.tag_group .tag, .tag:link, .tag:visited {
+#rating4U_movie .tag_group .tag, .tag:link, .tag:visited {
     width: auto;
     word-break: keep-all;
     white-space: nowrap;
@@ -409,23 +411,20 @@ div.tag_group {
     line-height: 20px;
     border-radius: 2px;
 }
-/*.tag_group .tag:link {*/
-/*color: #888;*/
-/*text-decoration:none*/
-/*}*/
-.tag_group .tag:hover {
+
+#rating4U_movie .tag_group .tag:hover {
     background-color: #595960;
     color: #ff6428;
     text-decoration:none
 }
 
-.main_loader .loader-inner {
+#rating4U_movie .main_loader .loader-inner {
     padding:20px 0 30px 30px;
     margin-bottom:40px;
 }
 
 /*测试用代码，在movie页面上显示*/
-.tag_item {
+#rating4U_movie .tag_item {
     position: relative;
     display: inline-block;
     margin-right: 3px;
@@ -437,33 +436,33 @@ div.tag_group {
     color: #6b6969;
 }
 
-.error_info {
+#rating4U_movie .error_info {
     text-align: center;
     padding: 10px 0 20px 0;
 }
-.error_info img {
+#rating4U_movie .error_info img {
     height:60px;
     width:86px;
 }
-.error_wrapper {
+#rating4U_movie .error_wrapper {
     background-color: #0e0e0e;
     margin-left: auto;
     margin-right: auto;
 }
-.error_info .message {
+#rating4U_movie .error_info .message {
     text-align:left;
     padding: 10px 30px;
 }
 
-.imdb_rating .error_info {
+#rating4U_movie .imdb_rating .error_info {
     text-align: center;
     padding: 8px 0 0 20px;
 }
-.imdb_rating .error_info img {
+#rating4U_movie .imdb_rating .error_info img {
     height:20px;
     width:36px;
 }
-.imdb_rating .message {
+#rating4U_movie .imdb_rating .message {
     color: #666;
     text-align:center;
     padding: 0 0;

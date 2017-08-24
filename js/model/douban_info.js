@@ -81,33 +81,30 @@ class DoubanInfo extends BaseInfo {
             //return 0;
         //});
 
+        // 计算出当前tag的长度（px）
+        const getTagLength = (tag) => {
+            const num = tag.name.length;
+            if (Util.matchCN(tag.name)) {
+                return num * 13 + 22 + 6;
+            }
+            return num * 13 / 2 + 22 + 6;
+        };
+
         const max = 243;
         const resultArr = [];
         while (tags.length > 0) {
+            // 从数组最后端依次往前累加，得到最接近最大长度的组合
+            let tempLength = 0;
             const indexArr = [];
-            indexArr.push(tags.length-1);
-            resultArr.push(tags[tags.length-1]);
-
-            const getTagLength = (tag) => {
-                const num = tag.title.length;
-                if (Util.matchCN(tag.title)) {
-                    return num * 13 + 22 + 6;
-                }
-                return num * 13 / 2 + 22 + 6;
-            };
-
-            let tempLength = getTagLength(tags[tags.length-1]);
-            for (let i = tags.length-2; i >= 0; i--) {
+            for (let i = tags.length-1; i >= 0; i--) {
                 if (tempLength + getTagLength(tags[i]) < max) {
                     tempLength += getTagLength(tags[i]);
                     indexArr.push(i);
-                    resultArr.push(tags[i]);
+                    resultArr.push(tags[i].name);
                 }
-
             }
-
-            for (let i = 0, len = indexArr.length; i < len; i++) {
-                tags.splice(indexArr[i], 1);
+            while (indexArr.length > 0) {
+                tags.splice(indexArr.shift(), 1);
             }
         }
         console.log(resultArr);

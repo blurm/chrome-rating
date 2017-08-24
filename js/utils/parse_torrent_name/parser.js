@@ -11,7 +11,7 @@ patternMap.set('proper', /PROPER/);
 patternMap.set('container', /(MKV|mkv)|(AVI|avi)|(MP|mp)4/);
 patternMap.set('language', /rus\.eng|ita\.eng/);
 patternMap.set('codec', /xvid|[hx]\.?26[45]/i);
-patternMap.set('audio', /MP3|DD(P)?5\.?1|Dual[- ]Audio|LiNE|DTS|AAC[.-]LC|AAC(?:\.?2\.0)?|AC3(?:\.5\.1)?/);
+patternMap.set('audio', /MP3|DD(P)?\d\.?\d|Dual[- ]Audio|LiNE|DTS|AAC[.-]LC|AAC(?:\.?2\.0)?|AC3(?:\.5\.1)?/);
 patternMap.set('sbs', /(?:Half-)?SBS/);
 patternMap.set('threeD', /3D/);
 patternMap.set('resolution', /[0-9]{3,4}[pP][^M]/);

@@ -37,7 +37,7 @@ class Template {
         if (this.type === 'book') {
             $mainDiv = '.book-douban';
         } else {
-            $mainDiv = '.movie-rating';
+            $mainDiv = '#rating4U_movie';
         }
 
         //如果是loading，则把原先的div删除掉。否则，在loading的div上更新内容
@@ -149,25 +149,16 @@ class Template {
 
         const title = data.title || '';
         const originTitle = data.originTitle || '';
-
         const director = data.director !== '' ? `<li>
                                      <span class="label">导演：</span>
                                      <span>${data.director}</span>
                                  </li>` : '';
-
         const stars = data.stars !== '' ? `<li>
                                      <span class="label">主演：</span>
                                      <span>${data.stars}</span>
                                  </li>` : '';
-        let tags = `<div class="tag_group">`;
-        for (const tag of data.genre) {
-            tags += `<span class="">
-                <a class="tag" href="">${tag}</a></span>`;
-        }
-
-        tags += `</div>`;
+        const tags = this.renderTags(data.genre);
         const summary = data.summary !== '' ? `<p>${data.summary}</p>` : '';
-
         const rate = this.renderRate();
 
         return `<div class="movie-rating-head">
@@ -223,13 +214,13 @@ class Template {
         $imdb.empty();
         $imdb.append(html);
     }
+
     renderTags(tags) {
         let result = `<div class="tag_group">`;
         for (const tag of tags) {
-            tag.title;
             result += `<span class="">
-                <a class="tag" href="https://book.douban.com/tag/${tag.name}">
-                    ${tag.title}
+                <a class="tag" href="https://book.douban.com/tag/${tag}" target="_blank">
+                    ${tag}
                 </a></span>`;
         }
 
@@ -342,7 +333,7 @@ class Template {
                     </div>
                 </div>`;
         }
-        return `<div class="movie-rating">
+        return `<div id="rating4U_movie">
                     <div class="logo">
                         <a href="javascript:;" class="rating_close"></a>
                     </div>
