@@ -5,6 +5,9 @@ module.exports = {
         "commonjs": true,
         "jquery": true
     },
+    "globals": {
+        "chrome": true
+    },
     "extends": "eslint:recommended",
     "parserOptions": {
         "sourceType": "module"
