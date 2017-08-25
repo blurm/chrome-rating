@@ -19,51 +19,6 @@ class Youku {
     }
 
     main() {
-        // shadow dom test -------------------------------
-        const shadowHost = $('<div id="myShadowhost">sdfaf</div>');
-        $('body').append(shadowHost);
-        let baseHolder = shadowHost;
-        console.log($('#myShadowhost'));
-
-        var getShadowRoot;
-        if (baseHolder.attachShadow) {
-            // Chrome 53+
-            getShadowRoot = function(holder) {
-                // attachShadow is only allowed for whitelisted elements.
-                // https://github.com/w3c/webcomponents/issues/110
-                var shadowHost = document.createElement('span');
-                shadowHost.style.setProperty('all', 'inherit', 'important');
-                holder.appendChild(shadowHost);
-                return shadowHost.attachShadow({ mode: 'open' });
-            };
-        } else if (baseHolder.createShadowRoot) {
-            // Chrome 35+
-            if ('all' in baseHolder.style) {
-                // Chrome 37+ supports the "all" CSS keyword.
-                getShadowRoot = function(holder) {
-                    return holder.createShadowRoot();
-                };
-            } else {
-                getShadowRoot = function(holder) {
-                    var shadowRoot = holder.createShadowRoot();
-                    shadowRoot.resetStyleInheritance = true;
-                    return shadowRoot;
-                };
-            }
-        } else if (baseHolder.webkitCreateShadowRoot) {
-            // Chrome 33+
-            getShadowRoot = function(holder) {
-                var shadowRoot = holder.webkitCreateShadowRoot();
-                shadowRoot.resetStyleInheritance = true;
-                return shadowRoot;
-            };
-        }
-
-        // 创建影子根（shadow root）
-        //var shadowRoot = shadowHost.createShadowRoot();
-        //shadowRoot.innerHTML = '<p class="shadowroot_son">夏天夏天悄悄过去留下小秘密！</p>';
-        // shadow dom test -------------------------------
-
         const modules = [new DoubanInfo(), new IMDBInfo()];
         const common = new Common(modules, Youku.createOptions, 'movie');
         common.listHandle(
