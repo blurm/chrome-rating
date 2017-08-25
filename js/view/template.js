@@ -35,55 +35,34 @@ class Template {
 
         let $mainDiv = '';
         if (this.type === 'book') {
-            //$mainDiv = '.book-douban';
-            $mainDiv = $('#myroot');
+            $mainDiv = '.book-douban';
         } else {
-            //$mainDiv = '#rating4U_movie';
-            $mainDiv = $('#myroot');
+            $mainDiv = '#rating4U_movie';
         }
 
         //如果是loading，则把原先的div删除掉。否则，在loading的div上更新内容
         if (type === 'loading') {
             $($mainDiv).remove();
-            //$('body').append(this.renderContainer());
-            //$($mainDiv + ' .m_r_container').append(renderOutput);
+            $('body').append(this.renderContainer());
+            $($mainDiv + ' .m_r_container').append(renderOutput);
+        } else {
+            $($mainDiv + ' .m_r_container').empty();
+            let $appendTo = $($mainDiv + ' .m_r_container').hide().append(renderOutput).fadeIn(DUR_FI_TIP_DETAIL);
 
-
-            // create shadow dom
-            var baseHolder = document.createElement("div");
-            baseHolder.id = 'myroot';
-            const shadow = baseHolder.createShadowRoot();
-            const url = chrome.extension.getURL("css/movie.css");
-            const urlStar = chrome.extension.getURL("css/star.css");
-            const urlLoader = chrome.extension.getURL("css/loaders.css");
-            $(shadow).append(`<style>@import url("${url}");
-                                        @import url("${urlStar}");
-                                        @import url("${urlLoader}");</style>`);
-            $(shadow).append(this.renderContainer());
-
-            console.log(shadow.querySelector('.m_r_container'));
-            //var container = document.getElementById('myroot')
-            const container = $(shadow).find('.m_r_container');
-            $(container).append(renderOutput);
-            $('body').append(baseHolder);
-
-            // 注册窗口的关闭事件
-            const ratingClose = $(shadow).find('.rating_close');
-            ratingClose.click((ev) => {
+            // 右上方关闭按钮的注册事件
+            $($mainDiv).on('click', '.rating_close', (ev) => {
+                console.log('rating close');
                 ev.preventDefault();
-                $('#myroot').fadeOut(DUR_FO_TIP);
+                const $target = $(ev.currentTarget);
+                //$tips.toggleClass('animated fadeOutRightBig');
+                $tips.fadeOut(DUR_FO_TIP);
                 setTimeout(() => {
-                    $('#myroot').remove();
+                    $tips.remove();
                 }, DUR_FO_TIP);
             });
-        } else {
-            const shadow = $('#myroot')[0].shadowRoot;
-            const container = $(shadow).find('.m_r_container');
-            $(container).empty();
-            $(container).append(renderOutput);
         }
 
-        const $tips = $('#myroot');
+        const $tips = $($mainDiv);
 
         const $body = $('body');
         const bodyW = $body.width();
@@ -94,10 +73,8 @@ class Template {
         const listW = $list.width();
         const listH = $list.height();
 
-        const shadow = $('#myroot')[0].shadowRoot;
-        const temp = $(shadow).find('#rating4U_movie');
-        const tipsW = temp.width();
-        const tipsH = temp.height();
+        const tipsW = $tips.width();
+        const tipsH = $tips.height();
 
         if (bodyW - (listW + listL) > tipsW)
             // 优先在右侧展示
@@ -110,11 +87,8 @@ class Template {
         // 其次在左侧展示
         else if (listL > tipsW)
         {
-            const shadow = $('#myroot')[0].shadowRoot;
-            const temp = $(shadow).find('#rating4U_movie');
-            //const temp = shadow.getElementsByClassName()[0];
-            if (!temp.hasClass('left')) {
-                temp.addClass('left');
+            if (!$tips.hasClass('left')) {
+                $tips.addClass('left');
             }
             $tips.css({
                 top: listT,
@@ -210,7 +184,6 @@ class Template {
         let data = this.data;
         // 获得imdb 外层div
         const $imdb = $('.imdb_rating');
-
         let html = `<div class="ratings_wrapper">
                         <div class="imdbRating">
                                 <a href="http://www.imdb.com/title/${data.id}" target="_blank">
@@ -222,14 +195,8 @@ class Template {
                         </div>
                     </div>
             `;
-        //$imdb.empty();
-        //$imdb.hide().append(html).fadeIn(DUR_FI_IMDB_RATING);
-
-        // shadow dom testing
-        var container = document.getElementById('myroot').shadowRoot.querySelector('.imdb_rating')
-        $(container).empty();
-        $(container).append(html);
-
+        $imdb.empty();
+        $imdb.hide().append(html).fadeIn(DUR_FI_IMDB_RATING);
     }
 
     showIMDBError() {

@@ -3,68 +3,59 @@ v2.0 | 20110126
 License: none (public domain)
  */
 
-/*html, body, div, span, applet, object, iframe,*/
-/*h1, h2, h3, h4, h5, h6, p, blockquote, pre,*/
-/*a, abbr, acronym, address, big, cite, code,*/
-/*del, dfn, em, img, ins, kbd, q, s, samp,*/
-/*small, strike, strong, sub, sup, tt, var,*/
-/*b, u, i, center,*/
-/*dl, dt, dd, ol, ul, li,*/
-/*fieldset, form, label, legend,*/
-/*table, caption, tbody, tfoot, thead, tr, th, td,*/
-/*article, aside, canvas, details, embed,*/
-/*figure, figcaption, footer, header, hgroup,*/
-/*menu, nav, output, ruby, section, summary,*/
-/*time, mark, audio, video {*/
-    /*margin: 0;*/
-    /*padding: 0;*/
-    /*border: 0;*/
-    /*font-size: 100%;*/
-    /*font: inherit;*/
-    /*vertical-align: baseline;*/
-    /*font-weight: normal;*/
-/*}*/
-/*[> HTML5 display-role reset for older browsers <]*/
-/*article, aside, details, figcaption, figure,*/
-/*footer, header, hgroup, menu, nav, section {*/
-    /*display: block;*/
-/*}*/
-/*body {*/
-    /*line-height: 1;*/
-/*}*/
-/*ol, ul {*/
-    /*list-style: none;*/
-/*}*/
-/*blockquote, q {*/
-    /*quotes: none;*/
-/*}*/
-/*blockquote:before, blockquote:after,*/
-/*q:before, q:after {*/
-    /*content: '';*/
-    /*content: none;*/
-/*}*/
-/*table {*/
-    /*border-collapse: collapse;*/
-    /*border-spacing: 0;*/
-/*}*/
-/*a:link {*/
-    /*font-weight: normal;*/
-/*}*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-weight: normal;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a:link {
+    font-weight: normal;
+}
+
 #rating4U_movie .ll {
     float: left;
 }
 /* -------------------------- 主题布局 ------------------------------- ×/
 /*-------------- 主体div ----------------*/
-#myroot {
-    position: absolute;
-    top: 0;
-    /*决定元素在z轴的摆放顺序，99999表示浮动窗在最上面*/
-    z-index: 99999;
-    width:fit-content;
-    color:#888;
-    min-width: 265px;
-}
-
 #rating4U_movie {
     font: 12px Helvetica,Arial,sans-serif;
     position: absolute;
@@ -109,6 +100,8 @@ License: none (public domain)
 
 /*评分部分的样式*/
 #rating4U_movie .rating_section {
+    /*width: 160px;*/
+    /*position:relative;*/
     color:#9b9b9b;
     background-color: #0e0e0e;
     padding: 12px 0 0 0;
