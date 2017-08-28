@@ -45,6 +45,8 @@
                 "*://list.youku.com/category/show/c_96*",
                 "*://list.youku.com/category/show/c_100*",
 
+                "*://www.amazon.cn/*",
+
                 "*://item.jd.com/*",
                 "*://re.jd.com/cps/item/*",
                 "*://e.jd.com/*",
@@ -93,6 +95,17 @@
             ],
             "js": [
                 "js/controller/jd.js"
+            ]
+        },
+        {
+            "matches": [
+                "*://www.amazon.cn/*"
+            ],
+            "css": [
+                "css/book.css"
+            ],
+            "js": [
+                "js/controller/amazon.js"
             ]
         },
         {

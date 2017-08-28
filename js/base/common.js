@@ -1,15 +1,23 @@
 class Common {
-    constructor(modules, createOptions, type) {
+    constructor(modules, createOptions, type, options) {
         this.modules = modules;
         this.createOptions = createOptions;
         this.type = type;
+        // for amazon
+        this.options = options;
     }
 
-    showTips($target, $link) {
+    showTips($target, $link, options) {
         var that = this;
 
         const module = that.modules[0];
-        module.options = that.createOptions($target, $link);
+        // amazon图书会传options进来
+        if (options) {
+            module.options = options;
+        } else {
+            module.options = that.createOptions($target, $link);
+        }
+
         const type = this.type;
         new Template(null, type).showTips($target, 'loading');
 
@@ -48,6 +56,12 @@ class Common {
         function mainResolve(result) {
             const data = baseResolve(result, that.modules[0], false);
 
+            // for amazon book
+            if (typeof rating4U_stop !== 'undefined' && rating4U_stop && rating4U_stop_title.indexOf(data.title) >= 0) {
+                console.log('mainResolve stop:', rating4U_stop);
+                return;
+            }
+
             // 如果是海外发行的电影，就去IMDB取评分
             if (that.modules[1] && data.enName !== '') {
                 const imdbModule = that.modules[1];
@@ -62,12 +76,31 @@ class Common {
                     .then(imdbResolve)
                     .catch(imdbReject);
             }
+
+            // for amazon book
+            if (typeof rating4U_stop !== 'undefined') {
+                console.log('resloved, rating4U_stop false', data.title);
+                rating4U_stop = false;
+            }
         }
 
         function mainReject(reason) {
+            // for amazon book
+            if (typeof rating4U_stop !== 'undefined' && rating4U_stop) {
+                console.log('mainReject stop:', rating4U_stop);
+                rating4U_stop = false;
+                return;
+            }
+
             console.log('失败：', reason);
             const data =module.popError(reason);
             new Template(data, type).showTips($target, 'error');
+
+            // for amazon book
+            if (typeof rating4U_stop !== 'undefined') {
+                console.log('rejected, rating4U_stop false');
+                rating4U_stop = false;
+            }
         }
 
         new Promise(
@@ -103,92 +136,48 @@ class Common {
                 //$target.data('allow', true);
                 //$target.data('movein', false);
                 setTimeout(() => {
-                    //if ($target.data('allow')) {
-                        //$target.data('allow', false);
-                        //$target.data('loading', true);
-                if ($target.is(':hover')) {
-                    this.showTips($target, $link);
-
-                        //for (let i = 0; i < that.modules.length; i++) {
-                            //// 显示的主要内容源
-                            //if (i === 0) {
-                                //const module = that.modules[i];
-                                //module.options = that.createOptions($target, $link);
-                                //const type = module.type;
-                                //new Template(null, type).showTips($target, 'loading');
-
-                                //new Promise((success, error) =>
-                                    //module.getRatingInfo(success, error))
-                                        //.then(function (result) {
-                                            //const data = module.popData(result);
-                                            ////$target.data('allow', true);
-                                            ////$target.data('loading', false);
-                                            ////if (!$target.data('movein')) {
-                                                //if (data.errMsg && data.errMsg !== '') {
-                                                    //new Template(data, type)
-                                                        //.showTips($target, 'error');
-                                                //} else {
-                                                    //new Template(data, type)
-                                                        //.showTips($target, type);
-                                                //}
-                                            ////}
-                                        //}).catch(function (reason) {
-                                            //console.log('失败：', reason);
-                                            //const data =module
-                                                //.popError(reason.responseJSON);
-                                            ////$target.data('allow', true);
-                                            ////$target.data('loading', false);
-                                            //if (!$target.data('movein')) {
-                                                //new Template(data, type).showTips($target, 'error');
-                                            //}
-                                        //});
-
-                            //} else {
-                                //// 显示的其他评分源
-
-                            //}
-
-                        //}
-                    //}
-                }
-                }, 500);
+                    if ($target.is(':hover')) {
+                        this.showTips($target, $link);
+                    }
+                }, 1000);
             }
         });
 
-        $('body').on('mouseleave', tag, (ev) => {
-            const $target = $(ev.currentTarget);
-            const a = $target.find('a');
-            const $link = a.eq(0).length !== 0 ? a.eq(0) : $target;
-            const href = $.trim($link.attr('href'));
+        $('body').on('mouseleave', tag, {tag: tag, reg: reg, type: that.type}, Common.mouseLeave);
+    }
 
-            if (reg.test(href)) {
-                let $tip = '';
-                if (that.type === 'book') {
-                    $tip = $('.book-douban');
-                } else {
-                    $tip = $('#rating4U_movie');
-                }
+    static mouseLeave(ev) {
+        const reg = ev.data.reg;
+        const tag = ev.data.tag;
+        const $target = $(ev.currentTarget);
+        const a = $target.find('a').eq(0);
+        const $link = a.eq(0).length !== 0 ? a.eq(0) : $target;
+        const href = $.trim($link.attr('href'));
 
-                $tip.on('mouseleave', () => {
-                    $tip.fadeOut(DUR_FO_TIP);
+        if (reg.test(href)) {
+            let $tip = '';
+            if (ev.data.type === 'book') {
+                $tip = $('.book-douban');
+            } else {
+                $tip = $('#rating4U_movie');
+            }
+
+            $tip.on('mouseleave', () => {
+                $tip.fadeOut(DUR_FO_TIP);
+                setTimeout(() => {
+                    $tip.remove();
+                }, DUR_FO_TIP);
+            });
+
+            setTimeout(function () {
+                if (!$tip.is(':hover')) {
+                    $tip.fadeOut(100);
                     setTimeout(() => {
                         $tip.remove();
                     }, DUR_FO_TIP);
-                });
-
-                setTimeout(function () {
-                    if (!$tip.is(':hover')) {
-                        $tip.fadeOut(100);
-                        setTimeout(() => {
-                            $tip.remove();
-                        }, DUR_FO_TIP);
-                    }
-                }, DUR_FO_TIP);
-
-                //$target.data('allow', false);
-                //$target.data('movein', true);
-            }
-        });
+                }
+            }, DUR_FO_TIP);
+        }
     }
 }
 

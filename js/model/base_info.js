@@ -22,6 +22,13 @@ class BaseInfo {
         }).responseJSON;
     }
 
+    getSyncHTML(url) {
+        return $.ajax({
+            url: url,
+            async: false
+        }).responseText;
+    }
+
     getParams() {}
 
     /**

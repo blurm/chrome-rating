@@ -1,3 +1,4 @@
+const RATING4U_MAX_WIDTH = 243;
 const ERR_MSG_MAP = new Map();
 ERR_MSG_MAP.set(1000, '出错啦！请把书名和链接反馈给作者，会尽快修正！');
 ERR_MSG_MAP.set(1001, '没有找到您要的内容');
@@ -70,6 +71,11 @@ class DoubanInfo extends BaseInfo {
         this.get(success, fail);
     }
 
+    cutLongTagName(name) {
+        const maxLength = RATING4U_MAX_WIDTH / 13 - 1;
+        return name.substring(0, maxLength - 1) + '..';
+    }
+
     sortTags(tags) {
          //将tag按长度从小到大排序，方便显示
         //tags.sort((a,b) => {
@@ -90,14 +96,18 @@ class DoubanInfo extends BaseInfo {
             return num * 13 / 2 + 22 + 6;
         };
 
-        const max = 243;
         const resultArr = [];
         while (tags.length > 0) {
             // 从数组最后端依次往前累加，得到最接近最大长度的组合
             let tempLength = 0;
             const indexArr = [];
             for (let i = tags.length-1; i >= 0; i--) {
-                if (tempLength + getTagLength(tags[i]) < max) {
+                if (getTagLength(tags[i]) >= RATING4U_MAX_WIDTH) {
+                    indexArr.push(i);
+                    resultArr.push(this.cutLongTagName(tags[i].name));
+                    break;
+                }
+                if (tempLength + getTagLength(tags[i]) < RATING4U_MAX_WIDTH) {
                     tempLength += getTagLength(tags[i]);
                     indexArr.push(i);
                     resultArr.push(tags[i].name);
@@ -107,7 +117,6 @@ class DoubanInfo extends BaseInfo {
                 tags.splice(indexArr.shift(), 1);
             }
         }
-        console.log(resultArr);
         return resultArr;
     }
     /**
@@ -149,7 +158,12 @@ class DoubanInfo extends BaseInfo {
         const data = {};
         data.type = this.type;
 
-        data.errMsg = ERR_MSG_MAP.get(1000);
+        const errJSON = json.responseJSON;
+        if (errJSON) {
+            data.errMsg = ERR_MSG_MAP.get(errJSON.code);
+        } else {
+            data.errMsg = ERR_MSG_MAP.get(1000);
+        }
 
         return data;
     }
@@ -284,7 +298,7 @@ class DoubanInfo extends BaseInfo {
                 }
             }
         }
-        console.log(data);
+        console.log('tip data', data);
         return data;
     }
 }
