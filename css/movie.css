@@ -135,7 +135,7 @@ a:link {
 }
 /* ----------------- IMDB Rating ---------------------*/
 #rating4U_movie .imdb_rating .loader-inner {
-    margin: 15px 0 0 25px;
+    margin: 15px 0 0 32px;
 }
 
 #rating4U_movie .ball-clip-rotate > div {
@@ -150,12 +150,6 @@ a:link {
     /*border-width:0 0 0 1px;*/
 }
 
-#rating4U_movie .ratings_wrapper {
-    margin-top:6px;
-    margin-left:20px;
-    /*width: 100px;*/
-}
-
 #rating4U_movie .imdbRating {
     background: url('chrome-extension://__MSG_@@extension_id__/css/images/if_favorites_18321.png') no-repeat 0 0;
     background-image:url('chrome-extension://__MSG_@@extension_id__/css/images/if_favorites_18321.png');
@@ -167,7 +161,7 @@ a:link {
     /*width: 158px;*/
     float:left;
     padding: 2px 0 0 39px;
-    /*margin-right: 0px;*/
+    margin: 6px 0 0 20px;
 }
 
 /*.imdb_rating .imdb_rating_star {*/
@@ -284,7 +278,7 @@ div.tag_group {
     word-break: break-all;
     font-weight: 400;
     font-size: 23px;
-    color: #111;
+    color: #fff;
     height: auto;
     margin-left: 0;
     /*background-color: #fff;*/
@@ -420,7 +414,7 @@ div.tag_group {
 }
 
 #rating4U_movie .main_loader .loader-inner {
-    padding:20px 0 30px 30px;
+    padding:20px 0 30px 25px;
     margin-bottom:40px;
 }
 
@@ -467,4 +461,62 @@ div.tag_group {
     color: #666;
     text-align:center;
     padding: 0 0;
+}
+#rating4U_movie .rating_logo {
+    height: 20px;
+    background-color: #0e0e0e;
+}
+.rating_logo_douban {
+    border: 1px #2f8e44 solid;
+    color: #2f8e44;
+    height: 12px;
+    padding: 0;
+    font-size: 0;
+    cursor: default;
+    vertical-align: middle;
+    background-color: #0e0e0e;
+    position: relative;
+    display: inline-block;
+    margin:0 0 0 40px;
+    /*padding: 1px 4px 1px;*/
+    line-height: 13px;
+    border-radius: 2px;
+}
+.rating_logo_douban_sm {
+    font-size: 9px;
+    line-height: 13px;
+    background: #2f8e44;
+    color: #0e0e0e;
+    padding: 2px 0px 1px 2px;
+    vertical-align: top;
+}
+.icon_text {
+    display: inline-block;
+    font-size: 9px;
+    padding: 0 2px;
+    vertical-align: top;
+}
+.rating_logo_imdb {
+    border: 1px #e6b91f solid;
+    color: #e6b91f;
+    height: 12px;
+    padding: 0 7px;
+    font-size: 0;
+    cursor: default;
+    vertical-align: middle;
+    background-color: #e6b91f;
+    position: relative;
+    display: inline-block;
+    margin: 0 6px 0 45px;
+    /*padding: 1px 4px 1px;*/
+    line-height: 18px;
+    border-radius: 2px;
+}
+.rating_logo_imdb_sm {
+    font-size: 9px;
+    font-weight: bold;
+    line-height: 13px;
+    background: #e6b91f;
+    color: #0e0e0e;
+    vertical-align: top;
 }

@@ -73,35 +73,40 @@ class Amazon {
     main() {
         const reg = /.*/i;
         const tag = '.s-access-detail-page, \
+                    .a-text-center, \
+                    .a-col-left, \
                     .ch-tabwidget-asintitle, \
+                    .ch-tabwidget-pc-contentAsinImgBody, \
+                    .acs_product-image, \
                     .acs_product-title';
         $('body').on('mouseenter', tag, (ev) => {
-            // 当前触发事件的对象主题
-            console.log('target on start, last:', $target === null ? $target :$target.text());
-            if ($target) {
-                rating4U_stop = true;
-                rating4U_stop_title = $target.text();
-                console.log('rating4U_stop was set to true, stop ->:', rating4U_stop_title);
-            }
-            $target = $(ev.currentTarget);
+            setTimeout(() => {
+                // 当前触发事件的对象主题
+                console.log('target on start, last:', $target === null ? $target :$target.text());
+                if ($target) {
+                    rating4U_stop = true;
+                    rating4U_stop_title = $target.text();
+                    console.log('rating4U_stop was set to true, stop ->:', rating4U_stop_title);
+                }
+                $target = $(ev.currentTarget);
 
-            console.log('current target: ', $target.text());
+                console.log('current target: ', $target.text());
 
-            const $targetA = $target.find('a').eq(0);
-            const $link = $targetA.length !== 0 ? $targetA : $target;
-            let href = $.trim($link.attr('href'));
+                const $targetA = $target.find('a').eq(0);
+                const $link = $targetA.length !== 0 ? $targetA : $target;
+                let href = $.trim($link.attr('href'));
 
-            if (reg.test(href)) {
-                setTimeout(() => {
-                    if ($target.is(':hover')) {
-                        new Promise(
-                            (success, error) => {
-                                $.get(href, success);
-                           })
-                            .then(this.listHandle);
-                    }
-                }, 0);
-            }
+                if (reg.test(href)) {
+                        if ($target.is(':hover')) {
+                            console.log('hover:', $target.text());
+                            new Promise(
+                                (success, error) => {
+                                    $.get(href, success);
+                               })
+                                .then(this.listHandle);
+                        }
+                }
+            }, 1000);
         });
 
         $('body').on('mouseleave', tag, {tag: tag, reg: reg, type: 'book'}, Common.mouseLeave);

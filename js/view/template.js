@@ -163,7 +163,7 @@ class Template {
 
         return `<div class="movie-rating-head">
                         <h3>
-                            <a href="https://${data.type}.douban.com/subject/${data.id}" target="_blank"><span>${title}</span></a>
+                            <span>${title}</span>
                             <span class="year">(${data.year})</span>
                         </h3>
                         <div class="originTitle">${originTitle}</div>
@@ -183,18 +183,17 @@ class Template {
     showIMDBRating() {
         let data = this.data;
         // 获得imdb 外层div
-        const $imdb = $('.imdb_rating');
-        let html = `<div class="ratings_wrapper">
-                        <div class="imdbRating">
-                                <a href="http://www.imdb.com/title/${data.id}" target="_blank">
+        const $imdb = $('.imdb_rating .ratings_wrapper');
+        let html = `<div class="imdbRating">
+                        <a href="http://www.imdb.com/title/${data.id}" target="_blank">
                             <div class="ratingValue">
                                 <strong><span>${data.rating}</span></strong><span class="grey">/</span><span class="grey">10</span>
                             </div>
-                                </a>
-                            <span class="small">${data.ratingNum}</span>
-                        </div>
-                    </div>
-            `;
+                        </a>
+                        <span class="small">
+                            <a href="http://www.imdb.com/title/${data.id}/reviews" target="_blank">${data.ratingNum}</a>
+                        </span>
+                    </div>`;
         $imdb.empty();
         $imdb.hide().append(html).fadeIn(DUR_FI_IMDB_RATING);
     }
@@ -202,7 +201,7 @@ class Template {
     showIMDBError() {
         let data = this.data;
         // 获得imdb 外层div
-        const $imdb = $('.imdb_rating');
+        const $imdb = $('.imdb_rating .ratings_wrapper');
         let html = `<div class="error_info">
                     <div class="error_wrapper">
                         <img src="chrome-extension://${EXTENSION_ID}/css/images/oops.png">
@@ -219,7 +218,7 @@ class Template {
         let result = `<div class="tag_group">`;
         for (const tag of tags) {
             result += `<span class="">
-                <a class="tag" href="https://book.douban.com/tag/${tag}" target="_blank">
+                <a class="tag" href="https://${this.data.type}.douban.com/tag/${tag}" target="_blank">
                     ${tag}
                 </a></span>`;
         }
@@ -231,58 +230,69 @@ class Template {
     renderRate() {
         const data = this.data;
         let result = '';
+        let doubaRatingLogo = '';
+        let imdbRating = '';
+        if (this.type === 'movie') {
+            doubaRatingLogo = `<div class="rating_logo">
+                                    <span class="rating_logo_douban">
+                                        <i class="rating_logo_douban_sm">
+                                            豆瓣
+                                    </i>
+                                        <span class="icon_text">电影</span>
+                                    </span>
+                                </div>`;
+            const imdbRatingLogo = `<div class="rating_logo">
+                                        <span class="rating_logo_imdb">
+                                            <i class="rating_logo_imdb_sm">
+                                                IMDb
+                                            </i>
+                                        </span>
+                                    </div>`;
+            imdbRating = `<div class="imdb_rating">
+                                ${imdbRatingLogo}
+                                <div class="ratings_wrapper">
+                                    <div class="loader-inner ball-pulse">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                        </div>`;
+        }
         if (data.ratingNum <= 10) {
             // 评价人数不足
             result += `<div class="rating_section">
                             <div class="douban_rating">
+                                ${doubaRatingLogo}
                                 <strong class="rating_num"></strong>
                                 <span content="10.0"></span>
                                 <div class="rating_star not_showed">
                                     <div class="ll douban_star00"></div>
                                     <div class="rating_sum">
-                                        <a href="https://${data.type}.douban.com/subject/${data.id}/collections" target="_blank">评价人数不足</a>
+                                        <a href="https://${data.type}.douban.com/subject/${data.id}/reviews" target="_blank">评价人数不足</a>
                                     </div>
                                 </div>
-                            </div>`;
+                            </div>
+                            ${imdbRating}
+                        </div>`;
         } else {
             // 正常显示评分
             result += `<div class="rating_section">
                             <div class="douban_rating">
-                                <strong class="rating_num">${data.rating}</strong>
+                                ${doubaRatingLogo}
+                                <a href="https://${data.type}.douban.com/subject/${data.id}" target="_blank">
+                                    <strong class="rating_num">${data.rating}</strong>
+                                </a>
                                 <div class="rating_star">
                                     <div class="ll douban_star${data.star}"></div>
                                     <div class="rating_sum">
-                                        <a href="https://${data.type}.douban.com/subject/${data.id}/collections" class="rating_people" target="_blank"><span>${data.ratingNum}</span>人评价</a>
+                                        <a href="https://${data.type}.douban.com/subject/${data.id}/reviews" class="rating_people" target="_blank"><span>${data.ratingNum}</span>人评价</a>
                                     </div>
                                 </div>
-                            </div>`;
-
-        }
-
-        // IMD评分子div
-        if (this.type === 'movie') {
-                result += `<div class="imdb_rating">
-                           <div class="loader-inner ball-pulse">
-                                <div></div>
-                                <div></div>
-                                <div></div>
                             </div>
-                       </div>`;
-            //} else {
-                //result += `<div class="imdb_rating">
-                            //<div class="ratings_wrapper">
-                                //<div class="imdbRating">
-                                    //<div class="ratingValue">
-                                        //<strong><span>7</span></strong><span class="grey">/</span><span class="grey">10</span>
-                                    //</div>
-                                    //<span class="small">3,683</span>
-                                //</div>
-                            //</div>
-                        //</div>`;
-            //}
+                            ${imdbRating}
+                        </div>`;
         }
-
-        result += `</div>`;
         return result;
     }
 

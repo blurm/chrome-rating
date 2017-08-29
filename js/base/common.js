@@ -143,7 +143,7 @@ class Common {
             }
         });
 
-        $('body').on('mouseleave', tag, {tag: tag, reg: reg, type: that.type}, Common.mouseLeave);
+        //$('body').on('mouseleave', tag, {tag: tag, reg: reg, type: that.type}, Common.mouseLeave);
     }
 
     static mouseLeave(ev) {
