@@ -1,21 +1,20 @@
 {
     "manifest_version": 2,
 
-    "name": "Movies and Books Rating",
-    "description": "This extension shows IMDb and douban rating infos",
+    "name": "Movies and Books Rating Info",
+    "description": "This extension shows IMDb and douban rating info for JD, amazon.cn, qq, iqiyi, youku, ttmeiju and rarbg",
     "version": "1.0",
 
     "icons": {
-        "16": "icon3.png",
-        "48": "icon3.png",
-        "128": "icon3.png"
+        "16": "icon_128.png",
+        "48": "icon_128.png",
+        "128": "icon_128.png"
     },
     "web_accessible_resources": [
         "css/*"
     ],
     "browser_action": {
-        "default_icon": "icon3.png",
-        "default_popup": "popup.html",
+        "default_icon": "icon_128.png",
         "default_title": "Rating info for Books & Movies"
     },
     "permissions": [
