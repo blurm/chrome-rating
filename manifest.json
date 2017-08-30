@@ -1,9 +1,9 @@
 {
     "manifest_version": 2,
 
-    "name": "Movies and Books Rating Info",
-    "description": "This extension shows IMDb and douban rating info for JD, amazon.cn, qq, iqiyi, youku, ttmeiju and rarbg",
-    "version": "1.0",
+    "name": "Rating4U 豆瓣、IMDB评分助手",
+    "description": "鼠标移动到电影或者图书上，即时显示豆瓣、IMDB评分已经相关信息。目前支持的网站有：京东、亚马逊中国、腾讯视频、爱奇艺、优酷、天天美剧以及rarbg，持续更新中。",
+    "version": "1.1",
 
     "icons": {
         "16": "icon_128.png",
@@ -17,10 +17,6 @@
         "default_icon": "icon_128.png",
         "default_title": "Rating info for Books & Movies"
     },
-    "permissions": [
-        "activeTab",
-        "*://*/*"
-    ],
     "content_scripts": [
         {
             "matches": [
