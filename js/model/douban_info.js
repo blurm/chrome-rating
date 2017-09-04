@@ -37,6 +37,8 @@ ERR_MSG_MAP.set(127, 'thirdparty_login_auth_faied 第三方授权错误');
 ERR_MSG_MAP.set(128, 'user_locked 用户被锁定');
 ERR_MSG_MAP.set(999, 'unknown 未知错误');
 
+ERR_MSG_MAP.set(5000, '没有找到该影片信息');
+
 class DoubanInfo extends BaseInfo {
 
     set options(options) {
@@ -244,7 +246,7 @@ class DoubanInfo extends BaseInfo {
                     'https://api.douban.com/v2/movie/subject/' + id);
                 console.log('json movie:', movie);
 
-                if (movie) {
+                if (movie && !movie.code) {
                     data.id = movie.id;
                     data.title = movie.title;
                     data.originTitle = movie.original_title;
@@ -293,7 +295,9 @@ class DoubanInfo extends BaseInfo {
                     data.stars = DoubanInfo.rmComma(data.stars);
                 } else {
                     // 如果没有结果返回
-                    if (!data.id) {
+                    if (movie.code) {
+                        data.errMsg = ERR_MSG_MAP.get(movie.code);
+                    } else if (!data.id) {
                         data.errMsg = ERR_MSG_MAP.get(1001);
                     }
                 }
