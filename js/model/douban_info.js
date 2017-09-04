@@ -239,6 +239,7 @@ class DoubanInfo extends BaseInfo {
                         }
                     }
                 }
+
                 const movie = this.getSync(
                     'https://api.douban.com/v2/movie/subject/' + id);
                 console.log('json movie:', movie);
