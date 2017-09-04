@@ -46,7 +46,6 @@ class IMDBInfo extends BaseInfo {
         } else {
             console.log('imdb json result:', json);
             const data = {};
-            console.log(`json result:`, json);
 
             if (json && json.length > 0) {
                 const movie = json[0];
